@@ -1,152 +1,349 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>光子自旋数为什么等于1</title>
-      <link href="/posts/521b1904.html"/>
-      <url>/posts/521b1904.html</url>
-      
-        <content type="html"><![CDATA[<blockquote><p>QFT课的作业</p></blockquote><span id="more"></span><center><img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="https://gitee.com/spaceofzsj/pictures/raw/master/OIP-C.jpg"> <br> <a href="https://movie.douban.com/subject/1296987/" target="opentype">安妮·霍尔</a> (<a href="https://www.imdb.com/title/tt0075686/" target="opentype">Annie Hall</a>)</center><iframe allow="autoplay *; encrypted-media *; fullscreen *" frameborder="0" height="150" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/cn/album/signe-acoustic-live/718156726?i=718156764"></iframe><h2><span id="半经典方法">半经典方法</span></h2><p>真空中有界电磁场的角动量为： <span class="math display">\[\begin{align}    \vec{L}=\int \vec{x} \times\left(\epsilon_{0} \vec{E} \times \vec{B}\right) \mathrm{d} V\notag\end{align}\]</span> 该式对全空间积分。其中： <span class="math display">\[\begin{align}    (\vec{E} \times \vec{B})_{i} &amp;=\vec{E} \times(\nabla \times \vec{A})\notag \\    &amp;=\epsilon_{i j k} E_{j} \epsilon_{k l m} \partial_{l} A_{m}\notag \\    &amp;=\left(\delta_{i l} \delta_{j m}-\delta_{i m} \delta_{j l}\right) E_{j} \partial_{l} A_{m} \notag\\    &amp;=E_{j} \partial_{i} A_{j}-E_{j} \partial_{j} A_{i}\notag\end{align}\]</span> 进一步有： <span class="math display">\[\begin{align}    (\vec{x} \times(\vec{E} \times \vec{B}))_{k} &amp;=\epsilon_{k l i} x_{l}\left(E_{j} \partial_{i} A_{j}-E_{j} \partial_{j} A_{i}\right)\notag \\    &amp;=\epsilon_{k l} x_{l} E_{j} \partial_{i} A_{j}-\epsilon_{k l i} E_{j} \partial_{j}\left(A_{i} x_{l}\right)+\epsilon_{k l i} E_{j} A_{i} \partial_{j} x_{l}\notag \\    &amp;=\epsilon_{k l i} x_{l} E_{j} \partial_{i} A_{j}-\epsilon_{k l i} \partial_{j}\left(E_{j} A_{i} x_{l}\right)+\epsilon_{k l} A_{i} x_{l} \partial_{j} E_{j}+\epsilon_{k j i} E_{j} A_{i}\notag \\    &amp;=\epsilon_{k l i} x_{l} E_{j} \partial_{i} A_{j}-\epsilon_{k l i} \partial_{j}\left(E_{j} A_{i} x_{l}\right)+(\vec{E} \times \vec{A})_{k}\notag\end{align}\]</span> 也就是： <span class="math display">\[\begin{align}    \vec{x} \times(\vec{E} \times \vec{B})=\Sigma_{j} E_{j}(\vec{x} \times \nabla) A_{j}-\nabla \cdot[\vec{E}(\vec{x} \times \vec{A})]+\vec{E} \times \vec{A}\notag\end{align}\]</span> 所以电磁场角动量为： <span class="math display">\[\begin{align}    \vec{L} &amp;=\int \vec{x} \times\left(\epsilon_{0} \vec{E} \times \vec{B}\right) \mathrm{d} V \notag\\    &amp;=\epsilon_{0} \int\left(\Sigma_{j} E_{j}(\vec{x} \times \nabla) A_{j}-\nabla \cdot[\vec{E}(\vec{x} \times \vec{A})]+\vec{E} \times \vec{A}\right) \mathrm{d} V \notag\\    &amp;=\epsilon_{0} \int\left(\Sigma_{j} E_{j}(\vec{x} \times \nabla) A_{j}+\vec{E} \times \vec{A}\right) \mathrm{d} V\notag\end{align}\]</span> 第一项可以看为轨道角动量，因为具有类似<span class="math inline">\(\hat{\boldsymbol{x}}\times\hat{\boldsymbol{p}}\)</span>的形式。第二项可看为自旋角动量： <span class="math display">\[\begin{align}    \vec{S}=\epsilon_{0} \int \vec{E} \times \vec{A} \mathrm{d} V\notag\end{align}\]</span></p><p>对于单色平面波，有<span class="math inline">\(\widetilde{\vec{E}}=-\frac{\partial \widetilde{\vec{A}}}{\partial t}=i \omega \widetilde{\vec{A}}\)</span>，即<span class="math inline">\(\widetilde{\vec{A}}=\frac{\widetilde{\vec{E}}}{i \omega}\)</span>。</p><p>考虑左旋圆偏振光，有<span class="math inline">\(\widetilde{\vec{E}}=E_{0} e^{i \vec{k} \cdot \vec{r}-i \omega t}\left(\hat{e}_{1}+i \hat{e}_{2}\right)\)</span>，代入自旋角动量表达式并取平均有： <span class="math display">\[\begin{align}    \vec{S}_{a v g} &amp;=\epsilon_{0} \int \vec{E} \times \vec{A} \mathrm{d} V \notag \\    &amp;=\epsilon_{0} \int \operatorname{Re}(\widetilde{\vec{E}}) \times \operatorname{Re}(\widetilde{\vec{A}}) \mathrm{d} V \notag\\    &amp;=\epsilon_{0} \int\left(E_{0} \cos (\vec{k} \cdot \vec{r}-\omega t),-E_{0} \sin (\vec{k} \cdot \vec{r}-\omega t), 0\right) \times\notag\\    &amp;\quad\quad\quad \left(\frac{E_{0}}{\omega} \sin (\vec{k} \cdot \vec{r}-\omega t), \frac{E_{0}}{\omega} \cos (\vec{k} \cdot \vec{r}-\omega t), 0\right) \mathrm{d} V\notag \\    &amp;=\epsilon_{0} \int \frac{E_{0}^{2}}{\omega} \mathrm{d} V \hat{e}_{3}\notag\end{align}\]</span></p><p>又<span class="math inline">\(E=n \hbar \omega=\int \epsilon_{0} E_{0}^{2} \mathrm{d} V\)</span>，<span class="math inline">\(n\)</span>为光子个数。代入自旋表达式： <span class="math display">\[\begin{equation}    \vec{S}_{a v g}=n \hbar \hat{e}_{3}\notag\end{equation}\]</span> 故单个光子自旋为<span class="math inline">\(\hbar\)</span>，即自旋量子数为1。同样可得右旋圆偏振光的自旋量子数为-1。如果要严格证明光子自旋只有<span class="math inline">\(\pm1\)</span>两个本征态需要运用量子场论。</p><h2><span id="数学方法">数学方法</span></h2><p>洛伦兹群由所有满足<span class="math inline">\(\Lambda^{T}\eta\Lambda=\eta\)</span>的矩阵构成，记为<span class="math inline">\(O(1,3)\)</span>，群乘法为矩阵乘积，其中</p><p><span class="math display">\[\begin{align}    \eta=\left( \begin{matrix}        1&amp;      0&amp;      0&amp;      0\\        0&amp;      -1&amp;     0&amp;      0\\        0&amp;      0&amp;      -1&amp;     0\\        0&amp;      0&amp;      0&amp;      -1\\    \end{matrix} \right) \notag\end{align}\]</span> 先由定义讨论洛伦兹群的群结构。</p><p>洛伦兹群可分为如下四类： <span class="math display">\[\begin{align}    &amp;L^{\uparrow }_{+}: \mathrm{det}\Lambda=+1;\Lambda^{0}_{0}\geq 1\notag\\    &amp;L^{\uparrow }_{+}: \mathrm{det}\Lambda=-1;\Lambda^{0}_{0}\geq 1\notag\\    &amp;L^{\downarrow }_{+}: \mathrm{det}\Lambda=+1;\Lambda^{0}_{0}\leq -1\notag\\    &amp;L^{\downarrow }_{+}: \mathrm{det}\Lambda=-1;\Lambda^{0}_{0}\leq -1\notag\end{align}\]</span> 当我们考虑连续的洛伦兹变换时，实际上是将洛伦兹群限定于其子群<span class="math inline">\(L^{\uparrow }_{+}\)</span>（记为<span class="math inline">\(SO(1,3)\)</span>），因为其包含恒等元。其他三类为离散变换，可由<span class="math inline">\(L^{\uparrow }_{+}\)</span>中的元素乘上<span class="math inline">\(\Lambda_{P}\)</span>和<span class="math inline">\(\Lambda_{T}\)</span>得到，其中 <span class="math display">\[\begin{align}    &amp;\Lambda_{P}=\left( \begin{matrix}        1&amp;      0&amp;      0&amp;      0\\        0&amp;      -1&amp;     0&amp;      0\\        0&amp;      0&amp;      -1&amp;     0\\        0&amp;      0&amp;      0&amp;      -1\\    \end{matrix} \right) \\    &amp;\Lambda_{T}=\left( \begin{matrix}        -1&amp;     0&amp;      0&amp;      0\\        0&amp;      1&amp;      0&amp;      0\\        0&amp;      0&amp;      1&amp;      0\\        0&amp;      0&amp;      0&amp;      1\\    \end{matrix} \right) \notag\end{align}\]</span> 所以有： <span class="math display">\[\begin{align}    O(1,3)=\left\{ L^{\uparrow }_{+},\Lambda_{P} L^{\uparrow }_{+},\Lambda_{T} L^{\uparrow }_{+},\Lambda_{P} \Lambda_{T} L^{\uparrow }_{+} \right\}\notag\end{align}\]</span>。 因为有限大的变换可由无限小的变换叠加而成，故先考虑无限小连续洛伦兹变换： <span class="math display">\[\begin{align}    \Lambda^{\mu}_{\ \ \rho}\approx \delta^{\mu}_{\ \ \rho}+\omega^{\mu}_{\ \ \rho}\notag\end{align}\]</span> 其中，<span class="math inline">\(\omega^{\mu}_{\ \ \rho}\)</span>为小量，将其代入到定义式<span class="math inline">\(\Lambda^{T}\eta\Lambda=\eta\)</span>中，略去二阶小量并化简，可得到： <span class="math display">\[\begin{align}    \omega^{\mu}_{\ \ \rho}=-\omega^{\rho}_{\ \ \mu}\notag\end{align}\]</span> 这说明<span class="math inline">\(\omega^{\mu}_{\ \ \rho}\)</span>只有六个独立分量，说明<span class="math inline">\(L^{\uparrow }_{+}\)</span>只有六个独立生成元。</p><p>在连续洛伦兹变换中，我们知道有如下六个独立的变换，同时也为以<span class="math inline">\(\theta\)</span>为参数的单参子群：</p><p><span class="math display">\[\begin{align}    &amp;\left( \begin{matrix}        1&amp;      0&amp;      0&amp;      0\\        0&amp;      \cos \theta &amp;       \sin \theta&amp;        0\\        0&amp;      -\sin \theta&amp;       \cos \theta&amp;        0\\        0&amp;      0&amp;      0&amp;      1\\    \end{matrix} \right) ,    \left( \begin{matrix}        1&amp;      0&amp;      0&amp;      0\\        0&amp;      \cos \theta &amp;       0&amp;      \sin \theta\\        0&amp;      0&amp;      1&amp;      0\\        0&amp;      -\sin \theta&amp;       0&amp;      \cos \theta\\    \end{matrix} \right) ,    \left( \begin{matrix}        1&amp;      0&amp;      0&amp;      0\\        0&amp;      1&amp;      0&amp;      0\\        0&amp;      0&amp;      \cos \theta&amp;        \sin \theta\\        0&amp;      0&amp;      -\sin \theta&amp;       \cos \theta\\    \end{matrix} \right) ,\notag \\    &amp;\left( \begin{matrix}        \cosh \theta&amp;       -\sinh \theta&amp;      0&amp;      0\\        -\sinh \theta&amp;      \cosh \theta &amp;      0&amp;      0\\        0&amp;      0&amp;      1&amp;      0\\        0&amp;      0&amp;      0&amp;      1\\    \end{matrix} \right) ,    \left( \begin{matrix}        \cosh \theta&amp;       0&amp;      -\sinh \theta&amp;      0\\        0&amp;      1&amp;      0&amp;      0\\        -\sinh \theta&amp;      0&amp;      \cosh \theta&amp;       0\\        0&amp;      0&amp;      0&amp;      1\\    \end{matrix} \right) ,    \left( \begin{matrix}        \cosh \theta&amp;       0&amp;      0&amp;      -\sinh \theta\\        0&amp;      1&amp;      0&amp;      0\\        0&amp;      0&amp;      1&amp;      0\\        -\sinh \theta&amp;      0&amp;      0&amp;      \cosh \theta\\    \end{matrix} \right) \notag\end{align}\]</span> 通常将第一行的三个变换分别称为沿<span class="math inline">\(x,y,z\)</span>三个方向的转动（rotation），第二行的三个变换分别称为沿<span class="math inline">\(x,y,z\)</span>三个方向的伪转动（boost），令<span class="math inline">\(\theta=0\)</span>则恢复到恒等变换。任意的连续洛伦兹变换都可由这六个变换组合得到。</p><p>对上面六个矩阵在<span class="math inline">\(\theta =0\)</span>处求导便可得到<span class="math inline">\(L^{\uparrow }_{+}\)</span>六个独立生成元,例如： <span class="math display">\[\begin{align}    J_{1}=\left.\frac{1}{i}\frac{\mathrm{d}}{\mathrm{d}\theta}\left( \begin{matrix}        1&amp;      0&amp;      0&amp;      0\\        0&amp;      \cos \theta &amp;       \sin \theta&amp;        0\\        0&amp;      -\sin \theta&amp;       \cos \theta&amp;        0\\        0&amp;      0&amp;      0&amp;      1\\    \end{matrix} \right)\right|_{\theta=0}=\left( \begin{matrix}        0&amp;      0&amp;      0&amp;      0\\        0&amp;      0&amp;      -i&amp;     0\\        0&amp;      i&amp;      0&amp;      0\\        0&amp;      0&amp;      0&amp;      0\\    \end{matrix} \right)\notag\end{align}\]</span> 全部写出得到： <span class="math display">\[\begin{align}    &amp;J_{1}=\left( \begin{matrix}        0&amp;      0&amp;      0&amp;      0\\        0&amp;      0&amp;      -i&amp;     0\\        0&amp;      i&amp;      0&amp;      0\\        0&amp;      0&amp;      0&amp;      0\\    \end{matrix} \right) ,    J_{2}=\left( \begin{matrix}        0&amp;      0&amp;      0&amp;      0\\        0&amp;      0&amp;      0&amp;      -i\\        0&amp;      0&amp;      0&amp;      0\\        0&amp;      i&amp;      0&amp;      0\\    \end{matrix} \right) ,    J_{3}=\left( \begin{matrix}        0&amp;      0&amp;      0&amp;      0\\        0&amp;      0&amp;      0&amp;      0\\        0&amp;      0&amp;      0&amp;      -i\\        0&amp;      0&amp;      i&amp;      0\\    \end{matrix} \right),\notag\\    &amp;K_{1}=\left( \begin{matrix}        0&amp;      i&amp;      0&amp;      0\\        i&amp;      0&amp;      0&amp;      0\\        0&amp;      0&amp;      0&amp;      0\\        0&amp;      0&amp;      0&amp;      0\\    \end{matrix} \right),    K_{2}=\left( \begin{matrix}        0&amp;      0&amp;      i&amp;      0\\        0&amp;      0&amp;      0&amp;      0\\        i&amp;      0&amp;      0&amp;      0\\        0&amp;      0&amp;      0&amp;      0\\    \end{matrix} \right),    K_{3}=\left( \begin{matrix}        0&amp;      0&amp;      0&amp;      i\\        0&amp;      0&amp;      0&amp;      0\\        0&amp;      0&amp;      0&amp;      0\\        i&amp;      0&amp;      0&amp;      0\\    \end{matrix} \right),\notag\end{align}\]</span> 这里除以<span class="math inline">\(i\)</span>是物理中的习惯。于是任意一个连续洛伦兹变换可紧凑地写为： <span class="math display">\[\begin{align}    \Lambda=\mathrm{e}^{i \vec{J}\cdot\vec{\theta}+i\vec{K}\cdot\vec{\Phi}}\notag\end{align}\]</span> 经验证，洛伦兹群生成元满足如下对易关系： <span class="math display">\[\begin{align}    &amp;\left[J_{i},J_{i}\right]=i\epsilon_{ijk}J_{k}\notag\\    &amp;\left[J_{i},K_{j}\right]=i\epsilon_{ijk}K_{k}\notag\\    &amp;\left[K_{i},K_{j}\right]=-i\epsilon_{ijk}J_{k}\notag\end{align}\]</span> 构造一组新的生成元： <span class="math display">\[\begin{align}    N^{\pm }_{i}=\frac{1}{2}\left(J_{i}\pm iJ_{i}\right)\notag\end{align}\]</span> 其对易关系为： <span class="math display">\[\begin{align}    &amp;\left[N^{+}_{i},N^{+}_{j}\right]=i\epsilon_{ijk}N^{+}_{k}\notag\\    &amp;\left[N^{-}_{i},N^{-}_{j}\right]=i\epsilon_{ijk}N^{-}_{k}\notag\\    &amp;\left[N^{+}_{i},N^{-}_{j}\right]=0\notag\end{align}\]</span> <span class="math inline">\(N^{+}_{i,j,k}\)</span>和<span class="math inline">\(N^{-}_{i,j,k}\)</span>都满足<span class="math inline">\(SU(2)\)</span>群李代数的对易关系，所以<span class="math inline">\(\mathfrak{so}(1,3)_{\mathbb{C}}\cong \mathfrak{su}(2)_{\mathbb{C}}\oplus \mathfrak{su}(2)_{\mathbb{C}}\)</span>,下标<span class="math inline">\(\mathbb{C}\)</span>表示复化（complexification）。因为<span class="math inline">\(\mathfrak{su}(2)_{\mathbb{C}}\)</span>的不可约表示是已知的，所以也就知道了<span class="math inline">\(\mathfrak{so}(1,3)_{\mathbb{C}}\)</span>及<span class="math inline">\(SO(1,3)\)</span>的不可约表示。 <span class="math inline">\(SU(2)\)</span>群的群表示可以用半整数<span class="math inline">\(j=0,\frac{1}{2},1,\frac{3}{2}\dots\)</span>来标记（<span class="math inline">\(j\)</span>为卡西米尔算符的标量值），因此洛伦兹群可以用<span class="math inline">\((j_{1},j_{2})\)</span>来标记。 在洛伦兹变换中按照<span class="math inline">\((0,0)\)</span>表示变换的量定义为标量，按照<span class="math inline">\((\frac{1}{2},0)\)</span>或<span class="math inline">\((0,\frac{1}{2})\)</span>表示变换的量定义为Wyel旋量，按照<span class="math inline">\((\frac{1}{2},\frac{1}{2})\)</span>表示变换的量定义为4-矢量。 在量子场论中，粒子定义为场的激发态。对于场而言，在洛伦兹变换时的变换为洛伦兹群的一种表示，这种表示所对应的<span class="math inline">\(j_{1}+j_{2}\)</span>被定义为自旋量子数。 光子场在洛伦兹变换下按<span class="math inline">\((\frac{1}{2},\frac{1}{2})\)</span>表示变换，故光子自旋量子数为1。</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> physics </tag>
-            
-            <tag> quantum field theory </tag>
-            
-            <tag> group theory </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Topological Space</title>
-      <link href="/posts/1d583a28.html"/>
-      <url>/posts/1d583a28.html</url>
-      
-        <content type="html"><![CDATA[<!-- toc --><ul><li><a href="#basics-of-sets">Basics of Sets</a></li></ul><!-- tocstop --><span id="more"></span><h1><span id="basics-of-sets">Basics of Sets</span></h1><blockquote><p><em>This part is relatively simple, so I will only list the definitions and properties instead of elaborating it.</em></p></blockquote><p>In mathematics, a <a href="https://www.wikiwand.com/en/Set_(mathematics)"><em>set</em></a> is a collection of elements. Every item in a <em>set</em> is called an <em>element</em> or <em>point</em>. If <span class="math inline">\(x\)</span> is an element of <span class="math inline">\(X\)</span>, then <span class="math inline">\(x\)</span> belongs to <span class="math inline">\(X\)</span>, and we denote it as <span class="math inline">\(x\in X\)</span>. <span class="math inline">\(\notin\)</span> means "not belong to". A set doesn't contain any element is called an <em>empty set</em>, which is denoted by <span class="math inline">\(\emptyset\)</span>. &gt;<strong>Definition 1:</strong> If every element in a set <span class="math inline">\(A\)</span> belongs to the set <span class="math inline">\(X\)</span>, then <span class="math inline">\(A\)</span> is a subset of <span class="math inline">\(X\)</span>, which is denoted by <span class="math inline">\(A\subset X\)</span> or <span class="math inline">\(X\supset A\)</span>. <span class="math inline">\(\emptyset\)</span> is a subset of any set. <span class="math inline">\(A\)</span> is called a <em>proper subset</em> of <span class="math inline">\(X\)</span> if <span class="math inline">\(A\subset X\)</span> and <span class="math inline">\(A\neq X\)</span>. <span class="math inline">\(A=B\)</span> if <span class="math inline">\(X\subset Y\)</span> and <span class="math inline">\(Y\subset X\)</span>.</p><p>To be continued... P.S. I'm currently working on the chapter 3 and will come back to here later. This part is too boring...XD</p>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>Riemann Curvature Tensor</title>
+    <url>/posts/48c07248.html</url>
+    <content><![CDATA[<!-- toc -->
+<ul>
+<li><a href="#derivative-operator">Derivative Operator</a></li>
+</ul>
+<!-- tocstop -->
+<span id="more"></span>
+<center>
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="https://gitee.com/spaceofzsj/pictures/raw/master/16DETACHMENT_SPAN-articleLarge.jpg"> <br> <a href="https://movie.douban.com/subject/5322596/" target="opentype">超脱</a> (<a href="https://www.imdb.com/title/tt1683526" target="opentype">Detachment</a>)
+
+</center>
+<h2><span id><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=22489526&auto=0&height=66"></iframe></span></h2>
+<h1><span id="derivative-operator">Derivative Operator</span></h1>
+<blockquote>
+<p><strong>Definition 1.1</strong> Let <span class="math inline">\(\mathscr{F}_{M}(k,l)\)</span> be the set of all <span class="math inline">\(\mathrm{C}^{\infty}\)</span> tensor field of <span class="math inline">\((k,l)\)</span> type. The map <span class="math inline">\(\nabla\)</span> : <span class="math inline">\(\mathscr{F}_{M}(k,l)\rightarrow\mathscr{F}_{M}(k,l+1)\)</span> is called the <em>derivative operator</em> on the manifold <span class="math inline">\(M\)</span> if it satisfies the following conditions:</p>
+<ol type="1">
+<li>Linearity: For all <span class="math inline">\(A\)</span>, <span class="math inline">\(B\in\mathscr{F}_{M}(k,l)\)</span> and <span class="math inline">\(\alpha,\beta\in R\)</span>, <span class="math display">\[\begin{equation}\nabla_{c}\left(\alpha A^{a_{1}\cdots a_{k}}_{\quad\quad \ b_{1}\cdots b_{l}}+\beta B^{a_{1}\cdots a_{k}}_{\quad\quad \ b_{1}\cdots b_{l}}\right)=\alpha\nabla_{c}A^{a_{1}\cdots a_{k}}_{\quad\quad \ b_{1}\cdots b_{l}}+\beta B^{a_{1}\cdots a_{k}}_{\quad\quad \ b_{1}\cdots b_{l}}\notag\end{equation}\]</span></li>
+<li>Leibnitz rule: For all <span class="math inline">\(A\in\mathscr{F}(k,l)\)</span>,<span class="math inline">\(B\in\mathscr{F}(k&#39;,l&#39;)\)</span>, <span class="math display">\[\begin{align}&amp;\nabla_{e}\left[A^{a_{1}\cdots a_{k}}_{\quad\quad\ b_{1}\cdots b_{k}} B^{c_{1}\cdots c_{k}}_{\quad\quad\ d_{1}\cdots d_{k}}\right]\notag\\&amp;=\nabla_{e}\left[A^{a_{1}\cdots a_{k}}_{\quad\quad\ b_{1}\cdots b_{k}}\right] B^{c_{1}\cdots c_{k}}_{\quad\quad\ d_{1}\cdots d_{k}}+\nabla_{e}A^{a_{1}\cdots a_{k}}_{\quad\quad\ b_{1}\cdots b_{k}} \left[B^{c_{1}\cdots c_{k}}_{\quad\quad\ d_{1}\cdots d_{k}}\right]\notag\end{align}\]</span></li>
+<li>Commutativity with contraction: For all <span class="math inline">\(A\in\mathscr{F}(k,l), B\in\mathscr{F}(k&#39;,l&#39;),\)</span> <span class="math display">\[\begin{equation}\nabla_{d}\left(A^{a_{1}\cdots c\cdots a_{k}}_{\quad\quad\quad\ \  b_{1}\cdots c\cdots b_{l}}\right)=\nabla_{d}A^{a_{1}\cdots c\cdots a_{k}}_{\quad\quad\quad\ \  b_{1}\cdots c\cdots b_{l}}\notag\end{equation}\]</span></li>
+<li>Consistency with the notion of tangent vectors as directional derivatives on scalar fields: For all <span class="math inline">\(f\in\mathscr{F}\)</span> and all <span class="math inline">\(t^{a}\in V_{p}\)</span>: <span class="math display">\[\begin{equation}t(f)=t^{a}\nabla_{a}f\notag\end{equation}\]</span></li>
+<li>Torsion free: For all <span class="math inline">\(f\in\mathscr{F}\)</span>, <span class="math display">\[\begin{equation}\nabla_{a}\nabla_{b}f=\nabla_{b}\nabla_{a}f\notag\end{equation}\]</span></li>
+</ol>
+</blockquote>
+<p>When we write something like: <span class="math display">\[\begin{equation}\nabla_{a}\left(v^{b}\omega_{b}\right)=v^{b}\nabla_{a}\omega_{b}+\omega_{b}\nabla_{a}v^{b},\notag\end{equation}\]</span> we have actually used the third condition: <span class="math display">\[\begin{equation}
+    \nabla_{a}\left(v^{b}\omega_{c}\right)=\nabla_{a}\left[\mathrm{C}\left(v^{b}\omega_{c}\right)\right]
+                                      =\mathrm{C}^{1}_{2}\left(v^{b}\nabla_{a}\omega_{c}\right)+\mathrm{C}^{1}_{2}\left[\left(\nabla_{a}v^{b}\right)\omega_{c}\right]
+                                      =v^{b}\nabla_{a}\omega_{b}+\omega_{b}\nabla_{a}b^{b},\notag
+                                      \end{equation}\]</span></p>
+<p>where <span class="math inline">\(\mathrm{C}\)</span> represents contraction.</p>
+<p>From the forth condition, we can see that: <span class="math display">\[\begin{equation}\nabla_{a}f=(\mathrm{d}f)_{a} \tag{1.1}\label{1.1}\end{equation}\]</span></p>
+<p>In fact, the operator satisfies this five conditions above must exist on any manifold. Now we consider the effects of two different derivative operators <span class="math inline">\(\nabla_{a}\)</span> and <span class="math inline">\(\widetilde{\nabla}_{a}\)</span> on several kinds of tensors.</p>
+<p>From Eq.<span class="math inline">\(\eqref{1.1}\)</span>, we know for all <span class="math inline">\(f\in \mathscr{F}_{M}\)</span> <span class="math display">\[\begin{equation}\nabla_{a} f=\widetilde{\nabla}_{a} f=\left( \mathrm{d}f \right)_{a}.\tag{1.2}\label{1.2}\end{equation}\]</span></p>
+<blockquote>
+<p><strong>Theorem 1.1</strong><span class="math inline">\(\quad\)</span> If <span class="math inline">\(p \in M\)</span>, <span class="math inline">\(\omega_{b}, \omega_{b}&#39;\in \mathscr{F}(0,1)\)</span> satisfy <span class="math inline">\(\omega_{b}&#39;|_{p}=\omega_b|_{p}\)</span>, then <span class="math display">\[\begin{equation}\left[\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\omega_{b}&#39;\right]_{p}=\left[\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\omega_{b}\right]_{p}\notag\end{equation}\]</span> <strong>Proof</strong><span class="math inline">\(\quad\)</span> We only need to prove that <span class="math display">\[\begin{equation}\left[\nabla_{a}\left(\omega_{b}&#39;-\omega_{b}\right)\right]_{p}=\left[\widetilde{\nabla}_{a}\left(\omega_{b}&#39;-\omega_{b}\right)\right]_{p}.\tag{1.3}\label{1.3}\end{equation}\]</span> Assume that <span class="math inline">\(\Omega=\omega_{b}&#39;-\omega_{b}\)</span>. We can choose a coordinate system <span class="math inline">\(\left\{ x_{\mu} \right\}\)</span> whose coordinate patch contains <span class="math inline">\(p\)</span>，so <span class="math inline">\(\Omega_{\mu}(p)=0\)</span> because <span class="math inline">\(\omega_{b}&#39;|_{p}=\omega_{b}|_{p}\)</span>, where <span class="math inline">\(\Omega_{\mu}\)</span>'s are the coordinates of <span class="math inline">\(\Omega_{b}\)</span>. For <span class="math inline">\(p\)</span>, <span class="math display">\[\begin{align}
+\left[\nabla_{a}\left(\omega_{b}&#39;-\omega_{b}\right)\right]_{p}&amp;=\left[\nabla_{a}\Omega_{b}\right]_{p}=\left\{\nabla_{a}\left[\Omega_{\mu}\left(\mathrm{d}x^{\mu}\right)_{b}\right]\right\}|_{p}\notag\\
+&amp;=\Omega_{\mu}(p)\left[\nabla_{a}\left(\mathrm{d}x^{\mu}\right)_{b}\right]_{p}+\left[\left(\mathrm{d}x^{\mu}\right)_{b}\nabla_{a}\Omega_{\mu}\right]|_{p}=\left[\left(\mathrm{d}x^{\mu}\right)_{b}\nabla_{a}\Omega_{\mu}\right]_{p}.\notag
+\end{align}\]</span> In the same way, we have <span class="math inline">\(\left[\widetilde{\nabla_{a}}\left(\omega_{b}&#39;-\omega_{b}\right)\right]_{p}=\left[\left(\mathrm{d}x^{\mu}\right)_{b}\widetilde{\nabla}_{a}\Omega_{\mu}\right]_{p}\)</span>. From Eq.<span class="math inline">\(\eqref{1.1}\)</span>, we know that <span class="math inline">\(\left[\nabla_{a}\Omega_{\mu}\right]_{p}=\left[\widetilde{\nabla}_{a}\Omega_{\mu}\right]_{p}=\left[(\mathrm{d}\Omega_{\mu})_{a}\right]_{p}\)</span>. So Eq.<span class="math inline">\(\eqref{1.3}\)</span> is true.</p>
+<p><em>Q.E.D.</em></p>
+</blockquote>
+<p><em>Theorem 1.1</em> shows that <span class="math inline">\(\left[\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\omega_{b}\right]_{p}\)</span> depends only on <span class="math inline">\(\omega_{b}|_{p}\)</span>. And the value of <span class="math inline">\(\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\)</span> corresponds to a tenser of type <span class="math inline">\((1,2)\)</span> <span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}\)</span>, which satisfies <span class="math display">\[\left[\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\omega_{b}\right]_{p}=\mathrm{C}^{c}_{\ \ ab}\omega_{c}|_{p}.\]</span> Since <span class="math inline">\(p\)</span> is an arbitary point, so the effect of two derivative operators on <span class="math inline">\(\omega_{b}\)</span> only differs by a tensor field of type <span class="math inline">\((1,2)\)</span> on <span class="math inline">\(M\)</span>. To be specific,</p>
+<blockquote>
+<p><strong>Theorem 1.2</strong> <span class="math inline">\(\quad\)</span>For all <span class="math inline">\(\omega_{b}\in\mathscr{F}(0,1)\)</span>: <span class="math display">\[\begin{align}\nabla_{a}\omega_{b}=\widetilde{\nabla}_{a}\omega_{b}-\mathrm{C}^{a}_{\ \ ab}\omega_{c}\tag{1.4}\label{1.4}\end{align}\]</span></p>
+</blockquote>
+<blockquote>
+<p><strong>Theorem 1.3</strong><span class="math inline">\(\quad\)</span> <span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}=\mathrm{C}^{c}_{\ \ ba}\)</span></p>
+<p><strong>Proof</strong><span class="math inline">\(\quad\)</span> Let <span class="math inline">\(\omega_{b}=\nabla_{b}f=\widetilde{\nabla}_{b}f\)</span>, where <span class="math inline">\(f\in\mathscr{F}_{M}\)</span>. From Eq.<span class="math inline">\(\eqref{1.4}\)</span>, we have <span class="math inline">\(\nabla_{a}\nabla_{b}f=\widetilde{\nabla_{a}}\widetilde{\nabla_{b}}f-\mathrm{C}^{c}_{\ \ ab}\nabla_{c}f\)</span>. Exchange the indicies <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> and we have <span class="math inline">\(\nabla_{b}\nabla_{a}f=\widetilde{\nabla_{b}}\widetilde{\nabla_{a}}f-\mathrm{C}^{c}_{\ \ ba}\nabla_{c}f\)</span>. Notice the last condition in the <em>definition 1.1</em>(torsion free), there is <span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}\nabla_{c}f=\mathrm{C}^{c}_{\ \ ba}\nabla_{c}f\)</span>. Let <span class="math inline">\(T^{c}_{\ \ ab}=\mathrm{C}^{c}_{\ \ ab}-\mathrm{C}^{c}_{\ \ ba}\)</span>, then <span class="math inline">\(T^{c}_{\ \ ab}\nabla_{c}f=0\)</span> for all <span class="math inline">\(f\in \mathscr{F}_{M}\)</span>. Then the coordinate components <span class="math inline">\(T^{\sigma}_{\ \ \mu\nu}=T^{c}_{\ \ ab}\left(\mathrm{d}x^{\sigma}\right)_{c}\left(\frac{\partial}{\partial x^{\mu}}\right)^{a}\left(\frac{\partial}{\partial x^{\nu}}\right)^{b}=0\)</span>(the second equality is because <span class="math inline">\(T^{c}_{\ \ ab}\left(\mathrm{d}x^{\sigma}\right)_{c}=T^{c}_{\ \ ab}\nabla_{c}x^{\sigma}=0\)</span> ), so <span class="math inline">\(T^{c}_{\ \ ab}=0\)</span>.</p>
+<p><em>Q.E.D</em></p>
+</blockquote>
+<blockquote>
+<p><strong>Theorem 1.4</strong><span class="math inline">\(\quad\)</span> For all <span class="math inline">\(v^{b}\in\mathscr{F(1,0)}\)</span>, <span class="math display">\[\begin{align}
+\nabla_{a}v^{b}=\widetilde{\nabla}_{a}v^{b}+\mathrm{C}^{b}_{\ \ ac}v^{c}\notag
+\end{align}\]</span></p>
+<p><strong>Proof</strong> Let <span class="math inline">\(\omega_{b}\)</span> be an arbitary dual vector field on manifold <span class="math inline">\(M\)</span>, then <span class="math display">\[
+\begin{align}
+\nabla_{a}\left(\omega_{b} v^{b}\right)&amp;=\omega_{b}\nabla_{a}v^{b}+v^{b}\nabla_{a}\omega_{b}\notag\\
+&amp;=\omega_{b}\nabla_{a}v^{b}+v^{b}\left(\widetilde{\nabla}_{a}\omega_{b}-\mathrm{C}^{c}_{\ \ ab}\omega_{c}\right).\tag{1.5}\label{1.5}
+\end{align}\]</span> On the other hand, <span class="math inline">\(\widetilde{\nabla}_{a}\left(\omega_{b}v^{b}\right)=\omega_{b}\widetilde{\nabla}_{a}v^{b}+v^{b}\widetilde{\nabla}_{a}\omega_{b}\)</span>. From Eq.<span class="math inline">\(\eqref{1.2}\)</span>, <span class="math inline">\(\nabla_{a}\left(\omega_{b}v^{b}\right)=\widetilde{\nabla_{b}}\left(\omega_{b}v^{b}\right)\)</span> because <span class="math inline">\(\omega_{b}v^{b}\)</span> is a scaler field. Substitute this relation into Eq.<span class="math inline">\(\eqref{1.5}\)</span>, we have <span class="math display">\[\begin{align}
+\omega_{b}\nabla_{a}v^{b}=\omega_{b}\widetilde{\nabla}_{a}v^{b}+\mathrm{C}^{c}_{\ \ ab}v^{b}\omega_{c}=\omega_{b}\widetilde{\nabla}_{a}v^{b}+\mathrm{C}^{b}_{\ \ ac}v^{c}\omega_{b}\notag
+\end{align}
+\]</span> for all <span class="math inline">\(\omega_{b}\in\mathscr{F}_{M}(0,1)\)</span>. So <span class="math inline">\(\nabla_{a}v^{b}=\widetilde{\nabla}_{a}v^{b}+\mathrm{C}^{b}_{\ \ ac}v^{c}\)</span>.</p>
+<p><em>Q.E.D</em></p>
+</blockquote>
+<blockquote>
+<p>To be continued...</p>
+</blockquote>
+]]></content>
       <categories>
-          
-          <category> General Relativity </category>
-          
+        <category>General Relativity</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> physics </tag>
-            
-            <tag> math </tag>
-            
-            <tag> differential geometry </tag>
-            
-            <tag> general relativity </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>A Brief Summary of Basic Differential Geometry for General Relativity</title>
-      <link href="/posts/dff9be4c.html"/>
-      <url>/posts/dff9be4c.html</url>
-      
-        <content type="html"><![CDATA[<p><img src="https://gitee.com/spaceofzsj/pictures/raw/master/WSF16_Complex-Equations_still.jpg" title="Einstein Equation" alt="Einstein Equation"> <span id="more"></span></p><h2><span id><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=300333&auto=0&height=66"></iframe></span></h2><p>While learning general relativity, I feel necessary to write down what I have already mastered and some thoughts of my own for future reference. So I will start from the basic differential geometry for general relativity. The following topics are what the note will cover.</p><blockquote><ol type="1"><li><strong>Topological Space</strong></li><li><strong>Manifold and Vector Field</strong></li><li><strong>Riemann Curvature Tensor</strong></li><li><strong>Lie Derivative, Killing Field and Hypersurface</strong></li><li><strong>Differential Form and Integration on Manifolds</strong></li></ol></blockquote><p>The notes will be regularly updated.</p>]]></content>
-      
-      
+      <tags>
+        <tag>physics</tag>
+        <tag>math</tag>
+        <tag>differential geometry</tag>
+        <tag>general relativity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>光子自旋数为什么等于1</title>
+    <url>/posts/521b1904.html</url>
+    <content><![CDATA[<blockquote>
+<p>QFT课的作业</p>
+</blockquote>
+<span id="more"></span>
+<center>
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="https://gitee.com/spaceofzsj/pictures/raw/master/OIP-C.jpg"> <br> <a href="https://movie.douban.com/subject/1296987/" target="opentype">安妮·霍尔</a> (<a href="https://www.imdb.com/title/tt0075686/" target="opentype">Annie Hall</a>)
+
+</center>
+<iframe allow="autoplay *; encrypted-media *; fullscreen *" frameborder="0" height="150" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/cn/album/signe-acoustic-live/718156726?i=718156764">
+</iframe>
+<h2><span id="半经典方法">半经典方法</span></h2>
+<p>真空中有界电磁场的角动量为： <span class="math display">\[\begin{align}
+    \vec{L}=\int \vec{x} \times\left(\epsilon_{0} \vec{E} \times \vec{B}\right) \mathrm{d} V\notag
+\end{align}\]</span> 该式对全空间积分。其中： <span class="math display">\[\begin{align}
+    (\vec{E} \times \vec{B})_{i} &amp;=\vec{E} \times(\nabla \times \vec{A})\notag \\
+    &amp;=\epsilon_{i j k} E_{j} \epsilon_{k l m} \partial_{l} A_{m}\notag \\
+    &amp;=\left(\delta_{i l} \delta_{j m}-\delta_{i m} \delta_{j l}\right) E_{j} \partial_{l} A_{m} \notag\\
+    &amp;=E_{j} \partial_{i} A_{j}-E_{j} \partial_{j} A_{i}\notag
+\end{align}\]</span> 进一步有： <span class="math display">\[\begin{align}
+    (\vec{x} \times(\vec{E} \times \vec{B}))_{k} &amp;=\epsilon_{k l i} x_{l}\left(E_{j} \partial_{i} A_{j}-E_{j} \partial_{j} A_{i}\right)\notag \\
+    &amp;=\epsilon_{k l} x_{l} E_{j} \partial_{i} A_{j}-\epsilon_{k l i} E_{j} \partial_{j}\left(A_{i} x_{l}\right)+\epsilon_{k l i} E_{j} A_{i} \partial_{j} x_{l}\notag \\
+    &amp;=\epsilon_{k l i} x_{l} E_{j} \partial_{i} A_{j}-\epsilon_{k l i} \partial_{j}\left(E_{j} A_{i} x_{l}\right)+\epsilon_{k l} A_{i} x_{l} \partial_{j} E_{j}+\epsilon_{k j i} E_{j} A_{i}\notag \\
+    &amp;=\epsilon_{k l i} x_{l} E_{j} \partial_{i} A_{j}-\epsilon_{k l i} \partial_{j}\left(E_{j} A_{i} x_{l}\right)+(\vec{E} \times \vec{A})_{k}\notag
+\end{align}\]</span> 也就是： <span class="math display">\[\begin{align}
+    \vec{x} \times(\vec{E} \times \vec{B})=\Sigma_{j} E_{j}(\vec{x} \times \nabla) A_{j}-\nabla \cdot[\vec{E}(\vec{x} \times \vec{A})]+\vec{E} \times \vec{A}\notag
+\end{align}\]</span> 所以电磁场角动量为： <span class="math display">\[\begin{align}
+    \vec{L} &amp;=\int \vec{x} \times\left(\epsilon_{0} \vec{E} \times \vec{B}\right) \mathrm{d} V \notag\\
+    &amp;=\epsilon_{0} \int\left(\Sigma_{j} E_{j}(\vec{x} \times \nabla) A_{j}-\nabla \cdot[\vec{E}(\vec{x} \times \vec{A})]+\vec{E} \times \vec{A}\right) \mathrm{d} V \notag\\
+    &amp;=\epsilon_{0} \int\left(\Sigma_{j} E_{j}(\vec{x} \times \nabla) A_{j}+\vec{E} \times \vec{A}\right) \mathrm{d} V\notag
+\end{align}\]</span> 第一项可以看为轨道角动量，因为具有类似<span class="math inline">\(\hat{\boldsymbol{x}}\times\hat{\boldsymbol{p}}\)</span>的形式。第二项可看为自旋角动量： <span class="math display">\[\begin{align}
+    \vec{S}=\epsilon_{0} \int \vec{E} \times \vec{A} \mathrm{d} V\notag
+\end{align}\]</span></p>
+<p>对于单色平面波，有<span class="math inline">\(\widetilde{\vec{E}}=-\frac{\partial \widetilde{\vec{A}}}{\partial t}=i \omega \widetilde{\vec{A}}\)</span>，即<span class="math inline">\(\widetilde{\vec{A}}=\frac{\widetilde{\vec{E}}}{i \omega}\)</span>。</p>
+<p>考虑左旋圆偏振光，有<span class="math inline">\(\widetilde{\vec{E}}=E_{0} e^{i \vec{k} \cdot \vec{r}-i \omega t}\left(\hat{e}_{1}+i \hat{e}_{2}\right)\)</span>，代入自旋角动量表达式并取平均有： <span class="math display">\[\begin{align}
+    \vec{S}_{a v g} &amp;=\epsilon_{0} \int \vec{E} \times \vec{A} \mathrm{d} V \notag \\
+    &amp;=\epsilon_{0} \int \operatorname{Re}(\widetilde{\vec{E}}) \times \operatorname{Re}(\widetilde{\vec{A}}) \mathrm{d} V \notag\\
+    &amp;=\epsilon_{0} \int\left(E_{0} \cos (\vec{k} \cdot \vec{r}-\omega t),-E_{0} \sin (\vec{k} \cdot \vec{r}-\omega t), 0\right) \times\notag\\
+    &amp;\quad\quad\quad \left(\frac{E_{0}}{\omega} \sin (\vec{k} \cdot \vec{r}-\omega t), \frac{E_{0}}{\omega} \cos (\vec{k} \cdot \vec{r}-\omega t), 0\right) \mathrm{d} V\notag \\
+    &amp;=\epsilon_{0} \int \frac{E_{0}^{2}}{\omega} \mathrm{d} V \hat{e}_{3}\notag
+\end{align}\]</span></p>
+<p>又<span class="math inline">\(E=n \hbar \omega=\int \epsilon_{0} E_{0}^{2} \mathrm{d} V\)</span>，<span class="math inline">\(n\)</span>为光子个数。代入自旋表达式： <span class="math display">\[\begin{equation}
+    \vec{S}_{a v g}=n \hbar \hat{e}_{3}\notag
+\end{equation}\]</span> 故单个光子自旋为<span class="math inline">\(\hbar\)</span>，即自旋量子数为1。同样可得右旋圆偏振光的自旋量子数为-1。如果要严格证明光子自旋只有<span class="math inline">\(\pm1\)</span>两个本征态需要运用量子场论。</p>
+<h2><span id="数学方法">数学方法</span></h2>
+<p>洛伦兹群由所有满足<span class="math inline">\(\Lambda^{T}\eta\Lambda=\eta\)</span>的矩阵构成，记为<span class="math inline">\(O(1,3)\)</span>，群乘法为矩阵乘积，其中</p>
+<p><span class="math display">\[\begin{align}
+    \eta=\left( \begin{matrix}
+        1&amp;      0&amp;      0&amp;      0\\
+        0&amp;      -1&amp;     0&amp;      0\\
+        0&amp;      0&amp;      -1&amp;     0\\
+        0&amp;      0&amp;      0&amp;      -1\\
+    \end{matrix} \right) \notag
+\end{align}\]</span> 先由定义讨论洛伦兹群的群结构。</p>
+<p>洛伦兹群可分为如下四类： <span class="math display">\[\begin{align}
+    &amp;L^{\uparrow }_{+}: \mathrm{det}\Lambda=+1;\Lambda^{0}_{0}\geq 1\notag\\
+    &amp;L^{\uparrow }_{+}: \mathrm{det}\Lambda=-1;\Lambda^{0}_{0}\geq 1\notag\\
+    &amp;L^{\downarrow }_{+}: \mathrm{det}\Lambda=+1;\Lambda^{0}_{0}\leq -1\notag\\
+    &amp;L^{\downarrow }_{+}: \mathrm{det}\Lambda=-1;\Lambda^{0}_{0}\leq -1\notag
+\end{align}\]</span> 当我们考虑连续的洛伦兹变换时，实际上是将洛伦兹群限定于其子群<span class="math inline">\(L^{\uparrow }_{+}\)</span>（记为<span class="math inline">\(SO(1,3)\)</span>），因为其包含恒等元。其他三类为离散变换，可由<span class="math inline">\(L^{\uparrow }_{+}\)</span>中的元素乘上<span class="math inline">\(\Lambda_{P}\)</span>和<span class="math inline">\(\Lambda_{T}\)</span>得到，其中 <span class="math display">\[\begin{align}
+    &amp;\Lambda_{P}=\left( \begin{matrix}
+        1&amp;      0&amp;      0&amp;      0\\
+        0&amp;      -1&amp;     0&amp;      0\\
+        0&amp;      0&amp;      -1&amp;     0\\
+        0&amp;      0&amp;      0&amp;      -1\\
+    \end{matrix} \right) \\
+    &amp;\Lambda_{T}=\left( \begin{matrix}
+        -1&amp;     0&amp;      0&amp;      0\\
+        0&amp;      1&amp;      0&amp;      0\\
+        0&amp;      0&amp;      1&amp;      0\\
+        0&amp;      0&amp;      0&amp;      1\\
+    \end{matrix} \right) \notag
+\end{align}\]</span> 所以有： <span class="math display">\[\begin{align}
+    O(1,3)=\left\{ L^{\uparrow }_{+},\Lambda_{P} L^{\uparrow }_{+},\Lambda_{T} L^{\uparrow }_{+},\Lambda_{P} \Lambda_{T} L^{\uparrow }_{+} \right\}\notag
+\end{align}\]</span>。 因为有限大的变换可由无限小的变换叠加而成，故先考虑无限小连续洛伦兹变换： <span class="math display">\[\begin{align}
+    \Lambda^{\mu}_{\ \ \rho}\approx \delta^{\mu}_{\ \ \rho}+\omega^{\mu}_{\ \ \rho}\notag
+\end{align}\]</span> 其中，<span class="math inline">\(\omega^{\mu}_{\ \ \rho}\)</span>为小量，将其代入到定义式<span class="math inline">\(\Lambda^{T}\eta\Lambda=\eta\)</span>中，略去二阶小量并化简，可得到： <span class="math display">\[\begin{align}
+    \omega^{\mu}_{\ \ \rho}=-\omega^{\rho}_{\ \ \mu}\notag
+\end{align}\]</span> 这说明<span class="math inline">\(\omega^{\mu}_{\ \ \rho}\)</span>只有六个独立分量，说明<span class="math inline">\(L^{\uparrow }_{+}\)</span>只有六个独立生成元。</p>
+<p>在连续洛伦兹变换中，我们知道有如下六个独立的变换，同时也为以<span class="math inline">\(\theta\)</span>为参数的单参子群：</p>
+<p><span class="math display">\[\begin{align}
+    &amp;\left( \begin{matrix}
+        1&amp;      0&amp;      0&amp;      0\\
+        0&amp;      \cos \theta &amp;       \sin \theta&amp;        0\\
+        0&amp;      -\sin \theta&amp;       \cos \theta&amp;        0\\
+        0&amp;      0&amp;      0&amp;      1\\
+    \end{matrix} \right) ,
+    \left( \begin{matrix}
+        1&amp;      0&amp;      0&amp;      0\\
+        0&amp;      \cos \theta &amp;       0&amp;      \sin \theta\\
+        0&amp;      0&amp;      1&amp;      0\\
+        0&amp;      -\sin \theta&amp;       0&amp;      \cos \theta\\
+    \end{matrix} \right) ,
+    \left( \begin{matrix}
+        1&amp;      0&amp;      0&amp;      0\\
+        0&amp;      1&amp;      0&amp;      0\\
+        0&amp;      0&amp;      \cos \theta&amp;        \sin \theta\\
+        0&amp;      0&amp;      -\sin \theta&amp;       \cos \theta\\
+    \end{matrix} \right) ,\notag \\
+    &amp;\left( \begin{matrix}
+        \cosh \theta&amp;       -\sinh \theta&amp;      0&amp;      0\\
+        -\sinh \theta&amp;      \cosh \theta &amp;      0&amp;      0\\
+        0&amp;      0&amp;      1&amp;      0\\
+        0&amp;      0&amp;      0&amp;      1\\
+    \end{matrix} \right) ,
+    \left( \begin{matrix}
+        \cosh \theta&amp;       0&amp;      -\sinh \theta&amp;      0\\
+        0&amp;      1&amp;      0&amp;      0\\
+        -\sinh \theta&amp;      0&amp;      \cosh \theta&amp;       0\\
+        0&amp;      0&amp;      0&amp;      1\\
+    \end{matrix} \right) ,
+    \left( \begin{matrix}
+        \cosh \theta&amp;       0&amp;      0&amp;      -\sinh \theta\\
+        0&amp;      1&amp;      0&amp;      0\\
+        0&amp;      0&amp;      1&amp;      0\\
+        -\sinh \theta&amp;      0&amp;      0&amp;      \cosh \theta\\
+    \end{matrix} \right) \notag
+\end{align}\]</span> 通常将第一行的三个变换分别称为沿<span class="math inline">\(x,y,z\)</span>三个方向的转动（rotation），第二行的三个变换分别称为沿<span class="math inline">\(x,y,z\)</span>三个方向的伪转动（boost），令<span class="math inline">\(\theta=0\)</span>则恢复到恒等变换。任意的连续洛伦兹变换都可由这六个变换组合得到。</p>
+<p>对上面六个矩阵在<span class="math inline">\(\theta =0\)</span>处求导便可得到<span class="math inline">\(L^{\uparrow }_{+}\)</span>六个独立生成元,例如： <span class="math display">\[\begin{align}
+    J_{1}=\left.\frac{1}{i}\frac{\mathrm{d}}{\mathrm{d}\theta}\left( \begin{matrix}
+        1&amp;      0&amp;      0&amp;      0\\
+        0&amp;      \cos \theta &amp;       \sin \theta&amp;        0\\
+        0&amp;      -\sin \theta&amp;       \cos \theta&amp;        0\\
+        0&amp;      0&amp;      0&amp;      1\\
+    \end{matrix} \right)\right|_{\theta=0}=\left( \begin{matrix}
+        0&amp;      0&amp;      0&amp;      0\\
+        0&amp;      0&amp;      -i&amp;     0\\
+        0&amp;      i&amp;      0&amp;      0\\
+        0&amp;      0&amp;      0&amp;      0\\
+    \end{matrix} \right)\notag
+\end{align}\]</span> 全部写出得到： <span class="math display">\[\begin{align}
+    &amp;J_{1}=\left( \begin{matrix}
+        0&amp;      0&amp;      0&amp;      0\\
+        0&amp;      0&amp;      -i&amp;     0\\
+        0&amp;      i&amp;      0&amp;      0\\
+        0&amp;      0&amp;      0&amp;      0\\
+    \end{matrix} \right) ,
+    J_{2}=\left( \begin{matrix}
+        0&amp;      0&amp;      0&amp;      0\\
+        0&amp;      0&amp;      0&amp;      -i\\
+        0&amp;      0&amp;      0&amp;      0\\
+        0&amp;      i&amp;      0&amp;      0\\
+    \end{matrix} \right) ,
+    J_{3}=\left( \begin{matrix}
+        0&amp;      0&amp;      0&amp;      0\\
+        0&amp;      0&amp;      0&amp;      0\\
+        0&amp;      0&amp;      0&amp;      -i\\
+        0&amp;      0&amp;      i&amp;      0\\
+    \end{matrix} \right),\notag\\
+    &amp;K_{1}=\left( \begin{matrix}
+        0&amp;      i&amp;      0&amp;      0\\
+        i&amp;      0&amp;      0&amp;      0\\
+        0&amp;      0&amp;      0&amp;      0\\
+        0&amp;      0&amp;      0&amp;      0\\
+    \end{matrix} \right),
+    K_{2}=\left( \begin{matrix}
+        0&amp;      0&amp;      i&amp;      0\\
+        0&amp;      0&amp;      0&amp;      0\\
+        i&amp;      0&amp;      0&amp;      0\\
+        0&amp;      0&amp;      0&amp;      0\\
+    \end{matrix} \right),
+    K_{3}=\left( \begin{matrix}
+        0&amp;      0&amp;      0&amp;      i\\
+        0&amp;      0&amp;      0&amp;      0\\
+        0&amp;      0&amp;      0&amp;      0\\
+        i&amp;      0&amp;      0&amp;      0\\
+    \end{matrix} \right),\notag
+\end{align}\]</span> 这里除以<span class="math inline">\(i\)</span>是物理中的习惯。于是任意一个连续洛伦兹变换可紧凑地写为： <span class="math display">\[\begin{align}
+    \Lambda=\mathrm{e}^{i \vec{J}\cdot\vec{\theta}+i\vec{K}\cdot\vec{\Phi}}\notag
+\end{align}\]</span> 经验证，洛伦兹群生成元满足如下对易关系： <span class="math display">\[\begin{align}
+    &amp;\left[J_{i},J_{i}\right]=i\epsilon_{ijk}J_{k}\notag\\
+    &amp;\left[J_{i},K_{j}\right]=i\epsilon_{ijk}K_{k}\notag\\
+    &amp;\left[K_{i},K_{j}\right]=-i\epsilon_{ijk}J_{k}\notag
+\end{align}\]</span> 构造一组新的生成元： <span class="math display">\[\begin{align}
+    N^{\pm }_{i}=\frac{1}{2}\left(J_{i}\pm iJ_{i}\right)\notag
+\end{align}\]</span> 其对易关系为： <span class="math display">\[\begin{align}
+    &amp;\left[N^{+}_{i},N^{+}_{j}\right]=i\epsilon_{ijk}N^{+}_{k}\notag\\
+    &amp;\left[N^{-}_{i},N^{-}_{j}\right]=i\epsilon_{ijk}N^{-}_{k}\notag\\
+    &amp;\left[N^{+}_{i},N^{-}_{j}\right]=0\notag
+\end{align}\]</span> <span class="math inline">\(N^{+}_{i,j,k}\)</span>和<span class="math inline">\(N^{-}_{i,j,k}\)</span>都满足<span class="math inline">\(SU(2)\)</span>群李代数的对易关系，所以<span class="math inline">\(\mathfrak{so}(1,3)_{\mathbb{C}}\cong \mathfrak{su}(2)_{\mathbb{C}}\oplus \mathfrak{su}(2)_{\mathbb{C}}\)</span>,下标<span class="math inline">\(\mathbb{C}\)</span>表示复化（complexification）。因为<span class="math inline">\(\mathfrak{su}(2)_{\mathbb{C}}\)</span>的不可约表示是已知的，所以也就知道了<span class="math inline">\(\mathfrak{so}(1,3)_{\mathbb{C}}\)</span>及<span class="math inline">\(SO(1,3)\)</span>的不可约表示。 <span class="math inline">\(SU(2)\)</span>群的群表示可以用半整数<span class="math inline">\(j=0,\frac{1}{2},1,\frac{3}{2}\dots\)</span>来标记（<span class="math inline">\(j\)</span>为卡西米尔算符的标量值），因此洛伦兹群可以用<span class="math inline">\((j_{1},j_{2})\)</span>来标记。 在洛伦兹变换中按照<span class="math inline">\((0,0)\)</span>表示变换的量定义为标量，按照<span class="math inline">\((\frac{1}{2},0)\)</span>或<span class="math inline">\((0,\frac{1}{2})\)</span>表示变换的量定义为Wyel旋量，按照<span class="math inline">\((\frac{1}{2},\frac{1}{2})\)</span>表示变换的量定义为4-矢量。 在量子场论中，粒子定义为场的激发态。对于场而言，在洛伦兹变换时的变换为洛伦兹群的一种表示，这种表示所对应的<span class="math inline">\(j_{1}+j_{2}\)</span>被定义为自旋量子数。 光子场在洛伦兹变换下按<span class="math inline">\((\frac{1}{2},\frac{1}{2})\)</span>表示变换，故光子自旋量子数为1。</p>
+]]></content>
+      <tags>
+        <tag>physics</tag>
+        <tag>quantum field theory</tag>
+        <tag>group theory</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Topological Space</title>
+    <url>/posts/1d583a28.html</url>
+    <content><![CDATA[<!-- toc -->
+<ul>
+<li><a href="#basics-of-sets">Basics of Sets</a></li>
+</ul>
+<!-- tocstop -->
+<span id="more"></span>
+<h1><span id="basics-of-sets">Basics of Sets</span></h1>
+<blockquote>
+<p><em>This part is relatively simple, so I will only list the definitions and properties instead of elaborating it.</em></p>
+</blockquote>
+<p>In mathematics, a <a href="https://www.wikiwand.com/en/Set_(mathematics)"><em>set</em></a> is a collection of elements. Every item in a <em>set</em> is called an <em>element</em> or <em>point</em>. If <span class="math inline">\(x\)</span> is an element of <span class="math inline">\(X\)</span>, then <span class="math inline">\(x\)</span> belongs to <span class="math inline">\(X\)</span>, and we denote it as <span class="math inline">\(x\in X\)</span>. <span class="math inline">\(\notin\)</span> means "not belong to". A set doesn't contain any element is called an <em>empty set</em>, which is denoted by <span class="math inline">\(\emptyset\)</span>. &gt;<strong>Definition 1:</strong> If every element in a set <span class="math inline">\(A\)</span> belongs to the set <span class="math inline">\(X\)</span>, then <span class="math inline">\(A\)</span> is a subset of <span class="math inline">\(X\)</span>, which is denoted by <span class="math inline">\(A\subset X\)</span> or <span class="math inline">\(X\supset A\)</span>. <span class="math inline">\(\emptyset\)</span> is a subset of any set. <span class="math inline">\(A\)</span> is called a <em>proper subset</em> of <span class="math inline">\(X\)</span> if <span class="math inline">\(A\subset X\)</span> and <span class="math inline">\(A\neq X\)</span>. <span class="math inline">\(A=B\)</span> if <span class="math inline">\(X\subset Y\)</span> and <span class="math inline">\(Y\subset X\)</span>.</p>
+<p>To be continued... P.S. I'm currently working on the chapter 3 and will come back to here later. This part is too boring...XD</p>
+]]></content>
       <categories>
-          
-          <category> General Relativity </category>
-          
+        <category>General Relativity</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> physics </tag>
-            
-            <tag> math </tag>
-            
-            <tag> differential geometry </tag>
-            
-            <tag> general relativity </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>让博客支持mathjax渲染公式</title>
-      <link href="/posts/20f2bfce.html"/>
-      <url>/posts/20f2bfce.html</url>
-      
-        <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&amp;id=1852502698&amp;auto=0&amp;height=66"></iframe><blockquote><p>从起床折腾到晚上，累趴。。。</p></blockquote><span id="more"></span><p>总体思路是卸载掉hexo默认的<code>hexo-renderer-marked</code>，改用<code>hexo-renderer-pandoc</code>。（就是这么简单的一步。。。）</p><p>首先如果没安装<code>pandoc</code>的话，去<a href="https://www.pandoc.org/">官网</a>下载。安装完重启电脑。</p><p>然后命令行里进入博客的路径(.../blog)，利用<code>npm uninstall hexo-renderer-marked --registry=https://registry.npm.taobao.org</code>卸载掉原来的<code>hexo-renderer-marked</code>。执行<code>npm install hexo-renderer-pandoc --registry=https://registry.npm.taobao.org</code>安装上<code>hexo-renderer-pandoc</code>。</p><p>打开theme的_config.yml，修改里面的<code>mathjax</code>的<code>false</code>为<code>true</code>。</p><p>在blog目录下的_config.yml加上下面的代码： <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="attr">engine:</span> <span class="string">&#x27;mathjax&#x27;</span> <span class="comment"># or &#x27;katex&#x27;</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="comment"># src: custom_mathjax_source</span></span><br><span class="line">    <span class="attr">config:</span></span><br><span class="line">      <span class="comment"># MathJax config</span></span><br></pre></td></tr></table></figure> 保存并退出。接下来执行<code>hexo clean</code>，<code>hexo g</code>，<code>hexo s</code>即可看到公式被渲染。</p>]]></content>
-      
-      
+      <tags>
+        <tag>physics</tag>
+        <tag>math</tag>
+        <tag>differential geometry</tag>
+        <tag>general relativity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>让博客支持mathjax渲染公式</title>
+    <url>/posts/20f2bfce.html</url>
+    <content><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&amp;id=1852502698&amp;auto=0&amp;height=66">
+</iframe>
+<blockquote>
+<p>从起床折腾到晚上，累趴。。。</p>
+</blockquote>
+<span id="more"></span>
+<p>总体思路是卸载掉hexo默认的<code>hexo-renderer-marked</code>，改用<code>hexo-renderer-pandoc</code>。（就是这么简单的一步。。。）</p>
+<p>首先如果没安装<code>pandoc</code>的话，去<a href="https://www.pandoc.org/">官网</a>下载。安装完重启电脑。</p>
+<p>然后命令行里进入博客的路径(.../blog)，利用<code>npm uninstall hexo-renderer-marked --registry=https://registry.npm.taobao.org</code>卸载掉原来的<code>hexo-renderer-marked</code>。执行<code>npm install hexo-renderer-pandoc --registry=https://registry.npm.taobao.org</code>安装上<code>hexo-renderer-pandoc</code>。</p>
+<p>打开theme的_config.yml，修改里面的<code>mathjax</code>的<code>false</code>为<code>true</code>。</p>
+<p>在blog目录下的_config.yml加上下面的代码： <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="attr">engine:</span> <span class="string">&#x27;mathjax&#x27;</span> <span class="comment"># or &#x27;katex&#x27;</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="comment"># src: custom_mathjax_source</span></span><br><span class="line">    <span class="attr">config:</span></span><br><span class="line">      <span class="comment"># MathJax config</span></span><br></pre></td></tr></table></figure> 保存并退出。接下来执行<code>hexo clean</code>，<code>hexo g</code>，<code>hexo s</code>即可看到公式被渲染。</p>
+]]></content>
       <categories>
-          
-          <category> 博客搭建 </category>
-          
+        <category>博客搭建</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 博客搭建 </tag>
-            
-            <tag> 计算机 </tag>
-            
-            <tag> 技术 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Riemann Curvature Tensor</title>
-      <link href="/posts/48c07248.html"/>
-      <url>/posts/48c07248.html</url>
-      
-        <content type="html"><![CDATA[<!-- toc --><ul><li><a href="#derivative-operator">Derivative Operator</a></li></ul><!-- tocstop --><span id="more"></span><center><img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="https://gitee.com/spaceofzsj/pictures/raw/master/16DETACHMENT_SPAN-articleLarge.jpg"> <br> <a href="https://movie.douban.com/subject/5322596/" target="opentype">超脱</a> (<a href="https://www.imdb.com/title/tt1683526" target="opentype">Detachment</a>)</center><h2><span id><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=22489526&auto=0&height=66"></iframe></span></h2><h1><span id="derivative-operator">Derivative Operator</span></h1><blockquote><p><strong>Definition 1.1</strong> Let <span class="math inline">\(\mathscr{F}_{M}(k,l)\)</span> be the set of all <span class="math inline">\(\mathrm{C}^{\infty}\)</span> tensor field of <span class="math inline">\((k,l)\)</span> type. The map <span class="math inline">\(\nabla\)</span> : <span class="math inline">\(\mathscr{F}_{M}(k,l)\rightarrow\mathscr{F}_{M}(k,l+1)\)</span> is called the <em>derivative operator</em> on the manifold <span class="math inline">\(M\)</span> if it satisfies the following conditions:</p><ol type="1"><li>Linearity: For all <span class="math inline">\(A\)</span>, <span class="math inline">\(B\in\mathscr{F}_{M}(k,l)\)</span> and <span class="math inline">\(\alpha,\beta\in R\)</span>, <span class="math display">\[\begin{equation}\nabla_{c}\left(\alpha A^{a_{1}\cdots a_{k}}_{\quad\quad \ b_{1}\cdots b_{l}}+\beta B^{a_{1}\cdots a_{k}}_{\quad\quad \ b_{1}\cdots b_{l}}\right)=\alpha\nabla_{c}A^{a_{1}\cdots a_{k}}_{\quad\quad \ b_{1}\cdots b_{l}}+\beta B^{a_{1}\cdots a_{k}}_{\quad\quad \ b_{1}\cdots b_{l}}\notag\end{equation}\]</span></li><li>Leibnitz rule: For all <span class="math inline">\(A\in\mathscr{F}(k,l)\)</span>,<span class="math inline">\(B\in\mathscr{F}(k&#39;,l&#39;)\)</span>, <span class="math display">\[\begin{align}&amp;\nabla_{e}\left[A^{a_{1}\cdots a_{k}}_{\quad\quad\ b_{1}\cdots b_{k}} B^{c_{1}\cdots c_{k}}_{\quad\quad\ d_{1}\cdots d_{k}}\right]\notag\\&amp;=\nabla_{e}\left[A^{a_{1}\cdots a_{k}}_{\quad\quad\ b_{1}\cdots b_{k}}\right] B^{c_{1}\cdots c_{k}}_{\quad\quad\ d_{1}\cdots d_{k}}+\nabla_{e}A^{a_{1}\cdots a_{k}}_{\quad\quad\ b_{1}\cdots b_{k}} \left[B^{c_{1}\cdots c_{k}}_{\quad\quad\ d_{1}\cdots d_{k}}\right]\notag\end{align}\]</span></li><li>Commutativity with contraction: For all <span class="math inline">\(A\in\mathscr{F}(k,l), B\in\mathscr{F}(k&#39;,l&#39;),\)</span> <span class="math display">\[\begin{equation}\nabla_{d}\left(A^{a_{1}\cdots c\cdots a_{k}}_{\quad\quad\quad\ \  b_{1}\cdots c\cdots b_{l}}\right)=\nabla_{d}A^{a_{1}\cdots c\cdots a_{k}}_{\quad\quad\quad\ \  b_{1}\cdots c\cdots b_{l}}\notag\end{equation}\]</span></li><li>Consistency with the notion of tangent vectors as directional derivatives on scalar fields: For all <span class="math inline">\(f\in\mathscr{F}\)</span> and all <span class="math inline">\(t^{a}\in V_{p}\)</span>: <span class="math display">\[\begin{equation}t(f)=t^{a}\nabla_{a}f\notag\end{equation}\]</span></li><li>Torsion free: For all <span class="math inline">\(f\in\mathscr{F}\)</span>, <span class="math display">\[\begin{equation}\nabla_{a}\nabla_{b}f=\nabla_{b}\nabla_{a}f\notag\end{equation}\]</span></li></ol></blockquote><p>When we write something like: <span class="math display">\[\begin{equation}\nabla_{a}\left(v^{b}\omega_{b}\right)=v^{b}\nabla_{a}\omega_{b}+\omega_{b}\nabla_{a}v^{b},\notag\end{equation}\]</span> we have actually used the third condition: <span class="math display">\[\begin{equation}    \nabla_{a}\left(v^{b}\omega_{c}\right)=\nabla_{a}\left[\mathrm{C}\left(v^{b}\omega_{c}\right)\right]                                      =\mathrm{C}^{1}_{2}\left(v^{b}\nabla_{a}\omega_{c}\right)+\mathrm{C}^{1}_{2}\left[\left(\nabla_{a}v^{b}\right)\omega_{c}\right]                                      =v^{b}\nabla_{a}\omega_{b}+\omega_{b}\nabla_{a}b^{b},\notag                                      \end{equation}\]</span></p><p>where <span class="math inline">\(\mathrm{C}\)</span> represents contraction.</p><p>From the forth condition, we can see that: <span class="math display">\[\begin{equation}\nabla_{a}f=(\mathrm{d}f)_{a} \tag{1.1}\label{1.1}\end{equation}\]</span></p><p>In fact, the operator satisfies this five conditions above must exist on any manifold. Now we consider the effects of two different derivative operators <span class="math inline">\(\nabla_{a}\)</span> and <span class="math inline">\(\widetilde{\nabla}_{a}\)</span> on several kinds of tensors.</p><p>From Eq.<span class="math inline">\(\eqref{1.1}\)</span>, we know for all <span class="math inline">\(f\in \mathscr{F}_{M}\)</span> <span class="math display">\[\begin{equation}\nabla_{a} f=\widetilde{\nabla}_{a} f=\left( \mathrm{d}f \right)_{a}.\tag{1.2}\label{1.2}\end{equation}\]</span></p><blockquote><p><strong>Theorem 1.1</strong><span class="math inline">\(\quad\)</span> If <span class="math inline">\(p \in M\)</span>, <span class="math inline">\(\omega_{b}, \omega_{b}&#39;\in \mathscr{F}(0,1)\)</span> satisfy <span class="math inline">\(\omega_{b}&#39;|_{p}=\omega_b|_{p}\)</span>, then <span class="math display">\[\begin{equation}\left[\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\omega_{b}&#39;\right]_{p}=\left[\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\omega_{b}\right]_{p}\notag\end{equation}\]</span> <strong>Proof</strong><span class="math inline">\(\quad\)</span> We only need to prove that <span class="math display">\[\begin{equation}\left[\nabla_{a}\left(\omega_{b}&#39;-\omega_{b}\right)\right]_{p}=\left[\widetilde{\nabla}_{a}\left(\omega_{b}&#39;-\omega_{b}\right)\right]_{p}.\tag{1.3}\label{1.3}\end{equation}\]</span> Assume that <span class="math inline">\(\Omega=\omega_{b}&#39;-\omega_{b}\)</span>. We can choose a coordinate system <span class="math inline">\(\left\{ x_{\mu} \right\}\)</span> whose coordinate patch contains <span class="math inline">\(p\)</span>，so <span class="math inline">\(\Omega_{\mu}(p)=0\)</span> because <span class="math inline">\(\omega_{b}&#39;|_{p}=\omega_{b}|_{p}\)</span>, where <span class="math inline">\(\Omega_{\mu}\)</span>'s are the coordinates of <span class="math inline">\(\Omega_{b}\)</span>. For <span class="math inline">\(p\)</span>, <span class="math display">\[\begin{align}\left[\nabla_{a}\left(\omega_{b}&#39;-\omega_{b}\right)\right]_{p}&amp;=\left[\nabla_{a}\Omega_{b}\right]_{p}=\left\{\nabla_{a}\left[\Omega_{\mu}\left(\mathrm{d}x^{\mu}\right)_{b}\right]\right\}|_{p}\notag\\&amp;=\Omega_{\mu}(p)\left[\nabla_{a}\left(\mathrm{d}x^{\mu}\right)_{b}\right]_{p}+\left[\left(\mathrm{d}x^{\mu}\right)_{b}\nabla_{a}\Omega_{\mu}\right]|_{p}=\left[\left(\mathrm{d}x^{\mu}\right)_{b}\nabla_{a}\Omega_{\mu}\right]_{p}.\notag\end{align}\]</span> In the same way, we have <span class="math inline">\(\left[\widetilde{\nabla_{a}}\left(\omega_{b}&#39;-\omega_{b}\right)\right]_{p}=\left[\left(\mathrm{d}x^{\mu}\right)_{b}\widetilde{\nabla}_{a}\Omega_{\mu}\right]_{p}\)</span>. From Eq.<span class="math inline">\(\eqref{1.1}\)</span>, we know that <span class="math inline">\(\left[\nabla_{a}\Omega_{\mu}\right]_{p}=\left[\widetilde{\nabla}_{a}\Omega_{\mu}\right]_{p}=\left[(\mathrm{d}\Omega_{\mu})_{a}\right]_{p}\)</span>. So Eq.<span class="math inline">\(\eqref{1.3}\)</span> is true.</p><p><em>Q.E.D.</em></p></blockquote><p><em>Theorem 1.1</em> shows that <span class="math inline">\(\left[\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\omega_{b}\right]_{p}\)</span> depends only on <span class="math inline">\(\omega_{b}|_{p}\)</span>. And the value of <span class="math inline">\(\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\)</span> corresponds to a tenser of type <span class="math inline">\((1,2)\)</span> <span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}\)</span>, which satisfies <span class="math display">\[\left[\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\omega_{b}\right]_{p}=\mathrm{C}^{c}_{\ \ ab}\omega_{c}|_{p}.\]</span> Since <span class="math inline">\(p\)</span> is an arbitary point, so the effect of two derivative operators on <span class="math inline">\(\omega_{b}\)</span> only differs by a tensor field of type <span class="math inline">\((1,2)\)</span> on <span class="math inline">\(M\)</span>. To be specific,</p><blockquote><p><strong>Theorem 1.2</strong> <span class="math inline">\(\quad\)</span>For all <span class="math inline">\(\omega_{b}\in\mathscr{F}(0,1)\)</span>: <span class="math display">\[\begin{align}\nabla_{a}\omega_{b}=\widetilde{\nabla}_{a}\omega_{b}-\mathrm{C}^{a}_{\ \ ab}\omega_{c}\tag{1.4}\label{1.4}\end{align}\]</span></p></blockquote><blockquote><p><strong>Theorem 1.3</strong><span class="math inline">\(\quad\)</span> <span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}=\mathrm{C}^{c}_{\ \ ba}\)</span></p><p><strong>Proof</strong><span class="math inline">\(\quad\)</span> Let <span class="math inline">\(\omega_{b}=\nabla_{b}f=\widetilde{\nabla}_{b}f\)</span>, where <span class="math inline">\(f\in\mathscr{F}_{M}\)</span>. From Eq.<span class="math inline">\(\eqref{1.4}\)</span>, we have <span class="math inline">\(\nabla_{a}\nabla_{b}f=\widetilde{\nabla_{a}}\widetilde{\nabla_{b}}f-\mathrm{C}^{c}_{\ \ ab}\nabla_{c}f\)</span>. Exchange the indicies <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> and we have <span class="math inline">\(\nabla_{b}\nabla_{a}f=\widetilde{\nabla_{b}}\widetilde{\nabla_{a}}f-\mathrm{C}^{c}_{\ \ ba}\nabla_{c}f\)</span>. Notice the last condition in the <em>definition 1.1</em>(torsion free), there is <span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}\nabla_{c}f=\mathrm{C}^{c}_{\ \ ba}\nabla_{c}f\)</span>. Let <span class="math inline">\(T^{c}_{\ \ ab}=\mathrm{C}^{c}_{\ \ ab}-\mathrm{C}^{c}_{\ \ ba}\)</span>, then <span class="math inline">\(T^{c}_{\ \ ab}\nabla_{c}f=0\)</span> for all <span class="math inline">\(f\in \mathscr{F}_{M}\)</span>. Then the coordinate components <span class="math inline">\(T^{\sigma}_{\ \ \mu\nu}=T^{c}_{\ \ ab}\left(\mathrm{d}x^{\sigma}\right)_{c}\left(\frac{\partial}{\partial x^{\mu}}\right)^{a}\left(\frac{\partial}{\partial x^{\nu}}\right)^{b}=0\)</span>(the second equality is because <span class="math inline">\(T^{c}_{\ \ ab}\left(\mathrm{d}x^{\sigma}\right)_{c}=T^{c}_{\ \ ab}\nabla_{c}x^{\sigma}=0\)</span> ), so <span class="math inline">\(T^{c}_{\ \ ab}=0\)</span>.</p><p><em>Q.E.D</em></p></blockquote><blockquote><p><strong>Theorem 1.4</strong><span class="math inline">\(\quad\)</span> For all <span class="math inline">\(v^{b}\in\mathscr{F(1,0)}\)</span>, <span class="math display">\[\begin{align}\nabla_{a}v^{b}=\widetilde{\nabla}_{a}v^{b}+\mathrm{C}^{b}_{\ \ ac}v^{c}\notag\end{align}\]</span></p><p><strong>Proof</strong> Let <span class="math inline">\(\omega_{b}\)</span> be an arbitary dual vector field on manifold <span class="math inline">\(M\)</span>, then <span class="math display">\[\begin{align}\nabla_{a}\left(\omega_{b} v^{b}\right)&amp;=\omega_{b}\nabla_{a}v^{b}+v^{b}\nabla_{a}\omega_{b}\notag\\&amp;=\omega_{b}\nabla_{a}v^{b}+v^{b}\left(\widetilde{\nabla}_{a}\omega_{b}-\mathrm{C}^{c}_{\ \ ab}\omega_{c}\right).\tag{1.5}\label{1.5}\end{align}\]</span> On the other hand, <span class="math inline">\(\widetilde{\nabla}_{a}\left(\omega_{b}v^{b}\right)=\omega_{b}\widetilde{\nabla}_{a}v^{b}+v^{b}\widetilde{\nabla}_{a}\omega_{b}\)</span>. From Eq.<span class="math inline">\(\eqref{1.2}\)</span>, <span class="math inline">\(\nabla_{a}\left(\omega_{b}v^{b}\right)=\widetilde{\nabla_{b}}\left(\omega_{b}v^{b}\right)\)</span> because <span class="math inline">\(\omega_{b}v^{b}\)</span> is a scaler field. Substitute this relation into Eq.<span class="math inline">\(\eqref{1.5}\)</span>, we have <span class="math display">\[\begin{align}\omega_{b}\nabla_{a}v^{b}=\omega_{b}\widetilde{\nabla}_{a}v^{b}+\mathrm{C}^{c}_{\ \ ab}v^{b}\omega_{c}=\omega_{b}\widetilde{\nabla}_{a}v^{b}+\mathrm{C}^{b}_{\ \ ac}v^{c}\omega_{b}\notag\end{align}\]</span> for all <span class="math inline">\(\omega_{b}\in\mathscr{F}_{M}(0,1)\)</span>. So <span class="math inline">\(\nabla_{a}v^{b}=\widetilde{\nabla}_{a}v^{b}+\mathrm{C}^{b}_{\ \ ac}v^{c}\)</span>.</p><p><em>Q.E.D</em></p></blockquote><blockquote><p>To be continued...</p></blockquote>]]></content>
-      
-      
+      <tags>
+        <tag>博客搭建</tag>
+        <tag>计算机</tag>
+        <tag>技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>A Brief Summary of Basic Differential Geometry for General Relativity</title>
+    <url>/posts/dff9be4c.html</url>
+    <content><![CDATA[<p><img src="https://gitee.com/spaceofzsj/pictures/raw/master/WSF16_Complex-Equations_still.jpg" title="Einstein Equation" alt="Einstein Equation"> <span id="more"></span></p>
+<h2><span id><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=300333&auto=0&height=66"></iframe></span></h2>
+<p>While learning general relativity, I feel necessary to write down what I have already mastered and some thoughts of my own for future reference. So I will start from the basic differential geometry for general relativity. The following topics are what the note will cover.</p>
+<blockquote>
+<ol type="1">
+<li><strong>Topological Space</strong></li>
+<li><strong>Manifold and Vector Field</strong></li>
+<li><strong>Riemann Curvature Tensor</strong></li>
+<li><strong>Lie Derivative, Killing Field and Hypersurface</strong></li>
+<li><strong>Differential Form and Integration on Manifolds</strong></li>
+</ol>
+</blockquote>
+<p>The notes will be regularly updated.</p>
+]]></content>
       <categories>
-          
-          <category> General Relativity </category>
-          
+        <category>General Relativity</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> physics </tag>
-            
-            <tag> math </tag>
-            
-            <tag> differential geometry </tag>
-            
-            <tag> general relativity </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>physics</tag>
+        <tag>math</tag>
+        <tag>differential geometry</tag>
+        <tag>general relativity</tag>
+      </tags>
+  </entry>
 </search>
