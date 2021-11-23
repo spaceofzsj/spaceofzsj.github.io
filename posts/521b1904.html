@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"spaceofzsj.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.8.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="QFT课的作业">
+<meta property="og:type" content="article">
+<meta property="og:title" content="光子自旋数为什么等于1">
+<meta property="og:url" content="https://spaceofzsj.github.io/posts/521b1904.html">
+<meta property="og:site_name" content="ZSJ&#39;s Blog">
+<meta property="og:description" content="QFT课的作业">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/spaceofzsj/pictures/raw/master/OIP-C.jpg">
+<meta property="article:published_time" content="2021-11-21T15:45:12.000Z">
+<meta property="article:modified_time" content="2021-11-23T02:15:43.264Z">
+<meta property="article:author" content="Shangjie Zhou">
+<meta property="article:tag" content="physics">
+<meta property="article:tag" content="quantum field theory">
+<meta property="article:tag" content="group theory">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/spaceofzsj/pictures/raw/master/OIP-C.jpg">
+
+
+<link rel="canonical" href="https://spaceofzsj.github.io/posts/521b1904.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://spaceofzsj.github.io/posts/521b1904.html","path":"posts/521b1904.html","title":"光子自旋数为什么等于1"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>光子自旋数为什么等于1 | ZSJ's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">ZSJ's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Life, Physics&Math</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-读书"><a href="/books/" rel="section"><i class="fa fa-book fa-fw"></i>读书</a></li>
+        <li class="menu-item menu-item-电影"><a href="/movies/" rel="section"><i class="fa fa-film fa-fw"></i>电影</a></li>
+        <li class="menu-item menu-item-游戏"><a href="/games/" rel="section"><i class="fa fa-gamepad fa-fw"></i>游戏</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">半经典方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">数学方法</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Shangjie Zhou</p>
+  <div class="site-description" itemprop="description">学习和摸鱼的地方</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:294993752@qq.com" title="E-Mail → mailto:294993752@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+<div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+   var digit=
+    [
+        [
+            [0,0,1,1,1,0,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,0,1,1,0],
+            [0,0,1,1,1,0,0]
+        ],//0
+        [
+            [0,0,0,1,1,0,0],
+            [0,1,1,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [1,1,1,1,1,1,1]
+        ],//1
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,1,1],
+            [1,1,1,1,1,1,1]
+        ],//2
+        [
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//3
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,1,1,0],
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,1]
+        ],//4
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,1,1,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//5
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//6
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0]
+        ],//7
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//8
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,1,1,0,0,0,0]
+        ],//9
+        [
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0]
+        ]//:
+    ];
+
+var canvas = document.getElementById('canvas');
+
+if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    cxt.beginPath();
+                    cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
+        }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+        var changeNumArray = [];
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        var NewData = [];
+        NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+        for(var i = data.length-1; i >=0 ; i--){
+            //时间发生变化
+            if(NewData[i] !== data[i]){
+                //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+                changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+            }
+        }
+        //增加小球
+        for(var i = 0; i< changeNumArray.length; i++){
+            addBalls.apply(this,changeNumArray[i].split('_'));
+        }
+        data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+        for(var i = 0; i < balls.length; i++){
+            balls[i].stepY += balls[i].disY;
+            balls[i].x += balls[i].stepX;
+            balls[i].y += balls[i].stepY;
+            if(balls[i].x > W + R || balls[i].y > H + R){
+                balls.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+        var numArray = [1,2,3];
+        var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    var ball = {
+                        x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                        y:i*2*(R+1)+(R+1),
+                        stepX:Math.floor(Math.random() * 4 -2),
+                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                        disY:1
+                    };
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    /*渲染*/
+    function render(){
+        //重置画布宽度，达到清空画布的效果
+        canvas.height = 100;
+        //渲染时钟
+        for(var i = 0; i < data.length; i++){
+            renderDigit(i,data[i]);
+        }
+        //渲染小球
+        for(var i = 0; i < balls.length; i++){
+            cxt.beginPath();
+            cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+            cxt.fillStyle = balls[i].color;
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+        //更新时钟
+        updateDigitTime();
+        //更新小球状态
+        updateBalls();
+        //渲染
+        render();
+    },50);
+}
+
+})();
+</script>
+
+        </div>
+      </div>
+      
+<div id="he-plugin-simple"></div>
+<script>
+WIDGET = {
+  "CONFIG": {
+    "modules": "012",
+    "background": "5",
+    "tmpColor": "FFFFFF",
+    "tmpSize": "16",
+    "cityColor": "FFFFFF",
+    "citySize": "16",
+    "aqiColor": "FFFFFF",
+    "aqiSize": "16",
+    "weatherIconSize": "24",
+    "alertIconSize": "18",
+    "padding": "10px 10px 10px 10px",
+    "shadow": "0",
+    "language": "auto",
+    "fixed": "false",
+    "vertical": "top",
+    "horizontal": "center",
+    "key": "e59dc4580fad4a4d8a1f7efc64aff412"
+  }
+}
+</script>
+<script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://spaceofzsj.github.io/posts/521b1904.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shangjie Zhou">
+      <meta itemprop="description" content="学习和摸鱼的地方">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZSJ's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          光子自旋数为什么等于1
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-11-21 23:45:12" itemprop="dateCreated datePublished" datetime="2021-11-21T23:45:12+08:00">2021-11-21</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-11-23 10:15:43" itemprop="dateModified" datetime="2021-11-23T10:15:43+08:00">2021-11-23</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote>
+<p>QFT课的作业</p>
+</blockquote>
+<span id="more"></span>
+<center>
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="https://gitee.com/spaceofzsj/pictures/raw/master/OIP-C.jpg"> <br> <a href="https://movie.douban.com/subject/1296987/" target="opentype">安妮·霍尔</a> (<a href="https://www.imdb.com/title/tt0075686/" target="opentype">Annie Hall</a>)
+
+</center>
+<iframe allow="autoplay *; encrypted-media *; fullscreen *" frameborder="0" height="150" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/cn/album/signe-acoustic-live/718156726?i=718156764">
+</iframe>
+<h2><span id="半经典方法">半经典方法</span></h2>
+<p>真空中有界电磁场的角动量为： <span class="math display">\[\begin{align}
+    \vec{L}=\int \vec{x} \times\left(\epsilon_{0} \vec{E} \times \vec{B}\right) \mathrm{d} V\notag
+\end{align}\]</span> 该式对全空间积分。其中： <span class="math display">\[\begin{align}
+    (\vec{E} \times \vec{B})_{i} &amp;=\vec{E} \times(\nabla \times \vec{A})\notag \\
+    &amp;=\epsilon_{i j k} E_{j} \epsilon_{k l m} \partial_{l} A_{m}\notag \\
+    &amp;=\left(\delta_{i l} \delta_{j m}-\delta_{i m} \delta_{j l}\right) E_{j} \partial_{l} A_{m} \notag\\
+    &amp;=E_{j} \partial_{i} A_{j}-E_{j} \partial_{j} A_{i}\notag
+\end{align}\]</span> 进一步有： <span class="math display">\[\begin{align}
+    (\vec{x} \times(\vec{E} \times \vec{B}))_{k} &amp;=\epsilon_{k l i} x_{l}\left(E_{j} \partial_{i} A_{j}-E_{j} \partial_{j} A_{i}\right)\notag \\
+    &amp;=\epsilon_{k l} x_{l} E_{j} \partial_{i} A_{j}-\epsilon_{k l i} E_{j} \partial_{j}\left(A_{i} x_{l}\right)+\epsilon_{k l i} E_{j} A_{i} \partial_{j} x_{l}\notag \\
+    &amp;=\epsilon_{k l i} x_{l} E_{j} \partial_{i} A_{j}-\epsilon_{k l i} \partial_{j}\left(E_{j} A_{i} x_{l}\right)+\epsilon_{k l} A_{i} x_{l} \partial_{j} E_{j}+\epsilon_{k j i} E_{j} A_{i}\notag \\
+    &amp;=\epsilon_{k l i} x_{l} E_{j} \partial_{i} A_{j}-\epsilon_{k l i} \partial_{j}\left(E_{j} A_{i} x_{l}\right)+(\vec{E} \times \vec{A})_{k}\notag
+\end{align}\]</span> 也就是： <span class="math display">\[\begin{align}
+    \vec{x} \times(\vec{E} \times \vec{B})=\Sigma_{j} E_{j}(\vec{x} \times \nabla) A_{j}-\nabla \cdot[\vec{E}(\vec{x} \times \vec{A})]+\vec{E} \times \vec{A}\notag
+\end{align}\]</span> 所以电磁场角动量为： <span class="math display">\[\begin{align}
+    \vec{L} &amp;=\int \vec{x} \times\left(\epsilon_{0} \vec{E} \times \vec{B}\right) \mathrm{d} V \notag\\
+    &amp;=\epsilon_{0} \int\left(\Sigma_{j} E_{j}(\vec{x} \times \nabla) A_{j}-\nabla \cdot[\vec{E}(\vec{x} \times \vec{A})]+\vec{E} \times \vec{A}\right) \mathrm{d} V \notag\\
+    &amp;=\epsilon_{0} \int\left(\Sigma_{j} E_{j}(\vec{x} \times \nabla) A_{j}+\vec{E} \times \vec{A}\right) \mathrm{d} V\notag
+\end{align}\]</span> 第一项可以看为轨道角动量，因为具有类似<span class="math inline">\(\hat{\boldsymbol{x}}\times\hat{\boldsymbol{p}}\)</span>的形式。第二项可看为自旋角动量： <span class="math display">\[\begin{align}
+    \vec{S}=\epsilon_{0} \int \vec{E} \times \vec{A} \mathrm{d} V\notag
+\end{align}\]</span></p>
+<p>对于单色平面波，有<span class="math inline">\(\widetilde{\vec{E}}=-\frac{\partial \widetilde{\vec{A}}}{\partial t}=i \omega \widetilde{\vec{A}}\)</span>，即<span class="math inline">\(\widetilde{\vec{A}}=\frac{\widetilde{\vec{E}}}{i \omega}\)</span>。</p>
+<p>考虑左旋圆偏振光，有<span class="math inline">\(\widetilde{\vec{E}}=E_{0} e^{i \vec{k} \cdot \vec{r}-i \omega t}\left(\hat{e}_{1}+i \hat{e}_{2}\right)\)</span>，代入自旋角动量表达式并取平均有： <span class="math display">\[\begin{align}
+    \vec{S}_{a v g} &amp;=\epsilon_{0} \int \vec{E} \times \vec{A} \mathrm{d} V \notag \\
+    &amp;=\epsilon_{0} \int \operatorname{Re}(\widetilde{\vec{E}}) \times \operatorname{Re}(\widetilde{\vec{A}}) \mathrm{d} V \notag\\
+    &amp;=\epsilon_{0} \int\left(E_{0} \cos (\vec{k} \cdot \vec{r}-\omega t),-E_{0} \sin (\vec{k} \cdot \vec{r}-\omega t), 0\right) \times\notag\\
+    &amp;\quad\quad\quad \left(\frac{E_{0}}{\omega} \sin (\vec{k} \cdot \vec{r}-\omega t), \frac{E_{0}}{\omega} \cos (\vec{k} \cdot \vec{r}-\omega t), 0\right) \mathrm{d} V\notag \\
+    &amp;=\epsilon_{0} \int \frac{E_{0}^{2}}{\omega} \mathrm{d} V \hat{e}_{3}\notag
+\end{align}\]</span></p>
+<p>又<span class="math inline">\(E=n \hbar \omega=\int \epsilon_{0} E_{0}^{2} \mathrm{d} V\)</span>，<span class="math inline">\(n\)</span>为光子个数。代入自旋表达式： <span class="math display">\[\begin{equation}
+    \vec{S}_{a v g}=n \hbar \hat{e}_{3}\notag
+\end{equation}\]</span> 故单个光子自旋为<span class="math inline">\(\hbar\)</span>，即自旋量子数为1。同样可得右旋圆偏振光的自旋量子数为-1。如果要严格证明光子自旋只有<span class="math inline">\(\pm1\)</span>两个本征态需要运用量子场论。</p>
+<h2><span id="数学方法">数学方法</span></h2>
+<p>洛伦兹群由所有满足<span class="math inline">\(\Lambda^{T}\eta\Lambda=\eta\)</span>的矩阵构成，记为<span class="math inline">\(O(1,3)\)</span>，群乘法为矩阵乘积，其中</p>
+<p><span class="math display">\[\begin{align}
+    \eta=\left( \begin{matrix}
+        1&amp;      0&amp;      0&amp;      0\\
+        0&amp;      -1&amp;     0&amp;      0\\
+        0&amp;      0&amp;      -1&amp;     0\\
+        0&amp;      0&amp;      0&amp;      -1\\
+    \end{matrix} \right) \notag
+\end{align}\]</span> 先由定义讨论洛伦兹群的群结构。</p>
+<p>洛伦兹群可分为如下四类： <span class="math display">\[\begin{align}
+    &amp;L^{\uparrow }_{+}: \mathrm{det}\Lambda=+1;\Lambda^{0}_{0}\geq 1\notag\\
+    &amp;L^{\uparrow }_{+}: \mathrm{det}\Lambda=-1;\Lambda^{0}_{0}\geq 1\notag\\
+    &amp;L^{\downarrow }_{+}: \mathrm{det}\Lambda=+1;\Lambda^{0}_{0}\leq -1\notag\\
+    &amp;L^{\downarrow }_{+}: \mathrm{det}\Lambda=-1;\Lambda^{0}_{0}\leq -1\notag
+\end{align}\]</span> 当我们考虑连续的洛伦兹变换时，实际上是将洛伦兹群限定于其子群<span class="math inline">\(L^{\uparrow }_{+}\)</span>（记为<span class="math inline">\(SO(1,3)\)</span>），因为其包含恒等元。其他三类为离散变换，可由<span class="math inline">\(L^{\uparrow }_{+}\)</span>中的元素乘上<span class="math inline">\(\Lambda_{P}\)</span>和<span class="math inline">\(\Lambda_{T}\)</span>得到，其中 <span class="math display">\[\begin{align}
+    &amp;\Lambda_{P}=\left( \begin{matrix}
+        1&amp;      0&amp;      0&amp;      0\\
+        0&amp;      -1&amp;     0&amp;      0\\
+        0&amp;      0&amp;      -1&amp;     0\\
+        0&amp;      0&amp;      0&amp;      -1\\
+    \end{matrix} \right) \\
+    &amp;\Lambda_{T}=\left( \begin{matrix}
+        -1&amp;     0&amp;      0&amp;      0\\
+        0&amp;      1&amp;      0&amp;      0\\
+        0&amp;      0&amp;      1&amp;      0\\
+        0&amp;      0&amp;      0&amp;      1\\
+    \end{matrix} \right) \notag
+\end{align}\]</span> 所以有： <span class="math display">\[\begin{align}
+    O(1,3)=\left\{ L^{\uparrow }_{+},\Lambda_{P} L^{\uparrow }_{+},\Lambda_{T} L^{\uparrow }_{+},\Lambda_{P} \Lambda_{T} L^{\uparrow }_{+} \right\}\notag
+\end{align}\]</span>。 因为有限大的变换可由无限小的变换叠加而成，故先考虑无限小连续洛伦兹变换： <span class="math display">\[\begin{align}
+    \Lambda^{\mu}_{\ \ \rho}\approx \delta^{\mu}_{\ \ \rho}+\omega^{\mu}_{\ \ \rho}\notag
+\end{align}\]</span> 其中，<span class="math inline">\(\omega^{\mu}_{\ \ \rho}\)</span>为小量，将其代入到定义式<span class="math inline">\(\Lambda^{T}\eta\Lambda=\eta\)</span>中，略去二阶小量并化简，可得到： <span class="math display">\[\begin{align}
+    \omega^{\mu}_{\ \ \rho}=-\omega^{\rho}_{\ \ \mu}\notag
+\end{align}\]</span> 这说明<span class="math inline">\(\omega^{\mu}_{\ \ \rho}\)</span>只有六个独立分量，说明<span class="math inline">\(L^{\uparrow }_{+}\)</span>只有六个独立生成元。</p>
+<p>在连续洛伦兹变换中，我们知道有如下六个独立的变换，同时也为以<span class="math inline">\(\theta\)</span>为参数的单参子群：</p>
+<p><span class="math display">\[\begin{align}
+    &amp;\left( \begin{matrix}
+        1&amp;      0&amp;      0&amp;      0\\
+        0&amp;      \cos \theta &amp;       \sin \theta&amp;        0\\
+        0&amp;      -\sin \theta&amp;       \cos \theta&amp;        0\\
+        0&amp;      0&amp;      0&amp;      1\\
+    \end{matrix} \right) ,
+    \left( \begin{matrix}
+        1&amp;      0&amp;      0&amp;      0\\
+        0&amp;      \cos \theta &amp;       0&amp;      \sin \theta\\
+        0&amp;      0&amp;      1&amp;      0\\
+        0&amp;      -\sin \theta&amp;       0&amp;      \cos \theta\\
+    \end{matrix} \right) ,
+    \left( \begin{matrix}
+        1&amp;      0&amp;      0&amp;      0\\
+        0&amp;      1&amp;      0&amp;      0\\
+        0&amp;      0&amp;      \cos \theta&amp;        \sin \theta\\
+        0&amp;      0&amp;      -\sin \theta&amp;       \cos \theta\\
+    \end{matrix} \right) ,\notag \\
+    &amp;\left( \begin{matrix}
+        \cosh \theta&amp;       -\sinh \theta&amp;      0&amp;      0\\
+        -\sinh \theta&amp;      \cosh \theta &amp;      0&amp;      0\\
+        0&amp;      0&amp;      1&amp;      0\\
+        0&amp;      0&amp;      0&amp;      1\\
+    \end{matrix} \right) ,
+    \left( \begin{matrix}
+        \cosh \theta&amp;       0&amp;      -\sinh \theta&amp;      0\\
+        0&amp;      1&amp;      0&amp;      0\\
+        -\sinh \theta&amp;      0&amp;      \cosh \theta&amp;       0\\
+        0&amp;      0&amp;      0&amp;      1\\
+    \end{matrix} \right) ,
+    \left( \begin{matrix}
+        \cosh \theta&amp;       0&amp;      0&amp;      -\sinh \theta\\
+        0&amp;      1&amp;      0&amp;      0\\
+        0&amp;      0&amp;      1&amp;      0\\
+        -\sinh \theta&amp;      0&amp;      0&amp;      \cosh \theta\\
+    \end{matrix} \right) \notag
+\end{align}\]</span> 通常将第一行的三个变换分别称为沿<span class="math inline">\(x,y,z\)</span>三个方向的转动（rotation），第二行的三个变换分别称为沿<span class="math inline">\(x,y,z\)</span>三个方向的伪转动（boost），令<span class="math inline">\(\theta=0\)</span>则恢复到恒等变换。任意的连续洛伦兹变换都可由这六个变换组合得到。</p>
+<p>对上面六个矩阵在<span class="math inline">\(\theta =0\)</span>处求导便可得到<span class="math inline">\(L^{\uparrow }_{+}\)</span>六个独立生成元,例如： <span class="math display">\[\begin{align}
+    J_{1}=\left.\frac{1}{i}\frac{\mathrm{d}}{\mathrm{d}\theta}\left( \begin{matrix}
+        1&amp;      0&amp;      0&amp;      0\\
+        0&amp;      \cos \theta &amp;       \sin \theta&amp;        0\\
+        0&amp;      -\sin \theta&amp;       \cos \theta&amp;        0\\
+        0&amp;      0&amp;      0&amp;      1\\
+    \end{matrix} \right)\right|_{\theta=0}=\left( \begin{matrix}
+        0&amp;      0&amp;      0&amp;      0\\
+        0&amp;      0&amp;      -i&amp;     0\\
+        0&amp;      i&amp;      0&amp;      0\\
+        0&amp;      0&amp;      0&amp;      0\\
+    \end{matrix} \right)\notag
+\end{align}\]</span> 全部写出得到： <span class="math display">\[\begin{align}
+    &amp;J_{1}=\left( \begin{matrix}
+        0&amp;      0&amp;      0&amp;      0\\
+        0&amp;      0&amp;      -i&amp;     0\\
+        0&amp;      i&amp;      0&amp;      0\\
+        0&amp;      0&amp;      0&amp;      0\\
+    \end{matrix} \right) ,
+    J_{2}=\left( \begin{matrix}
+        0&amp;      0&amp;      0&amp;      0\\
+        0&amp;      0&amp;      0&amp;      -i\\
+        0&amp;      0&amp;      0&amp;      0\\
+        0&amp;      i&amp;      0&amp;      0\\
+    \end{matrix} \right) ,
+    J_{3}=\left( \begin{matrix}
+        0&amp;      0&amp;      0&amp;      0\\
+        0&amp;      0&amp;      0&amp;      0\\
+        0&amp;      0&amp;      0&amp;      -i\\
+        0&amp;      0&amp;      i&amp;      0\\
+    \end{matrix} \right),\notag\\
+    &amp;K_{1}=\left( \begin{matrix}
+        0&amp;      i&amp;      0&amp;      0\\
+        i&amp;      0&amp;      0&amp;      0\\
+        0&amp;      0&amp;      0&amp;      0\\
+        0&amp;      0&amp;      0&amp;      0\\
+    \end{matrix} \right),
+    K_{2}=\left( \begin{matrix}
+        0&amp;      0&amp;      i&amp;      0\\
+        0&amp;      0&amp;      0&amp;      0\\
+        i&amp;      0&amp;      0&amp;      0\\
+        0&amp;      0&amp;      0&amp;      0\\
+    \end{matrix} \right),
+    K_{3}=\left( \begin{matrix}
+        0&amp;      0&amp;      0&amp;      i\\
+        0&amp;      0&amp;      0&amp;      0\\
+        0&amp;      0&amp;      0&amp;      0\\
+        i&amp;      0&amp;      0&amp;      0\\
+    \end{matrix} \right),\notag
+\end{align}\]</span> 这里除以<span class="math inline">\(i\)</span>是物理中的习惯。于是任意一个连续洛伦兹变换可紧凑地写为： <span class="math display">\[\begin{align}
+    \Lambda=\mathrm{e}^{i \vec{J}\cdot\vec{\theta}+i\vec{K}\cdot\vec{\Phi}}\notag
+\end{align}\]</span> 经验证，洛伦兹群生成元满足如下对易关系： <span class="math display">\[\begin{align}
+    &amp;\left[J_{i},J_{i}\right]=i\epsilon_{ijk}J_{k}\notag\\
+    &amp;\left[J_{i},K_{j}\right]=i\epsilon_{ijk}K_{k}\notag\\
+    &amp;\left[K_{i},K_{j}\right]=-i\epsilon_{ijk}J_{k}\notag
+\end{align}\]</span> 构造一组新的生成元： <span class="math display">\[\begin{align}
+    N^{\pm }_{i}=\frac{1}{2}\left(J_{i}\pm iJ_{i}\right)\notag
+\end{align}\]</span> 其对易关系为： <span class="math display">\[\begin{align}
+    &amp;\left[N^{+}_{i},N^{+}_{j}\right]=i\epsilon_{ijk}N^{+}_{k}\notag\\
+    &amp;\left[N^{-}_{i},N^{-}_{j}\right]=i\epsilon_{ijk}N^{-}_{k}\notag\\
+    &amp;\left[N^{+}_{i},N^{-}_{j}\right]=0\notag
+\end{align}\]</span> <span class="math inline">\(N^{+}_{i,j,k}\)</span>和<span class="math inline">\(N^{-}_{i,j,k}\)</span>都满足<span class="math inline">\(SU(2)\)</span>群李代数的对易关系，所以<span class="math inline">\(\mathfrak{so}(1,3)_{\mathbb{C}}\cong \mathfrak{su}(2)_{\mathbb{C}}\oplus \mathfrak{su}(2)_{\mathbb{C}}\)</span>,下标<span class="math inline">\(\mathbb{C}\)</span>表示复化（complexification）。因为<span class="math inline">\(\mathfrak{su}(2)_{\mathbb{C}}\)</span>的不可约表示是已知的，所以也就知道了<span class="math inline">\(\mathfrak{so}(1,3)_{\mathbb{C}}\)</span>及<span class="math inline">\(SO(1,3)\)</span>的不可约表示。 <span class="math inline">\(SU(2)\)</span>群的群表示可以用半整数<span class="math inline">\(j=0,\frac{1}{2},1,\frac{3}{2}\dots\)</span>来标记（<span class="math inline">\(j\)</span>为卡西米尔算符的标量值），因此洛伦兹群可以用<span class="math inline">\((j_{1},j_{2})\)</span>来标记。 在洛伦兹变换中按照<span class="math inline">\((0,0)\)</span>表示变换的量定义为标量，按照<span class="math inline">\((\frac{1}{2},0)\)</span>或<span class="math inline">\((0,\frac{1}{2})\)</span>表示变换的量定义为Wyel旋量，按照<span class="math inline">\((\frac{1}{2},\frac{1}{2})\)</span>表示变换的量定义为4-矢量。 在量子场论中，粒子定义为场的激发态。对于场而言，在洛伦兹变换时的变换为洛伦兹群的一种表示，这种表示所对应的<span class="math inline">\(j_{1}+j_{2}\)</span>被定义为自旋量子数。 光子场在洛伦兹变换下按<span class="math inline">\((\frac{1}{2},\frac{1}{2})\)</span>表示变换，故光子自旋量子数为1。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/physics/" rel="tag"># physics</a>
+              <a href="/tags/quantum-field-theory/" rel="tag"># quantum field theory</a>
+              <a href="/tags/group-theory/" rel="tag"># group theory</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/1d583a28.html" rel="prev" title="Topological Space">
+                  <i class="fa fa-chevron-left"></i> Topological Space
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shangjie Zhou</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

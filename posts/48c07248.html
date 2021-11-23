@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"spaceofzsj.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.8.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Derivative Operator">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Riemann Curvature Tensor">
+<meta property="og:url" content="https://spaceofzsj.github.io/posts/48c07248.html">
+<meta property="og:site_name" content="ZSJ&#39;s Blog">
+<meta property="og:description" content="Derivative Operator">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/spaceofzsj/pictures/raw/master/16DETACHMENT_SPAN-articleLarge.jpg">
+<meta property="article:published_time" content="2021-11-15T09:24:37.000Z">
+<meta property="article:modified_time" content="2021-11-23T16:29:25.064Z">
+<meta property="article:author" content="Shangjie Zhou">
+<meta property="article:tag" content="physics">
+<meta property="article:tag" content="math">
+<meta property="article:tag" content="differential geometry">
+<meta property="article:tag" content="general relativity">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/spaceofzsj/pictures/raw/master/16DETACHMENT_SPAN-articleLarge.jpg">
+
+
+<link rel="canonical" href="https://spaceofzsj.github.io/posts/48c07248.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://spaceofzsj.github.io/posts/48c07248.html","path":"posts/48c07248.html","title":"Riemann Curvature Tensor"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Riemann Curvature Tensor | ZSJ's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">ZSJ's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Life, Physics&Math</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-读书"><a href="/books/" rel="section"><i class="fa fa-book fa-fw"></i>读书</a></li>
+        <li class="menu-item menu-item-电影"><a href="/movies/" rel="section"><i class="fa fa-film fa-fw"></i>电影</a></li>
+        <li class="menu-item menu-item-游戏"><a href="/games/" rel="section"><i class="fa fa-gamepad fa-fw"></i>游戏</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number"></span> <span class="nav-text">Derivative Operator</span></a></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Shangjie Zhou</p>
+  <div class="site-description" itemprop="description">学习和摸鱼的地方</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:294993752@qq.com" title="E-Mail → mailto:294993752@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+<div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+   var digit=
+    [
+        [
+            [0,0,1,1,1,0,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,0,1,1,0],
+            [0,0,1,1,1,0,0]
+        ],//0
+        [
+            [0,0,0,1,1,0,0],
+            [0,1,1,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [1,1,1,1,1,1,1]
+        ],//1
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,1,1],
+            [1,1,1,1,1,1,1]
+        ],//2
+        [
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//3
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,1,1,0],
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,1]
+        ],//4
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,1,1,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//5
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//6
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0]
+        ],//7
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//8
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,1,1,0,0,0,0]
+        ],//9
+        [
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0]
+        ]//:
+    ];
+
+var canvas = document.getElementById('canvas');
+
+if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    cxt.beginPath();
+                    cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
+        }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+        var changeNumArray = [];
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        var NewData = [];
+        NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+        for(var i = data.length-1; i >=0 ; i--){
+            //时间发生变化
+            if(NewData[i] !== data[i]){
+                //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+                changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+            }
+        }
+        //增加小球
+        for(var i = 0; i< changeNumArray.length; i++){
+            addBalls.apply(this,changeNumArray[i].split('_'));
+        }
+        data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+        for(var i = 0; i < balls.length; i++){
+            balls[i].stepY += balls[i].disY;
+            balls[i].x += balls[i].stepX;
+            balls[i].y += balls[i].stepY;
+            if(balls[i].x > W + R || balls[i].y > H + R){
+                balls.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+        var numArray = [1,2,3];
+        var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    var ball = {
+                        x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                        y:i*2*(R+1)+(R+1),
+                        stepX:Math.floor(Math.random() * 4 -2),
+                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                        disY:1
+                    };
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    /*渲染*/
+    function render(){
+        //重置画布宽度，达到清空画布的效果
+        canvas.height = 100;
+        //渲染时钟
+        for(var i = 0; i < data.length; i++){
+            renderDigit(i,data[i]);
+        }
+        //渲染小球
+        for(var i = 0; i < balls.length; i++){
+            cxt.beginPath();
+            cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+            cxt.fillStyle = balls[i].color;
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+        //更新时钟
+        updateDigitTime();
+        //更新小球状态
+        updateBalls();
+        //渲染
+        render();
+    },50);
+}
+
+})();
+</script>
+
+        </div>
+      </div>
+      
+<div id="he-plugin-simple"></div>
+<script>
+WIDGET = {
+  "CONFIG": {
+    "modules": "012",
+    "background": "5",
+    "tmpColor": "FFFFFF",
+    "tmpSize": "16",
+    "cityColor": "FFFFFF",
+    "citySize": "16",
+    "aqiColor": "FFFFFF",
+    "aqiSize": "16",
+    "weatherIconSize": "24",
+    "alertIconSize": "18",
+    "padding": "10px 10px 10px 10px",
+    "shadow": "0",
+    "language": "auto",
+    "fixed": "false",
+    "vertical": "top",
+    "horizontal": "center",
+    "key": "e59dc4580fad4a4d8a1f7efc64aff412"
+  }
+}
+</script>
+<script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://spaceofzsj.github.io/posts/48c07248.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shangjie Zhou">
+      <meta itemprop="description" content="学习和摸鱼的地方">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZSJ's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Riemann Curvature Tensor
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-11-15 17:24:37" itemprop="dateCreated datePublished" datetime="2021-11-15T17:24:37+08:00">2021-11-15</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-11-24 00:29:25" itemprop="dateModified" datetime="2021-11-24T00:29:25+08:00">2021-11-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/General-Relativity/" itemprop="url" rel="index"><span itemprop="name">General Relativity</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <!-- toc -->
+<ul>
+<li><a href="#derivative-operator">Derivative Operator</a></li>
+</ul>
+<!-- tocstop -->
+<span id="more"></span>
+<center>
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="https://gitee.com/spaceofzsj/pictures/raw/master/16DETACHMENT_SPAN-articleLarge.jpg"> <br> <a href="https://movie.douban.com/subject/5322596/" target="opentype">超脱</a> (<a href="https://www.imdb.com/title/tt1683526" target="opentype">Detachment</a>)
+
+</center>
+<h2><span id><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=22489526&auto=0&height=66"></iframe></span></h2>
+<h1><span id="derivative-operator">Derivative Operator</span></h1>
+<blockquote>
+<p><strong>Definition 1.1</strong> Let <span class="math inline">\(\mathscr{F}_{M}(k,l)\)</span> be the set of all <span class="math inline">\(\mathrm{C}^{\infty}\)</span> tensor field of <span class="math inline">\((k,l)\)</span> type. The map <span class="math inline">\(\nabla\)</span> : <span class="math inline">\(\mathscr{F}_{M}(k,l)\rightarrow\mathscr{F}_{M}(k,l+1)\)</span> is called the <em>derivative operator</em> on the manifold <span class="math inline">\(M\)</span> if it satisfies the following conditions:</p>
+<ol type="1">
+<li>Linearity: For all <span class="math inline">\(A\)</span>, <span class="math inline">\(B\in\mathscr{F}_{M}(k,l)\)</span> and <span class="math inline">\(\alpha,\beta\in R\)</span>, <span class="math display">\[\begin{equation}\nabla_{c}\left(\alpha A^{a_{1}\cdots a_{k}}_{\quad\quad \ b_{1}\cdots b_{l}}+\beta B^{a_{1}\cdots a_{k}}_{\quad\quad \ b_{1}\cdots b_{l}}\right)=\alpha\nabla_{c}A^{a_{1}\cdots a_{k}}_{\quad\quad \ b_{1}\cdots b_{l}}+\beta B^{a_{1}\cdots a_{k}}_{\quad\quad \ b_{1}\cdots b_{l}}\notag\end{equation}\]</span></li>
+<li>Leibnitz rule: For all <span class="math inline">\(A\in\mathscr{F}(k,l)\)</span>,<span class="math inline">\(B\in\mathscr{F}(k&#39;,l&#39;)\)</span>, <span class="math display">\[\begin{align}&amp;\nabla_{e}\left[A^{a_{1}\cdots a_{k}}_{\quad\quad\ b_{1}\cdots b_{k}} B^{c_{1}\cdots c_{k}}_{\quad\quad\ d_{1}\cdots d_{k}}\right]\notag\\&amp;=\nabla_{e}\left[A^{a_{1}\cdots a_{k}}_{\quad\quad\ b_{1}\cdots b_{k}}\right] B^{c_{1}\cdots c_{k}}_{\quad\quad\ d_{1}\cdots d_{k}}+\nabla_{e}A^{a_{1}\cdots a_{k}}_{\quad\quad\ b_{1}\cdots b_{k}} \left[B^{c_{1}\cdots c_{k}}_{\quad\quad\ d_{1}\cdots d_{k}}\right]\notag\end{align}\]</span></li>
+<li>Commutativity with contraction: For all <span class="math inline">\(A\in\mathscr{F}(k,l), B\in\mathscr{F}(k&#39;,l&#39;),\)</span> <span class="math display">\[\begin{equation}\nabla_{d}\left(A^{a_{1}\cdots c\cdots a_{k}}_{\quad\quad\quad\ \  b_{1}\cdots c\cdots b_{l}}\right)=\nabla_{d}A^{a_{1}\cdots c\cdots a_{k}}_{\quad\quad\quad\ \  b_{1}\cdots c\cdots b_{l}}\notag\end{equation}\]</span></li>
+<li>Consistency with the notion of tangent vectors as directional derivatives on scalar fields: For all <span class="math inline">\(f\in\mathscr{F}\)</span> and all <span class="math inline">\(t^{a}\in V_{p}\)</span>: <span class="math display">\[\begin{equation}t(f)=t^{a}\nabla_{a}f\notag\end{equation}\]</span></li>
+<li>Torsion free: For all <span class="math inline">\(f\in\mathscr{F}\)</span>, <span class="math display">\[\begin{equation}\nabla_{a}\nabla_{b}f=\nabla_{b}\nabla_{a}f\notag\end{equation}\]</span></li>
+</ol>
+</blockquote>
+<p>When we write something like: <span class="math display">\[\begin{equation}\nabla_{a}\left(v^{b}\omega_{b}\right)=v^{b}\nabla_{a}\omega_{b}+\omega_{b}\nabla_{a}v^{b},\notag\end{equation}\]</span> we have actually used the third condition: <span class="math display">\[\begin{equation}
+    \nabla_{a}\left(v^{b}\omega_{c}\right)=\nabla_{a}\left[\mathrm{C}\left(v^{b}\omega_{c}\right)\right]
+                                      =\mathrm{C}^{1}_{2}\left(v^{b}\nabla_{a}\omega_{c}\right)+\mathrm{C}^{1}_{2}\left[\left(\nabla_{a}v^{b}\right)\omega_{c}\right]
+                                      =v^{b}\nabla_{a}\omega_{b}+\omega_{b}\nabla_{a}b^{b},\notag
+                                      \end{equation}\]</span></p>
+<p>where <span class="math inline">\(\mathrm{C}\)</span> represents contraction.</p>
+<p>From the forth condition, we can see that: <span class="math display">\[\begin{equation}\nabla_{a}f=(\mathrm{d}f)_{a} \tag{1.1}\label{1.1}\end{equation}\]</span></p>
+<p>In fact, the operator satisfies this five conditions above must exist on any manifold. Now we consider the effects of two different derivative operators <span class="math inline">\(\nabla_{a}\)</span> and <span class="math inline">\(\widetilde{\nabla}_{a}\)</span> on several kinds of tensors.</p>
+<p>From Eq.<span class="math inline">\(\eqref{1.1}\)</span>, we know for all <span class="math inline">\(f\in \mathscr{F}_{M}\)</span> <span class="math display">\[\begin{equation}\nabla_{a} f=\widetilde{\nabla}_{a} f=\left( \mathrm{d}f \right)_{a}.\tag{1.2}\label{1.2}\end{equation}\]</span></p>
+<blockquote>
+<p><strong>Theorem 1.1</strong><span class="math inline">\(\quad\)</span> If <span class="math inline">\(p \in M\)</span>, <span class="math inline">\(\omega_{b}, \omega_{b}&#39;\in \mathscr{F}(0,1)\)</span> satisfy <span class="math inline">\(\omega_{b}&#39;|_{p}=\omega_b|_{p}\)</span>, then <span class="math display">\[\begin{equation}\left[\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\omega_{b}&#39;\right]_{p}=\left[\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\omega_{b}\right]_{p}\notag\end{equation}\]</span> <strong>Proof</strong><span class="math inline">\(\quad\)</span> We only need to prove that <span class="math display">\[\begin{equation}\left[\nabla_{a}\left(\omega_{b}&#39;-\omega_{b}\right)\right]_{p}=\left[\widetilde{\nabla}_{a}\left(\omega_{b}&#39;-\omega_{b}\right)\right]_{p}.\tag{1.3}\label{1.3}\end{equation}\]</span> Assume that <span class="math inline">\(\Omega=\omega_{b}&#39;-\omega_{b}\)</span>. We can choose a coordinate system <span class="math inline">\(\left\{ x_{\mu} \right\}\)</span> whose coordinate patch contains <span class="math inline">\(p\)</span>，so <span class="math inline">\(\Omega_{\mu}(p)=0\)</span> because <span class="math inline">\(\omega_{b}&#39;|_{p}=\omega_{b}|_{p}\)</span>, where <span class="math inline">\(\Omega_{\mu}\)</span>'s are the coordinates of <span class="math inline">\(\Omega_{b}\)</span>. For <span class="math inline">\(p\)</span>, <span class="math display">\[\begin{align}
+\left[\nabla_{a}\left(\omega_{b}&#39;-\omega_{b}\right)\right]_{p}&amp;=\left[\nabla_{a}\Omega_{b}\right]_{p}=\left\{\nabla_{a}\left[\Omega_{\mu}\left(\mathrm{d}x^{\mu}\right)_{b}\right]\right\}|_{p}\notag\\
+&amp;=\Omega_{\mu}(p)\left[\nabla_{a}\left(\mathrm{d}x^{\mu}\right)_{b}\right]_{p}+\left[\left(\mathrm{d}x^{\mu}\right)_{b}\nabla_{a}\Omega_{\mu}\right]|_{p}=\left[\left(\mathrm{d}x^{\mu}\right)_{b}\nabla_{a}\Omega_{\mu}\right]_{p}.\notag
+\end{align}\]</span> In the same way, we have <span class="math inline">\(\left[\widetilde{\nabla_{a}}\left(\omega_{b}&#39;-\omega_{b}\right)\right]_{p}=\left[\left(\mathrm{d}x^{\mu}\right)_{b}\widetilde{\nabla}_{a}\Omega_{\mu}\right]_{p}\)</span>. From Eq.<span class="math inline">\(\eqref{1.1}\)</span>, we know that <span class="math inline">\(\left[\nabla_{a}\Omega_{\mu}\right]_{p}=\left[\widetilde{\nabla}_{a}\Omega_{\mu}\right]_{p}=\left[(\mathrm{d}\Omega_{\mu})_{a}\right]_{p}\)</span>. So Eq.<span class="math inline">\(\eqref{1.3}\)</span> is true.</p>
+<p><em>Q.E.D.</em></p>
+</blockquote>
+<p><em>Theorem 1.1</em> shows that <span class="math inline">\(\left[\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\omega_{b}\right]_{p}\)</span> depends only on <span class="math inline">\(\omega_{b}|_{p}\)</span>. And the value of <span class="math inline">\(\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\)</span> corresponds to a tenser of type <span class="math inline">\((1,2)\)</span> <span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}\)</span>, which satisfies <span class="math display">\[\left[\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\omega_{b}\right]_{p}=\mathrm{C}^{c}_{\ \ ab}\omega_{c}|_{p}.\]</span> Since <span class="math inline">\(p\)</span> is an arbitary point, so the effect of two derivative operators on <span class="math inline">\(\omega_{b}\)</span> only differs by a tensor field of type <span class="math inline">\((1,2)\)</span> on <span class="math inline">\(M\)</span>. To be specific,</p>
+<blockquote>
+<p><strong>Theorem 1.2</strong> <span class="math inline">\(\quad\)</span>For all <span class="math inline">\(\omega_{b}\in\mathscr{F}(0,1)\)</span>: <span class="math display">\[\begin{align}\nabla_{a}\omega_{b}=\widetilde{\nabla}_{a}\omega_{b}-\mathrm{C}^{a}_{\ \ ab}\omega_{c}\tag{1.4}\label{1.4}\end{align}\]</span></p>
+</blockquote>
+<blockquote>
+<p><strong>Theorem 1.3</strong><span class="math inline">\(\quad\)</span> <span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}=\mathrm{C}^{c}_{\ \ ba}\)</span></p>
+<p><strong>Proof</strong><span class="math inline">\(\quad\)</span> Let <span class="math inline">\(\omega_{b}=\nabla_{b}f=\widetilde{\nabla}_{b}f\)</span>, where <span class="math inline">\(f\in\mathscr{F}_{M}\)</span>. From Eq.<span class="math inline">\(\eqref{1.4}\)</span>, we have <span class="math inline">\(\nabla_{a}\nabla_{b}f=\widetilde{\nabla_{a}}\widetilde{\nabla_{b}}f-\mathrm{C}^{c}_{\ \ ab}\nabla_{c}f\)</span>. Exchange the indicies <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> and we have <span class="math inline">\(\nabla_{b}\nabla_{a}f=\widetilde{\nabla_{b}}\widetilde{\nabla_{a}}f-\mathrm{C}^{c}_{\ \ ba}\nabla_{c}f\)</span>. Notice the last condition in the <em>definition 1.1</em>(torsion free), there is <span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}\nabla_{c}f=\mathrm{C}^{c}_{\ \ ba}\nabla_{c}f\)</span>. Let <span class="math inline">\(T^{c}_{\ \ ab}=\mathrm{C}^{c}_{\ \ ab}-\mathrm{C}^{c}_{\ \ ba}\)</span>, then <span class="math inline">\(T^{c}_{\ \ ab}\nabla_{c}f=0\)</span> for all <span class="math inline">\(f\in \mathscr{F}_{M}\)</span>. Then the coordinate components <span class="math inline">\(T^{\sigma}_{\ \ \mu\nu}=T^{c}_{\ \ ab}\left(\mathrm{d}x^{\sigma}\right)_{c}\left(\frac{\partial}{\partial x^{\mu}}\right)^{a}\left(\frac{\partial}{\partial x^{\nu}}\right)^{b}=0\)</span>(the second equality is because <span class="math inline">\(T^{c}_{\ \ ab}\left(\mathrm{d}x^{\sigma}\right)_{c}=T^{c}_{\ \ ab}\nabla_{c}x^{\sigma}=0\)</span> ), so <span class="math inline">\(T^{c}_{\ \ ab}=0\)</span>.</p>
+<p><em>Q.E.D</em></p>
+</blockquote>
+<blockquote>
+<p><strong>Theorem 1.4</strong><span class="math inline">\(\quad\)</span> For all <span class="math inline">\(v^{b}\in\mathscr{F(1,0)}\)</span>, <span class="math display">\[\begin{align}
+\nabla_{a}v^{b}=\widetilde{\nabla}_{a}v^{b}+\mathrm{C}^{b}_{\ \ ac}v^{c}\notag
+\end{align}\]</span></p>
+<p><strong>Proof</strong> Let <span class="math inline">\(\omega_{b}\)</span> be an arbitary dual vector field on manifold <span class="math inline">\(M\)</span>, then <span class="math display">\[
+\begin{align}
+\nabla_{a}\left(\omega_{b} v^{b}\right)&amp;=\omega_{b}\nabla_{a}v^{b}+v^{b}\nabla_{a}\omega_{b}\notag\\
+&amp;=\omega_{b}\nabla_{a}v^{b}+v^{b}\left(\widetilde{\nabla}_{a}\omega_{b}-\mathrm{C}^{c}_{\ \ ab}\omega_{c}\right).\tag{1.5}\label{1.5}
+\end{align}\]</span> On the other hand, <span class="math inline">\(\widetilde{\nabla}_{a}\left(\omega_{b}v^{b}\right)=\omega_{b}\widetilde{\nabla}_{a}v^{b}+v^{b}\widetilde{\nabla}_{a}\omega_{b}\)</span>. From Eq.<span class="math inline">\(\eqref{1.2}\)</span>, <span class="math inline">\(\nabla_{a}\left(\omega_{b}v^{b}\right)=\widetilde{\nabla_{b}}\left(\omega_{b}v^{b}\right)\)</span> because <span class="math inline">\(\omega_{b}v^{b}\)</span> is a scaler field. Substitute this relation into Eq.<span class="math inline">\(\eqref{1.5}\)</span>, we have <span class="math display">\[\begin{align}
+\omega_{b}\nabla_{a}v^{b}=\omega_{b}\widetilde{\nabla}_{a}v^{b}+\mathrm{C}^{c}_{\ \ ab}v^{b}\omega_{c}=\omega_{b}\widetilde{\nabla}_{a}v^{b}+\mathrm{C}^{b}_{\ \ ac}v^{c}\omega_{b}\notag
+\end{align}
+\]</span> for all <span class="math inline">\(\omega_{b}\in\mathscr{F}_{M}(0,1)\)</span>. So <span class="math inline">\(\nabla_{a}v^{b}=\widetilde{\nabla}_{a}v^{b}+\mathrm{C}^{b}_{\ \ ac}v^{c}\)</span>.</p>
+<p><em>Q.E.D</em></p>
+</blockquote>
+<blockquote>
+<p>To be continued...</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/physics/" rel="tag"># physics</a>
+              <a href="/tags/math/" rel="tag"># math</a>
+              <a href="/tags/differential-geometry/" rel="tag"># differential geometry</a>
+              <a href="/tags/general-relativity/" rel="tag"># general relativity</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/20f2bfce.html" rel="next" title="让博客支持mathjax渲染公式">
+                  让博客支持mathjax渲染公式 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shangjie Zhou</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
