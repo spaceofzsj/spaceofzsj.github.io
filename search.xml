@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>test</title>
+    <url>/posts/d87f7e0c.html</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
+    <title>A Brief Summary of Basic Differential Geometry for General Relativity</title>
+    <url>/posts/dff9be4c.html</url>
+    <content><![CDATA[<p><img src="https://gitee.com/spaceofzsj/pictures/raw/master/WSF16_Complex-Equations_still.jpg" title="Einstein Equation" alt="Einstein Equation" /> <span id="more"></span></p>
+<h2 id="section"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=300333&auto=0&height=66"></iframe></h2>
+<p>While learning general relativity, I feel necessary to write down what I have already mastered and some thoughts of my own for future reference. So I will start from the basic differential geometry for general relativity. The following topics are what the note will cover.</p>
+<blockquote>
+<ol type="1">
+<li><strong>Topological Space</strong></li>
+<li><strong>Manifold and Vector Field</strong></li>
+<li><strong>Riemann Curvature Tensor</strong></li>
+<li><strong>Lie Derivative, Killing Field and Hypersurface</strong></li>
+<li><strong>Differential Form and Integration on Manifolds</strong></li>
+</ol>
+</blockquote>
+<p>The notes will be regularly updated.</p>
+]]></content>
+      <categories>
+        <category>General Relativity</category>
+      </categories>
+      <tags>
+        <tag>physics</tag>
+        <tag>math</tag>
+        <tag>differential geometry</tag>
+        <tag>general relativity</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>光子自旋数为什么等于1</title>
     <url>/posts/521b1904.html</url>
     <content><![CDATA[<blockquote>
@@ -9,12 +42,13 @@
 <span id="more"></span>
 <center>
 <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="https://gitee.com/spaceofzsj/pictures/raw/master/OIP-C.jpg"> <a href="https://movie.douban.com/subject/1296987/" target="opentype">安妮·霍尔</a> (<a href="https://www.imdb.com/title/tt0075686/" target="opentype">Annie Hall</a>)
-
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="https://gitee.com/spaceofzsj/pictures/raw/master/OIP-C.jpg"> <a href="https://movie.douban.com/subject/1296987/"  target="opentype">安妮·霍尔</a> (<a href="https://www.imdb.com/title/tt0075686/"  target="opentype">Annie Hall</a>)
+</div>
 </center>
 <iframe allow="autoplay *; encrypted-media *; fullscreen *" frameborder="0" height="150" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/cn/album/signe-acoustic-live/718156726?i=718156764">
 </iframe>
-<h2><span id="半经典方法">半经典方法</span></h2>
+<h1 id="半经典方法">半经典方法</h1>
 <p>真空中有界电磁场的角动量为： <span class="math display">\[\begin{align}
     \vec{L}=\int \vec{x} \times\left(\epsilon_{0} \vec{E} \times \vec{B}\right) \mathrm{d} V\notag
 \end{align}\]</span> 该式对全空间积分。其中： <span class="math display">\[\begin{align}
@@ -47,7 +81,7 @@
 <p>又<span class="math inline">\(E=n \hbar \omega=\int \epsilon_{0} E_{0}^{2} \mathrm{d} V\)</span>，<span class="math inline">\(n\)</span>为光子个数。代入自旋表达式： <span class="math display">\[\begin{equation}
     \vec{S}_{a v g}=n \hbar \hat{e}_{3}\notag
 \end{equation}\]</span> 故单个光子自旋为<span class="math inline">\(\hbar\)</span>，即自旋量子数为1。同样可得右旋圆偏振光的自旋量子数为-1。如果要严格证明光子自旋只有<span class="math inline">\(\pm1\)</span>两个本征态需要运用量子场论。</p>
-<h2><span id="数学方法">数学方法</span></h2>
+<h1 id="数学方法">数学方法</h1>
 <p>洛伦兹群由所有满足<span class="math inline">\(\Lambda^{T}\eta\Lambda=\eta\)</span>的矩阵构成，记为<span class="math inline">\(O(1,3)\)</span>，群乘法为矩阵乘积，其中</p>
 <p><span class="math display">\[\begin{align}
     \eta=\left( \begin{matrix}
@@ -191,21 +225,61 @@
       </tags>
   </entry>
   <entry>
+    <title>Topological Space</title>
+    <url>/posts/1d583a28.html</url>
+    <content><![CDATA[<h1 id="basics-of-sets">Basics of Sets</h1>
+<blockquote>
+<p><em>This part is relatively simple, so I will only list the definitions and properties instead of elaborating it.</em></p>
+</blockquote>
+<span id="more"></span>
+<p>In mathematics, a <a href="https://www.wikiwand.com/en/Set_(mathematics)"><em>set</em></a> is a collection of elements. Every item in a <em>set</em> is called an <em>element</em> or <em>point</em>. If <span class="math inline">\(x\)</span> is an element of <span class="math inline">\(X\)</span>, then <span class="math inline">\(x\)</span> belongs to <span class="math inline">\(X\)</span>, and we denote it as <span class="math inline">\(x\in X\)</span>. <span class="math inline">\(\notin\)</span> means "not belong to". A set doesn't contain any element is called an <em>empty set</em>, which is denoted by <span class="math inline">\(\emptyset\)</span>. &gt;<strong>Definition 1:</strong> If every element in a set <span class="math inline">\(A\)</span> belongs to the set <span class="math inline">\(X\)</span>, then <span class="math inline">\(A\)</span> is a subset of <span class="math inline">\(X\)</span>, which is denoted by <span class="math inline">\(A\subset X\)</span> or <span class="math inline">\(X\supset A\)</span>. <span class="math inline">\(\emptyset\)</span> is a subset of any set. <span class="math inline">\(A\)</span> is called a <em>proper subset</em> of <span class="math inline">\(X\)</span> if <span class="math inline">\(A\subset X\)</span> and <span class="math inline">\(A\neq X\)</span>. <span class="math inline">\(A=B\)</span> if <span class="math inline">\(X\subset Y\)</span> and <span class="math inline">\(Y\subset X\)</span>.</p>
+<p>To be continued... P.S. I'm currently working on the chapter 3 and will come back to here later. This part is too boring...XD</p>
+]]></content>
+      <categories>
+        <category>General Relativity</category>
+      </categories>
+      <tags>
+        <tag>physics</tag>
+        <tag>math</tag>
+        <tag>differential geometry</tag>
+        <tag>general relativity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>让博客支持mathjax渲染公式</title>
+    <url>/posts/20f2bfce.html</url>
+    <content><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&amp;id=1852502698&amp;auto=0&amp;height=66">
+</iframe>
+<blockquote>
+<p>从起床折腾到晚上，累趴。。。</p>
+</blockquote>
+<span id="more"></span>
+<p>总体思路是卸载掉hexo默认的<code>hexo-renderer-marked</code>，改用<code>hexo-renderer-pandoc</code>。（就是这么简单的一步。。。）</p>
+<p>首先如果没安装<code>pandoc</code>的话，去<a href="https://www.pandoc.org/">官网</a>下载。安装完重启电脑。</p>
+<p>然后命令行里进入博客的路径(.../blog)，利用<code>npm uninstall hexo-renderer-marked --registry=https://registry.npm.taobao.org</code>卸载掉原来的<code>hexo-renderer-marked</code>。执行<code>npm install hexo-renderer-pandoc --registry=https://registry.npm.taobao.org</code>安装上<code>hexo-renderer-pandoc</code>。</p>
+<p>打开theme的_config.yml，修改里面的<code>mathjax</code>的<code>false</code>为<code>true</code>。</p>
+<p>在blog目录下的_config.yml加上下面的代码： <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="attr">engine:</span> <span class="string">&#x27;mathjax&#x27;</span> <span class="comment"># or &#x27;katex&#x27;</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="comment"># src: custom_mathjax_source</span></span><br><span class="line">    <span class="attr">config:</span></span><br><span class="line">      <span class="comment"># MathJax config</span></span><br></pre></td></tr></table></figure> 保存并退出。接下来执行<code>hexo clean</code>，<code>hexo g</code>，<code>hexo s</code>即可看到公式被渲染。</p>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>博客搭建</tag>
+        <tag>计算机</tag>
+        <tag>技术</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Riemann Curvature Tensor</title>
     <url>/posts/48c07248.html</url>
-    <content><![CDATA[<!-- toc -->
-<ul>
-<li><a href="#derivative-operator">Derivative Operator</a></li>
-</ul>
-<!-- tocstop -->
-<span id="more"></span>
-<center>
-<img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="https://gitee.com/spaceofzsj/pictures/raw/master/16DETACHMENT_SPAN-articleLarge.jpg"> <a href="https://movie.douban.com/subject/5322596/" target="opentype">超脱</a> (<a href="https://www.imdb.com/title/tt1683526" target="opentype">Detachment</a>)
-
+    <content><![CDATA[<center>
+<img style="border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"  
+src="https://gitee.com/spaceofzsj/pictures/raw/master/16DETACHMENT_SPAN-articleLarge.jpg" /> <a href="https://movie.douban.com/subject/5322596/"  target="opentype">超脱</a> (<a href="https://www.imdb.com/title/tt1683526"  target="opentype">Detachment</a>)
 </center>
-<h2><span id><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=22489526&auto=0&height=66"></iframe></span></h2>
-<h1><span id="derivative-operator">Derivative Operator</span></h1>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&amp;id=22489526&amp;auto=0&amp;height=66">
+</iframe>
+<span id="more"></span>
+<h1 id="derivative-operator">Derivative Operator</h1>
 <blockquote>
 <p><strong>Definition 1.1</strong> Let <span class="math inline">\(\mathscr{F}_{M}(k,l)\)</span> be the set of all <span class="math inline">\(\mathrm{C}^{\infty}\)</span> tensor field of <span class="math inline">\((k,l)\)</span> type. The map <span class="math inline">\(\nabla\)</span> : <span class="math inline">\(\mathscr{F}_{M}(k,l)\rightarrow\mathscr{F}_{M}(k,l+1)\)</span> is called the <em>derivative operator</em> on the manifold <span class="math inline">\(M\)</span> if it satisfies the following conditions:</p>
 <ol type="1">
@@ -269,87 +343,15 @@
 <blockquote>
 <p><strong>Definition 1.2</strong><span class="math inline">\(\quad\)</span>The difference between <span class="math inline">\(\nabla_{a}\)</span> and <span class="math inline">\(\partial_{a}\)</span> , i.e. <span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}\)</span> in Eq.<span class="math inline">\(\eqref{1.6}\)</span>,is called the <em>Christoffel symbol</em> of <span class="math inline">\(\nabla_{a}\)</span> in this coordinate system which is denoted by <span class="math inline">\(\Gamma^{c}_{\ \ ab}\)</span>.</p>
 </blockquote>
-<p>Christoffel symbol is a tensor field depends on the coordinate system.(See detailed discussion in《微分几何入门与广义相对论（上）第二版》p59)</p>
+<p>Christoffel symbol is a tensor field depends on the coordinate system.(See detailed discussion in《微分几何入门与广义相对论（上）第二版》p59).</p>
+<blockquote>
+<p><strong>Theorem 1.6</strong><span class="math inline">\(\quad\)</span> <span class="math display">\[\begin{align}&amp;v^{\nu}_{\ \ ;\mu}=v^{\nu}_{\ \ ,\mu}+\Gamma^{\nu}_{\ \ \mu\sigma}v^{\sigma}\tag{1.7}\label{1.7}\\
+&amp;\omega_{\nu\ \ ;\mu}=\omega_{\nu\ \ ,\mu}-\Gamma^{\sigma}_{\ \ \mu\nu}\omega_{\sigma}\tag{1.8}\label{1.8}
+\end{align}\]</span></p>
+</blockquote>
 <blockquote>
 <p>To be continued...</p>
 </blockquote>
-]]></content>
-      <categories>
-        <category>General Relativity</category>
-      </categories>
-      <tags>
-        <tag>physics</tag>
-        <tag>math</tag>
-        <tag>differential geometry</tag>
-        <tag>general relativity</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Topological Space</title>
-    <url>/posts/1d583a28.html</url>
-    <content><![CDATA[<!-- toc -->
-<ul>
-<li><a href="#basics-of-sets">Basics of Sets</a></li>
-</ul>
-<!-- tocstop -->
-<span id="more"></span>
-<h1><span id="basics-of-sets">Basics of Sets</span></h1>
-<blockquote>
-<p><em>This part is relatively simple, so I will only list the definitions and properties instead of elaborating it.</em></p>
-</blockquote>
-<p>In mathematics, a <a href="https://www.wikiwand.com/en/Set_(mathematics)"><em>set</em></a> is a collection of elements. Every item in a <em>set</em> is called an <em>element</em> or <em>point</em>. If <span class="math inline">\(x\)</span> is an element of <span class="math inline">\(X\)</span>, then <span class="math inline">\(x\)</span> belongs to <span class="math inline">\(X\)</span>, and we denote it as <span class="math inline">\(x\in X\)</span>. <span class="math inline">\(\notin\)</span> means "not belong to". A set doesn't contain any element is called an <em>empty set</em>, which is denoted by <span class="math inline">\(\emptyset\)</span>. &gt;<strong>Definition 1:</strong> If every element in a set <span class="math inline">\(A\)</span> belongs to the set <span class="math inline">\(X\)</span>, then <span class="math inline">\(A\)</span> is a subset of <span class="math inline">\(X\)</span>, which is denoted by <span class="math inline">\(A\subset X\)</span> or <span class="math inline">\(X\supset A\)</span>. <span class="math inline">\(\emptyset\)</span> is a subset of any set. <span class="math inline">\(A\)</span> is called a <em>proper subset</em> of <span class="math inline">\(X\)</span> if <span class="math inline">\(A\subset X\)</span> and <span class="math inline">\(A\neq X\)</span>. <span class="math inline">\(A=B\)</span> if <span class="math inline">\(X\subset Y\)</span> and <span class="math inline">\(Y\subset X\)</span>.</p>
-<p>To be continued... P.S. I'm currently working on the chapter 3 and will come back to here later. This part is too boring...XD</p>
-]]></content>
-      <categories>
-        <category>General Relativity</category>
-      </categories>
-      <tags>
-        <tag>physics</tag>
-        <tag>math</tag>
-        <tag>differential geometry</tag>
-        <tag>general relativity</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>让博客支持mathjax渲染公式</title>
-    <url>/posts/20f2bfce.html</url>
-    <content><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&amp;id=1852502698&amp;auto=0&amp;height=66">
-</iframe>
-<blockquote>
-<p>从起床折腾到晚上，累趴。。。</p>
-</blockquote>
-<span id="more"></span>
-<p>总体思路是卸载掉hexo默认的<code>hexo-renderer-marked</code>，改用<code>hexo-renderer-pandoc</code>。（就是这么简单的一步。。。）</p>
-<p>首先如果没安装<code>pandoc</code>的话，去<a href="https://www.pandoc.org/">官网</a>下载。安装完重启电脑。</p>
-<p>然后命令行里进入博客的路径(.../blog)，利用<code>npm uninstall hexo-renderer-marked --registry=https://registry.npm.taobao.org</code>卸载掉原来的<code>hexo-renderer-marked</code>。执行<code>npm install hexo-renderer-pandoc --registry=https://registry.npm.taobao.org</code>安装上<code>hexo-renderer-pandoc</code>。</p>
-<p>打开theme的_config.yml，修改里面的<code>mathjax</code>的<code>false</code>为<code>true</code>。</p>
-<p>在blog目录下的_config.yml加上下面的代码： <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="attr">engine:</span> <span class="string">&#x27;mathjax&#x27;</span> <span class="comment"># or &#x27;katex&#x27;</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="comment"># src: custom_mathjax_source</span></span><br><span class="line">    <span class="attr">config:</span></span><br><span class="line">      <span class="comment"># MathJax config</span></span><br></pre></td></tr></table></figure> 保存并退出。接下来执行<code>hexo clean</code>，<code>hexo g</code>，<code>hexo s</code>即可看到公式被渲染。</p>
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>博客搭建</tag>
-        <tag>计算机</tag>
-        <tag>技术</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>A Brief Summary of Basic Differential Geometry for General Relativity</title>
-    <url>/posts/dff9be4c.html</url>
-    <content><![CDATA[<p><img src="https://gitee.com/spaceofzsj/pictures/raw/master/WSF16_Complex-Equations_still.jpg" title="Einstein Equation" alt="Einstein Equation"> <span id="more"></span></p>
-<h2><span id><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=300333&auto=0&height=66"></iframe></span></h2>
-<p>While learning general relativity, I feel necessary to write down what I have already mastered and some thoughts of my own for future reference. So I will start from the basic differential geometry for general relativity. The following topics are what the note will cover.</p>
-<blockquote>
-<ol type="1">
-<li><strong>Topological Space</strong></li>
-<li><strong>Manifold and Vector Field</strong></li>
-<li><strong>Riemann Curvature Tensor</strong></li>
-<li><strong>Lie Derivative, Killing Field and Hypersurface</strong></li>
-<li><strong>Differential Form and Integration on Manifolds</strong></li>
-</ol>
-</blockquote>
-<p>The notes will be regularly updated.</p>
 ]]></content>
       <categories>
         <category>General Relativity</category>
