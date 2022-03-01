@@ -1,163 +1,367 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>读书笔记</title>
-      <link href="/posts/dd9d0e88.html"/>
-      <url>/posts/dd9d0e88.html</url>
-      
-        <content type="html"><![CDATA[<style>.shelf-container {height: 200px;position: relative;}.shelf-background {position: absolute;top: 0;left: 0;background-color: #eee;width: calc(100% - 20px);height: calc(100% - 20px);border-left: solid 20px #ccc;border-bottom: solid 20px #ddd;z-index: 2;}.item-container {padding: 10px 30px;height: 180px;overflow: hidden;}.item {width: 135px;height: 180px;float: left;position: relative;margin-right: 20px;}.item a .front {width: 100%;height: 100%;position: absolute;transition: all 0.5s ease-in-out;z-index: 10;background-color: #44ff44;backface-visibility: hidden;background-size: cover;}.item:hover a .front {transform: rotateY(180deg);}.item a .back {width: calc(100% - 20px);height: calc(100% - 20px);position: absolute;transition: all 0.5s ease-in-out;z-index: 10;background-color: #fff;backface-visibility: hidden;transform: rotateY(180deg);color: black;padding: 10px;font-size: small;color: #666;}.item:hover a .back {transform: rotateY(360deg);}.item .shadow {width: 135px;height: 6px;position: absolute;background-color: black;bottom: -3px;left: 0;z-index: 3;filter: blur(10px);transition: all 0.5s ease-in-out;}.item:hover .shadow {transform: rotateY(180deg);}</style><div class="shelf-container"><div class="shelf-background"></div><div class="item-container"><div class="item"><a href="javascript:void(0);"> <a href="https://physicswhu.github.io/Nakahara-Notes/#/"><div class="front" style="background-image:url(https://gitee.com/spaceofzsj/pictures/raw/master/20220227222013.png);"></div><div class="back"><p>Geometry, Topology and Physics</p></div></a> </a><div class="shadow"></div></div><div class="item"><a href="javascript:void(0)"><div class="front" style="background-image:url(https://gitee.com/spaceofzsj/pictures/raw/master/20220227222935.png);"></div><div class="back">General Relativity</div></a><div class="shadow"></div></div></div></div>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>TikZ导出PNG格式图片</title>
-      <link href="/posts/aeaa5c03.html"/>
-      <url>/posts/aeaa5c03.html</url>
-      
-        <content type="html"><![CDATA[<p>利用<code>LaTeX</code>的<code>TikZ</code>宏包可以绘制图形，但是默认导出的为pdf格式。有时我们需要PNG等图片格式以便于插入在网页上，于是需要将pdf格式转换为图片格式。 <span id="more"></span> # 安装<code>ImageMagick</code></p><p>首先，我们去<a href="https://imagemagick.org/script/download.php">ImageMagick官网</a>下载合适版本的<code>ImageMagick</code>。下载完成后安装即可。安装完成后将安装目录添加到系统Path路径中(系统搜索<strong>环境变量</strong>)。</p><h1 id="允许-shell-escape">允许<code>-shell-escape</code></h1><p>不同编辑器允许<code>-shell-escape</code>的方式不同，可以在这个StackExchange问题下查找：<a href="https://tex.stackexchange.com/questions/598818/how-can-i-enable-shell-escape">How can I enable shell-escape?</a>。</p><p>此处以<code>VScode</code>中的<a href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop"><code>LaTeX Workshop</code></a>插件为例。 打开<code>VScode</code>，确保已经安装<code>LaTex Workshop</code>。按下<code>Ctrl+Shift+P</code>，输入<code>Preferences: Open Settings (JSON)</code>。进入<code>settings.json</code>中添加如下代码 <pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token property">"latex-workshop.latex.tools"</span><span class="token operator">:</span> <span class="token punctuation">[</span>    <span class="token punctuation">&#123;</span>        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"latexmk"</span><span class="token punctuation">,</span>        <span class="token property">"command"</span><span class="token operator">:</span> <span class="token string">"latexmk"</span><span class="token punctuation">,</span>        <span class="token property">"args"</span><span class="token operator">:</span> <span class="token punctuation">[</span>            <span class="token string">"-shell-escape"</span><span class="token punctuation">,</span>              <span class="token string">"-synctex=1"</span><span class="token punctuation">,</span>            <span class="token string">"-interaction=nonstopmode"</span><span class="token punctuation">,</span>            <span class="token string">"-file-line-error"</span><span class="token punctuation">,</span>            <span class="token string">"-pdf"</span><span class="token punctuation">,</span>            <span class="token string">"-outdir=%OUTDIR%"</span><span class="token punctuation">,</span>            <span class="token string">"%DOC%"</span>        <span class="token punctuation">]</span><span class="token punctuation">,</span>        <span class="token property">"env"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>    ...<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> 如果以前输入过，只需在<code>"args"</code>栏目中添加<code>"-shell-escape"</code>一项。这样就允许了<code>-shell-excape</code>。</p><h1 id="latex代码设置">LaTeX代码设置</h1><p>为了导出PNG格式，我们选用<code>standalone</code>文档类，调用其中的<code>convert</code>选项来完成格式转换。下面给出一个例子： <pre class="line-numbers language-latex" data-language="latex"><code class="language-latex"><span class="token function selector">\documentclass</span><span class="token punctuation">[</span>convert=<span class="token punctuation">&#123;</span>convertexe=<span class="token punctuation">&#123;</span>magick<span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">&#123;</span><span class="token keyword">standalone</span><span class="token punctuation">&#125;</span><span class="token function selector">\usepackage</span><span class="token punctuation">&#123;</span><span class="token keyword">tikz-cd</span><span class="token punctuation">&#125;</span><span class="token function selector">\usepackage</span><span class="token punctuation">&#123;</span><span class="token keyword">amsmath,amssymb</span><span class="token punctuation">&#125;</span><span class="token function selector">\usepackage</span><span class="token punctuation">&#123;</span><span class="token keyword">mathtools</span><span class="token punctuation">&#125;</span><span class="token function selector">\pagecolor</span><span class="token punctuation">&#123;</span>white<span class="token punctuation">&#125;</span><span class="token function selector">\begin</span><span class="token punctuation">&#123;</span><span class="token keyword">document</span><span class="token punctuation">&#125;</span><span class="token function selector">\begin</span><span class="token punctuation">&#123;</span><span class="token keyword">tikzcd</span><span class="token punctuation">&#125;</span><span class="token punctuation">[</span>row sep=huge<span class="token punctuation">]</span>    <span class="token punctuation">&amp;</span>D^<span class="token punctuation">&#123;</span>2<span class="token punctuation">&#125;</span><span class="token function selector">\arrow</span><span class="token punctuation">[</span>dl,shift right<span class="token punctuation">]</span><span class="token function selector">\arrow</span><span class="token punctuation">[</span>dr,shift left,"+S^<span class="token punctuation">&#123;</span>1<span class="token punctuation">&#125;</span>"<span class="token punctuation">]</span><span class="token punctuation">&#123;</span>+S^<span class="token punctuation">&#123;</span>1<span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">&amp;</span><span class="token function selector">\\</span>    <span class="token function selector">\mathbb</span><span class="token punctuation">&#123;</span>R<span class="token punctuation">&#125;</span>^<span class="token punctuation">&#123;</span>2<span class="token punctuation">&#125;</span><span class="token function selector">\arrow</span><span class="token punctuation">[</span>ur,shift right<span class="token punctuation">]</span><span class="token function selector">\arrow</span><span class="token punctuation">[</span>rr,"+<span class="token function selector">\&#123;</span><span class="token function selector">\infty</span><span class="token function selector">\&#125;</span>"<span class="token punctuation">]</span> <span class="token punctuation">&amp;</span>         <span class="token punctuation">&amp;</span>S^<span class="token punctuation">&#123;</span>2<span class="token punctuation">&#125;</span><span class="token function selector">\arrow</span><span class="token punctuation">[</span>ul,shift left,"-<span class="token function selector">\&#123;</span>p<span class="token function selector">\&#125;</span>"<span class="token punctuation">]</span><span class="token function selector">\end</span><span class="token punctuation">&#123;</span><span class="token keyword">tikzcd</span><span class="token punctuation">&#125;</span><span class="token equation string">$<span class="token equation-command regex">\xRightarrow</span>&#123;<span class="token equation-command regex">\text</span>&#123;generlization&#125;&#125; S^&#123;n&#125;=<span class="token equation-command regex">\mathbb</span>&#123;R&#125;^&#123;n&#125;<span class="token equation-command regex">\bigcup</span> <span class="token equation-command regex">\&#123;</span><span class="token equation-command regex">\infty</span><span class="token equation-command regex">\&#125;</span>$</span><span class="token function selector">\end</span><span class="token punctuation">&#123;</span><span class="token keyword">document</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> 注意以下几点： 1. 代码第一行的文档选项<code>convert=&#123;convertexe=&#123;magick&#125;&#125;</code>里面的<code>magick</code>为下载的<code>ImageMagick</code>中<code>.exe</code>文件的文件名（以后版本文件名也可能有变化，要注意改变）。网上其他相关的资料可能文档选项只有<code>convert</code>，因为<code>ImageMagick</code>早期版本可能文件名与现在不同。 2. 转换后得到的PNG图片可能背景是透明的,<code>\pagecolor&#123;white&#125;</code>可以让背景变为白色。 3. 默认得到的为300dpi的PNG格式图片。可以更改选项调整得到需要的图片，具体见：<a href="https://ctan.org/pkg/standalone"><code>standalone</code>官方文档</a>。</p><p>该代码生成的图片为：<img src="https://gitee.com/spaceofzsj/pictures/raw/master/cd20220227.png" alt="Relations" /></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> LaTeX </tag>
-            
-            <tag> TikZ </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Topological Space</title>
-      <link href="/posts/1d583a28.html"/>
-      <url>/posts/1d583a28.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="basics-of-sets">Basics of Sets</h1><blockquote><p><em>This part is relatively simple, so I will only list the definitions and properties instead of elaborating it.</em></p></blockquote><span id="more"></span><p>In mathematics, a <a href="https://www.wikiwand.com/en/Set_(mathematics)"><em>set</em></a> is a collection of elements. Every item in a <em>set</em> is called an <em>element</em> or <em>point</em>. If <span class="math inline">\(x\)</span> is an element of <span class="math inline">\(X\)</span>, then <span class="math inline">\(x\)</span> belongs to <span class="math inline">\(X\)</span>, and we denote it as <span class="math inline">\(x\in X\)</span>. <span class="math inline">\(\notin\)</span> means "not belong to". A set doesn't contain any element is called an <em>empty set</em>, which is denoted by <span class="math inline">\(\emptyset\)</span>. &gt;<strong>Definition 1:</strong> If every element in a set <span class="math inline">\(A\)</span> belongs to the set <span class="math inline">\(X\)</span>, then <span class="math inline">\(A\)</span> is a subset of <span class="math inline">\(X\)</span>, which is denoted by <span class="math inline">\(A\subset X\)</span> or <span class="math inline">\(X\supset A\)</span>. <span class="math inline">\(\emptyset\)</span> is a subset of any set. <span class="math inline">\(A\)</span> is called a <em>proper subset</em> of <span class="math inline">\(X\)</span> if <span class="math inline">\(A\subset X\)</span> and <span class="math inline">\(A\neq X\)</span>. <span class="math inline">\(A=B\)</span> if <span class="math inline">\(X\subset Y\)</span> and <span class="math inline">\(Y\subset X\)</span>.</p><p>To be continued... P.S. I'm currently working on the chapter 3 and will come back to here later. This part is too boring...XD</p>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>Riemann Curvature Tensor</title>
+    <url>/posts/48c07248.html</url>
+    <content><![CDATA[<center>
+<img style="border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"  
+src="https://gitee.com/spaceofzsj/pictures/raw/master/16DETACHMENT_SPAN-articleLarge.jpg" /> <a href="https://movie.douban.com/subject/5322596/"  target="opentype">超脱</a> (<a href="https://www.imdb.com/title/tt1683526"  target="opentype">Detachment</a>)
+</center>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&amp;id=22489526&amp;auto=0&amp;height=66">
+</iframe>
+<span id="more"></span>
+<h1 id="derivative-operator">Derivative Operator</h1>
+<blockquote>
+<p><strong>Definition 1.1</strong> Let <span class="math inline">\(\mathscr{F}_{M}(k,l)\)</span> be the set of all <span class="math inline">\(\mathrm{C}^{\infty}\)</span> tensor field of <span class="math inline">\((k,l)\)</span> type. The map <span class="math inline">\(\nabla\)</span> : <span class="math inline">\(\mathscr{F}_{M}(k,l)\rightarrow\mathscr{F}_{M}(k,l+1)\)</span> is called the <em>derivative operator</em> on the manifold <span class="math inline">\(M\)</span> if it satisfies the following conditions:</p>
+<ol type="1">
+<li>Linearity: For all <span class="math inline">\(A\)</span>, <span class="math inline">\(B\in\mathscr{F}_{M}(k,l)\)</span> and <span class="math inline">\(\alpha,\beta\in R\)</span>, <span class="math display">\[\begin{equation}\nabla_{c}\left(\alpha A^{a_{1}\cdots a_{k}}_{\quad\quad \ b_{1}\cdots b_{l}}+\beta B^{a_{1}\cdots a_{k}}_{\quad\quad \ b_{1}\cdots b_{l}}\right)=\alpha\nabla_{c}A^{a_{1}\cdots a_{k}}_{\quad\quad \ b_{1}\cdots b_{l}}+\beta B^{a_{1}\cdots a_{k}}_{\quad\quad \ b_{1}\cdots b_{l}}\notag\end{equation}\]</span></li>
+<li>Leibnitz rule: For all <span class="math inline">\(A\in\mathscr{F}(k,l)\)</span>,<span class="math inline">\(B\in\mathscr{F}(k&#39;,l&#39;)\)</span>, <span class="math display">\[\begin{align}&amp;\nabla_{e}\left[A^{a_{1}\cdots a_{k}}_{\quad\quad\ b_{1}\cdots b_{k}} B^{c_{1}\cdots c_{k}}_{\quad\quad\ d_{1}\cdots d_{k}}\right]\notag\\&amp;=\nabla_{e}\left[A^{a_{1}\cdots a_{k}}_{\quad\quad\ b_{1}\cdots b_{k}}\right] B^{c_{1}\cdots c_{k}}_{\quad\quad\ d_{1}\cdots d_{k}}+\nabla_{e}A^{a_{1}\cdots a_{k}}_{\quad\quad\ b_{1}\cdots b_{k}} \left[B^{c_{1}\cdots c_{k}}_{\quad\quad\ d_{1}\cdots d_{k}}\right]\notag\end{align}\]</span></li>
+<li>Commutativity with contraction: For all <span class="math inline">\(A\in\mathscr{F}(k,l), B\in\mathscr{F}(k&#39;,l&#39;),\)</span> <span class="math display">\[\begin{equation}\nabla_{d}\left(A^{a_{1}\cdots c\cdots a_{k}}_{\quad\quad\quad\ \  b_{1}\cdots c\cdots b_{l}}\right)=\nabla_{d}A^{a_{1}\cdots c\cdots a_{k}}_{\quad\quad\quad\ \  b_{1}\cdots c\cdots b_{l}}\notag\end{equation}\]</span></li>
+<li>Consistency with the notion of tangent vectors as directional derivatives on scalar fields: For all <span class="math inline">\(f\in\mathscr{F}\)</span> and all <span class="math inline">\(t^{a}\in V_{p}\)</span>: <span class="math display">\[\begin{equation}t(f)=t^{a}\nabla_{a}f\notag\end{equation}\]</span></li>
+<li>Torsion free: For all <span class="math inline">\(f\in\mathscr{F}\)</span>, <span class="math display">\[\begin{equation}\nabla_{a}\nabla_{b}f=\nabla_{b}\nabla_{a}f\notag\end{equation}\]</span></li>
+</ol>
+</blockquote>
+<p>When we write something like: <span class="math display">\[\begin{equation}\nabla_{a}\left(v^{b}\omega_{b}\right)=v^{b}\nabla_{a}\omega_{b}+\omega_{b}\nabla_{a}v^{b},\notag\end{equation}\]</span> we have actually used the third condition: <span class="math display">\[\begin{equation}
+    \nabla_{a}\left(v^{b}\omega_{c}\right)=\nabla_{a}\left[\mathrm{C}\left(v^{b}\omega_{c}\right)\right]
+                                      =\mathrm{C}^{1}_{2}\left(v^{b}\nabla_{a}\omega_{c}\right)+\mathrm{C}^{1}_{2}\left[\left(\nabla_{a}v^{b}\right)\omega_{c}\right]
+                                      =v^{b}\nabla_{a}\omega_{b}+\omega_{b}\nabla_{a}b^{b},\notag
+                                      \end{equation}\]</span></p>
+<p>where <span class="math inline">\(\mathrm{C}\)</span> represents contraction.</p>
+<p>From the forth condition, we can see that: <span class="math display">\[\begin{equation}\nabla_{a}f=(\mathrm{d}f)_{a} \tag{1.1}\label{1.1}\end{equation}\]</span></p>
+<p>In fact, the operator satisfies this five conditions above must exist on any manifold. Now we consider the effects of two different derivative operators <span class="math inline">\(\nabla_{a}\)</span> and <span class="math inline">\(\widetilde{\nabla}_{a}\)</span> on several kinds of tensors.</p>
+<p>From Eq.<span class="math inline">\(\eqref{1.1}\)</span>, we know for all <span class="math inline">\(f\in \mathscr{F}_{M}\)</span> <span class="math display">\[\begin{equation}\nabla_{a} f=\widetilde{\nabla}_{a} f=\left( \mathrm{d}f \right)_{a}.\tag{1.2}\label{1.2}\end{equation}\]</span></p>
+<blockquote>
+<p><strong>Theorem 1.1</strong><span class="math inline">\(\quad\)</span> If <span class="math inline">\(p \in M\)</span>, <span class="math inline">\(\omega_{b}, \omega_{b}&#39;\in \mathscr{F}(0,1)\)</span> satisfy <span class="math inline">\(\omega_{b}&#39;|_{p}=\omega_b|_{p}\)</span>, then <span class="math display">\[\begin{equation}\left[\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\omega_{b}&#39;\right]_{p}=\left[\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\omega_{b}\right]_{p}\notag\end{equation}\]</span> <strong>Proof</strong><span class="math inline">\(\quad\)</span> We only need to prove that <span class="math display">\[\begin{equation}\left[\nabla_{a}\left(\omega_{b}&#39;-\omega_{b}\right)\right]_{p}=\left[\widetilde{\nabla}_{a}\left(\omega_{b}&#39;-\omega_{b}\right)\right]_{p}.\tag{1.3}\label{1.3}\end{equation}\]</span> Assume that <span class="math inline">\(\Omega=\omega_{b}&#39;-\omega_{b}\)</span>. We can choose a coordinate system <span class="math inline">\(\left\{ x_{\mu} \right\}\)</span> whose coordinate patch contains <span class="math inline">\(p\)</span>，so <span class="math inline">\(\Omega_{\mu}(p)=0\)</span> because <span class="math inline">\(\omega_{b}&#39;|_{p}=\omega_{b}|_{p}\)</span>, where <span class="math inline">\(\Omega_{\mu}\)</span>'s are the coordinates of <span class="math inline">\(\Omega_{b}\)</span>. For <span class="math inline">\(p\)</span>, <span class="math display">\[\begin{align}
+\left[\nabla_{a}\left(\omega_{b}&#39;-\omega_{b}\right)\right]_{p}&amp;=\left[\nabla_{a}\Omega_{b}\right]_{p}=\left\{\nabla_{a}\left[\Omega_{\mu}\left(\mathrm{d}x^{\mu}\right)_{b}\right]\right\}|_{p}\notag\\
+&amp;=\Omega_{\mu}(p)\left[\nabla_{a}\left(\mathrm{d}x^{\mu}\right)_{b}\right]_{p}+\left[\left(\mathrm{d}x^{\mu}\right)_{b}\nabla_{a}\Omega_{\mu}\right]|_{p}=\left[\left(\mathrm{d}x^{\mu}\right)_{b}\nabla_{a}\Omega_{\mu}\right]_{p}.\notag
+\end{align}\]</span> In the same way, we have <span class="math inline">\(\left[\widetilde{\nabla_{a}}\left(\omega_{b}&#39;-\omega_{b}\right)\right]_{p}=\left[\left(\mathrm{d}x^{\mu}\right)_{b}\widetilde{\nabla}_{a}\Omega_{\mu}\right]_{p}\)</span>. From Eq.<span class="math inline">\(\eqref{1.1}\)</span>, we know that <span class="math inline">\(\left[\nabla_{a}\Omega_{\mu}\right]_{p}=\left[\widetilde{\nabla}_{a}\Omega_{\mu}\right]_{p}=\left[(\mathrm{d}\Omega_{\mu})_{a}\right]_{p}\)</span>. So Eq.<span class="math inline">\(\eqref{1.3}\)</span> is true.</p>
+<p><em>Q.E.D.</em></p>
+</blockquote>
+<p><em>Theorem 1.1</em> shows that <span class="math inline">\(\left[\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\omega_{b}\right]_{p}\)</span> depends only on <span class="math inline">\(\omega_{b}|_{p}\)</span>. And the value of <span class="math inline">\(\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\)</span> corresponds to a tenser of type <span class="math inline">\((1,2)\)</span> <span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}\)</span>, which satisfies <span class="math display">\[\left[\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\omega_{b}\right]_{p}=\mathrm{C}^{c}_{\ \ ab}\omega_{c}|_{p}.\]</span> Since <span class="math inline">\(p\)</span> is an arbitary point, so the effect of two derivative operators on <span class="math inline">\(\omega_{b}\)</span> only differs by a tensor field of type <span class="math inline">\((1,2)\)</span> on <span class="math inline">\(M\)</span>. To be specific,</p>
+<blockquote>
+<p><strong>Theorem 1.2</strong> <span class="math inline">\(\quad\)</span>For all <span class="math inline">\(\omega_{b}\in\mathscr{F}(0,1)\)</span>: <span class="math display">\[\begin{align}\nabla_{a}\omega_{b}=\widetilde{\nabla}_{a}\omega_{b}-\mathrm{C}^{a}_{\ \ ab}\omega_{c}\tag{1.4}\label{1.4}\end{align}\]</span></p>
+</blockquote>
+<blockquote>
+<p><strong>Theorem 1.3</strong><span class="math inline">\(\quad\)</span> <span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}=\mathrm{C}^{c}_{\ \ ba}\)</span></p>
+<p><strong>Proof</strong><span class="math inline">\(\quad\)</span> Let <span class="math inline">\(\omega_{b}=\nabla_{b}f=\widetilde{\nabla}_{b}f\)</span>, where <span class="math inline">\(f\in\mathscr{F}_{M}\)</span>. From Eq.<span class="math inline">\(\eqref{1.4}\)</span>, we have <span class="math inline">\(\nabla_{a}\nabla_{b}f=\widetilde{\nabla_{a}}\widetilde{\nabla_{b}}f-\mathrm{C}^{c}_{\ \ ab}\nabla_{c}f\)</span>. Exchange the indicies <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> and we have <span class="math inline">\(\nabla_{b}\nabla_{a}f=\widetilde{\nabla_{b}}\widetilde{\nabla_{a}}f-\mathrm{C}^{c}_{\ \ ba}\nabla_{c}f\)</span>. Notice the last condition in the <em>definition 1.1</em>(torsion free), there is <span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}\nabla_{c}f=\mathrm{C}^{c}_{\ \ ba}\nabla_{c}f\)</span>. Let <span class="math inline">\(T^{c}_{\ \ ab}=\mathrm{C}^{c}_{\ \ ab}-\mathrm{C}^{c}_{\ \ ba}\)</span>, then <span class="math inline">\(T^{c}_{\ \ ab}\nabla_{c}f=0\)</span> for all <span class="math inline">\(f\in \mathscr{F}_{M}\)</span>. Then the coordinate components <span class="math inline">\(T^{\sigma}_{\ \ \mu\nu}=T^{c}_{\ \ ab}\left(\mathrm{d}x^{\sigma}\right)_{c}\left(\frac{\partial}{\partial x^{\mu}}\right)^{a}\left(\frac{\partial}{\partial x^{\nu}}\right)^{b}=0\)</span>(the second equality is because <span class="math inline">\(T^{c}_{\ \ ab}\left(\mathrm{d}x^{\sigma}\right)_{c}=T^{c}_{\ \ ab}\nabla_{c}x^{\sigma}=0\)</span> ), so <span class="math inline">\(T^{c}_{\ \ ab}=0\)</span>.</p>
+<p><em>Q.E.D</em></p>
+</blockquote>
+<blockquote>
+<p><strong>Theorem 1.4</strong><span class="math inline">\(\quad\)</span> For all <span class="math inline">\(v^{b}\in\mathscr{F(1,0)}\)</span>, <span class="math display">\[\begin{align}
+\nabla_{a}v^{b}=\widetilde{\nabla}_{a}v^{b}+\mathrm{C}^{b}_{\ \ ac}v^{c}\notag
+\end{align}\]</span></p>
+<p><strong>Proof</strong> Let <span class="math inline">\(\omega_{b}\)</span> be an arbitary dual vector field on manifold <span class="math inline">\(M\)</span>, then <span class="math display">\[
+\begin{align}
+\nabla_{a}\left(\omega_{b} v^{b}\right)&amp;=\omega_{b}\nabla_{a}v^{b}+v^{b}\nabla_{a}\omega_{b}\notag\\
+&amp;=\omega_{b}\nabla_{a}v^{b}+v^{b}\left(\widetilde{\nabla}_{a}\omega_{b}-\mathrm{C}^{c}_{\ \ ab}\omega_{c}\right).\tag{1.5}\label{1.5}
+\end{align}\]</span> On the other hand, <span class="math inline">\(\widetilde{\nabla}_{a}\left(\omega_{b}v^{b}\right)=\omega_{b}\widetilde{\nabla}_{a}v^{b}+v^{b}\widetilde{\nabla}_{a}\omega_{b}\)</span>. From Eq.<span class="math inline">\(\eqref{1.2}\)</span>, <span class="math inline">\(\nabla_{a}\left(\omega_{b}v^{b}\right)=\widetilde{\nabla_{b}}\left(\omega_{b}v^{b}\right)\)</span> because <span class="math inline">\(\omega_{b}v^{b}\)</span> is a scaler field. Substitute this relation into Eq.<span class="math inline">\(\eqref{1.5}\)</span>, we have <span class="math display">\[\begin{align}
+\omega_{b}\nabla_{a}v^{b}=\omega_{b}\widetilde{\nabla}_{a}v^{b}+\mathrm{C}^{c}_{\ \ ab}v^{b}\omega_{c}=\omega_{b}\widetilde{\nabla}_{a}v^{b}+\mathrm{C}^{b}_{\ \ ac}v^{c}\omega_{b}\notag
+\end{align}
+\]</span> for all <span class="math inline">\(\omega_{b}\in\mathscr{F}_{M}(0,1)\)</span>. So <span class="math inline">\(\nabla_{a}v^{b}=\widetilde{\nabla}_{a}v^{b}+\mathrm{C}^{b}_{\ \ ac}v^{c}\)</span>.</p>
+<p><em>Q.E.D</em></p>
+</blockquote>
+<p>This theorem can be generalized.</p>
+<blockquote>
+<p><strong>Theorem 1.5</strong><span class="math inline">\(\quad\)</span> For all <span class="math inline">\(T\in\mathscr{F}_{M}(k,l)\)</span> <span class="math display">\[\begin{align}
+&amp;\nabla_{a}T^{b_{1}\cdots b_{k}}_{\quad\quad\ \ c_{1}\cdots c_{l}}\notag\\
+&amp;=\widetilde{\nabla}_{a}T^{b_{1}\cdots b_{k}}_{\quad\quad\ \ c_{1}\cdots c_{l}}+\sum_{i}\mathrm{C}^{b_{i}}_{\ \ \  ad}T^{b_{1}\cdots d\cdots b_{k}}_{\quad\quad\quad\ \ \  c_{1}\cdots c_{l}}-\sum_{j}C^{d}_{\ \ \ ac_{j}}T^{b_{1}\cdots b_{k}}_{\quad\quad\ \  c_{1}\cdots d\cdots c_{l}}.\tag{1.6}\label{1.6}
+\end{align}\]</span></p>
+</blockquote>
+<p>Any two derivative operators only differ by a tensor field <span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}\)</span>. On the other hand, with any derivative operator <span class="math inline">\(\widetilde{\nabla}_{a}\)</span> and a tensor field <span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}\)</span> which is symmetric in down indicies (<span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}=\mathrm{C}^{c}_{\ \ ba}\)</span>), we can define a new operator according to Eq.<span class="math inline">\(\eqref{1.6}\)</span> and this new operator will satisfy the definition of a derivative operator.</p>
+<p>After choosing a derivative operator <span class="math inline">\(\nabla_{a}\)</span>, the manifold will be denoted by <span class="math inline">\((M,\nabla_{a})\)</span>.</p>
+<p>Let <span class="math inline">\(\left\{x^{\mu}\right\}\)</span> be a coordinate system on manifold <span class="math inline">\(M\)</span>. The mapping <span class="math inline">\(\partial_{a}: \mathscr{F}_{O}(k,l)\rightarrow\mathscr{F}_{O}(k,l+1)\)</span> is defined as: <span class="math display">\[\begin{align} \partial_{a} T^{b}_{\ \ \ c}\equiv\left(\mathrm{d}x^{\mu}\right)_{a}\left(\frac{\partial}{\partial x^{\nu}}\right)^{b}\left(\mathrm{d}x^{\sigma}\right)_{c}\partial_{\mu}T^{\nu}_{\ \ \ \sigma}.\notag\end{align}\]</span> It can be veryfied that <span class="math inline">\(\partial_{a}\)</span> satisfies <strong>definition 1.1</strong> and we call it <em>ordinary derivative</em>.</p>
+<p>Althogh, <span class="math inline">\(\partial_{a}\)</span> is a special case of <span class="math inline">\(\nabla_{a}\)</span>, it relies on the coordinate itself. We call the <span class="math inline">\(\nabla_{a}\)</span>'s independent on the coordinate system <em>covariant derivative</em> and <span class="math inline">\(\partial_{a}\)</span> is not a covariant derivative.</p>
+<blockquote>
+<p><strong>Definition 1.2</strong><span class="math inline">\(\quad\)</span>The difference between <span class="math inline">\(\nabla_{a}\)</span> and <span class="math inline">\(\partial_{a}\)</span> , i.e. <span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}\)</span> in Eq.<span class="math inline">\(\eqref{1.6}\)</span>,is called the <em>Christoffel symbol</em> of <span class="math inline">\(\nabla_{a}\)</span> in this coordinate system which is denoted by <span class="math inline">\(\Gamma^{c}_{\ \ ab}\)</span>.</p>
+</blockquote>
+<p>Christoffel symbol is a tensor field depends on the coordinate system.(See detailed discussion in《微分几何入门与广义相对论（上）第二版》p59).</p>
+<blockquote>
+<p><strong>Theorem 1.6</strong><span class="math inline">\(\quad\)</span> <span class="math display">\[\begin{align}&amp;v^{\nu}_{\ \ ;\mu}=v^{\nu}_{\ \ ,\mu}+\Gamma^{\nu}_{\ \ \mu\sigma}v^{\sigma}\tag{1.7}\label{1.7}\\
+&amp;\omega_{\nu\ \ ;\mu}=\omega_{\nu\ \ ,\mu}-\Gamma^{\sigma}_{\ \ \mu\nu}\omega_{\sigma}\notag
+\end{align}\]</span></p>
+</blockquote>
+<h1 id="derivative-and-parallel-transport-of-vector-field-along-curve">Derivative And Parallel Transport Of Vector Field Along Curve</h1>
+<h2 id="parallel-transport-of-vector-field-along-curve">Parallel Transport Of Vector Field Along Curve</h2>
+<p>After choosing a derivative operator on manifold <span class="math inline">\(M\)</span>, we have the definition of parallel transport Of vector field along a curve.</p>
+<blockquote>
+<p><strong>Definition 2.1</strong> <span class="math inline">\(\quad\)</span> Let <span class="math inline">\(v^{a}\)</span> be a vector field defined on a curve <span class="math inline">\(C(t)\)</span>. <span class="math inline">\(v^{a}\)</span> is said to be transported parallelly along <span class="math inline">\(C(t)\)</span> if <span class="math inline">\(T^{b}\nabla_{b}v^{a}=0\)</span> is satisfied along the curve where <span class="math inline">\(T^{a}\equiv\left(\frac{\partial}{\partial t}\right)^{a}\)</span> is the tangent vector of <span class="math inline">\(C(t)\)</span>.</p>
+</blockquote>
+<blockquote>
+<p><strong>Theorem 2.1</strong><span class="math inline">\(\quad\)</span> Let the equation of the curve <span class="math inline">\(C(t)\)</span> be <span class="math inline">\(x^{\mu}(t)\)</span> and <span class="math inline">\(T^{a}=\left(\frac{\partial}{\partial t}\right)^{a}\)</span> , then the vector field <span class="math inline">\(v^{a}\)</span> transports parallelly along <span class="math inline">\(C(t)\)</span> satisfies: <span class="math display">\[\begin{align}
+T^{b}\nabla_{b}v^{a}=\left(\frac{\partial}{\partial x^{\mu}}\right)^{a}\left(\frac{\mathrm{d}v^{\mu}}{\mathrm{d} t}+\Gamma^{\mu}_{\ \ \nu\sigma}T^{\nu}v^{\sigma}\right)\tag{2.1}\label{2.1}
+\end{align}\]</span> <strong>Proof</strong> <span class="math display">\[\begin{align}
+T^{b}\nabla_{b}v^{a}&amp;=T^{b}\left(\partial_{b}v^{a}+\Gamma^{a}_{\ \ bc}v^{c}\right)\notag\\
+&amp;=T^{b}\left[\left(\mathrm{d}x^{\nu}_{b}\right)\left(\frac{\partial}{\partial x^{\mu}}\right)^{a}\partial_{\nu}v^{\mu}+\Gamma^{a}_{\ \ bc}v^{c}\right]\notag\\
+&amp;=T^{\nu}\left(\frac{\partial}{\partial x^{\nu}}\right)^{a}\left(\frac{\partial v^{\mu}}{\partial x^{\nu}}\right)+\Gamma^{a}_{\ \ bc}T^{b}v^{c}\notag\\
+&amp;=\left(\frac{\partial}{\partial x^{\mu}}\right)^{a}\left[T^{\mu}\left(\frac{\partial v^{\mu}}{\partial x^{\nu}}\right)+\Gamma^{\mu}_{\ \ \nu\sigma}T^{\nu}v^{\sigma}\right].\notag
+\end{align}\]</span> Notice that <span class="math inline">\(T^{\nu}=\frac{\mathrm{d}x^{\nu}(t)}{\mathrm{d}t}\)</span>, we have <span class="math display">\[\begin{align}
+T^{\nu}\left(\frac{\partial v^{\mu}}{\partial x^{\nu}}\right)&amp;=\left[\frac{\mathrm{d}x^{\nu}(t)}{\mathrm{d}t}\right]\left[\frac{\partial v^{\mu}\left(t(x)\right)}{\partial x^{\nu}}\right]\notag\\
+&amp;=\frac{\mathrm{d}v^{\nu}(t)}{\mathrm{d}t}\notag
+\end{align}\]</span> Q.E.D</p>
+</blockquote>
+<blockquote>
+<p><strong>Theorem 2.2</strong><span class="math inline">\(\quad\)</span> A point on the curve <span class="math inline">\(C(t)\)</span> together with a vector at the point determine the only vector field transports parallelly along the curve. <strong>Proof</strong><span class="math inline">\(\quad\)</span>From Eq.<span class="math inline">\(\eqref{2.1}\)</span> , we know: <span class="math display">\[\begin{align}
+\frac{\mathrm{d}v^{\mu}}{\mathrm{d}t}+\Gamma^{\mu}_{\ \ \nu\sigma}T^{\nu}v^{\sigma}=0,\quad \mu=1,2\cdots n.
+\end{align}\]</span> These are <span class="math inline">\(n\)</span> ODEs of first order and there are enough initial conditions to determine the solution.</p>
+<p>Q.E.D</p>
+</blockquote>
+<p>Let <span class="math inline">\(p,q\in M\)</span>, then <span class="math inline">\(V_{p}\)</span> and <span class="math inline">\(V{q}\)</span> are two different vector space and any two elements from them can't be compared directly. Given a vector in <span class="math inline">\(p\)</span> (or <span class="math inline">\(q\)</span>),we can choose a curve passes <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span>. Using <strong>Theorem 2.2</strong>, there is only one vector field determine by the curve and the vector. So we can compare the value of the vector field at <span class="math inline">\(p\)</span> (or <span class="math inline">\(q\)</span>) with the given vector in <span class="math inline">\(q\)</span> (or <span class="math inline">\(p\)</span>). The vector field depend on the choice of the curve. Anyway, <span class="math inline">\(\nabla_{a}\)</span> connects these two vector, so we call <span class="math inline">\(\nabla_{a}\)</span> <em>connection</em>.</p>
+<h2 id="derivative-curvatur-compatible-with-the-metric">Derivative Curvatur Compatible With The Metric</h2>
+<blockquote>
+<p>To be continued...</p>
+</blockquote>
+<p>Download: <a href="https://gitee.com/spaceofzsj/Notes/raw/master/lecturenotes/A%20Brief%20Summary%20of%20Basic%20Differential%20Geometry%20for%20General%20Relativity/Chapter%203/Chapter%203.pdf">PDF</a>(Updating)</p>
+]]></content>
       <categories>
-          
-          <category> General Relativity </category>
-          
+        <category>General Relativity</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> physics </tag>
-            
-            <tag> math </tag>
-            
-            <tag> differential geometry </tag>
-            
-            <tag> general relativity </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>A Brief Summary of Basic Differential Geometry for General Relativity</title>
-      <link href="/posts/dff9be4c.html"/>
-      <url>/posts/dff9be4c.html</url>
-      
-        <content type="html"><![CDATA[<p><img src="https://gitee.com/spaceofzsj/pictures/raw/master/WSF16_Complex-Equations_still.jpg" title="Einstein Equation" alt="Einstein Equation" /> <span id="more"></span></p><h2 id="section"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=300333&auto=0&height=66"></iframe></h2><p>While learning general relativity, I feel necessary to write down what I have already mastered and some thoughts of my own for future reference. So I will start from the basic differential geometry for general relativity. The following topics are what the note will cover.</p><blockquote><ol type="1"><li><a href="https://spaceofzsj.github.io/posts/1d583a28.html"><strong>Topological Space</strong></a></li><li><strong>Manifold and Vector Field</strong></li><li><a href="https://spaceofzsj.github.io/posts/48c07248.html"><strong>Riemann Curvature Tensor</strong></a></li><li><strong>Lie Derivative, Killing Field and Hypersurface</strong></li><li><strong>Differential Form and Integration on Manifolds</strong></li></ol></blockquote><p>Download: <a href="https://gitee.com/spaceofzsj/Notes/raw/master/lecturenotes/A%20Brief%20Summary%20of%20Basic%20Differential%20Geometry%20for%20General%20Relativity/full/full.pdf">PDF</a>(Updating)</p><p><strong>The notes will be regularly updated.</strong></p>]]></content>
-      
-      
+      <tags>
+        <tag>physics</tag>
+        <tag>math</tag>
+        <tag>differential geometry</tag>
+        <tag>general relativity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>A Brief Summary of Basic Differential Geometry for General Relativity</title>
+    <url>/posts/dff9be4c.html</url>
+    <content><![CDATA[<p><img src="https://gitee.com/spaceofzsj/pictures/raw/master/WSF16_Complex-Equations_still.jpg" title="Einstein Equation" alt="Einstein Equation" /> <span id="more"></span></p>
+<h2 id="section"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=300333&auto=0&height=66"></iframe></h2>
+<p>While learning general relativity, I feel necessary to write down what I have already mastered and some thoughts of my own for future reference. So I will start from the basic differential geometry for general relativity. The following topics are what the note will cover.</p>
+<blockquote>
+<ol type="1">
+<li><a href="https://spaceofzsj.github.io/posts/1d583a28.html"><strong>Topological Space</strong></a></li>
+<li><strong>Manifold and Vector Field</strong></li>
+<li><a href="https://spaceofzsj.github.io/posts/48c07248.html"><strong>Riemann Curvature Tensor</strong></a></li>
+<li><strong>Lie Derivative, Killing Field and Hypersurface</strong></li>
+<li><strong>Differential Form and Integration on Manifolds</strong></li>
+</ol>
+</blockquote>
+<p>Download: <a href="https://gitee.com/spaceofzsj/Notes/raw/master/lecturenotes/A%20Brief%20Summary%20of%20Basic%20Differential%20Geometry%20for%20General%20Relativity/full/full.pdf">PDF</a>(Updating)</p>
+<p><strong>The notes will be regularly updated.</strong></p>
+]]></content>
       <categories>
-          
-          <category> General Relativity </category>
-          
+        <category>General Relativity</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> physics </tag>
-            
-            <tag> math </tag>
-            
-            <tag> differential geometry </tag>
-            
-            <tag> general relativity </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>让博客支持mathjax渲染公式</title>
-      <link href="/posts/20f2bfce.html"/>
-      <url>/posts/20f2bfce.html</url>
-      
-        <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&amp;id=1852502698&amp;auto=0&amp;height=66"></iframe><blockquote><p>从起床折腾到晚上，累趴。。。</p></blockquote><span id="more"></span><p>总体思路是卸载掉hexo默认的<code>hexo-renderer-marked</code>，改用<code>hexo-renderer-pandoc</code>。（就是这么简单的一步。。。）</p><p>首先如果没安装<code>pandoc</code>的话，去<a href="https://www.pandoc.org/">官网</a>下载。安装完重启电脑。</p><p>然后命令行里进入博客的路径(.../blog)，利用<code>npm uninstall hexo-renderer-marked --registry=https://registry.npm.taobao.org</code>卸载掉原来的<code>hexo-renderer-marked</code>。执行<code>npm install hexo-renderer-pandoc --registry=https://registry.npm.taobao.org</code>安装上<code>hexo-renderer-pandoc</code>。</p><p>打开theme的_config.yml，修改里面的<code>mathjax</code>的<code>false</code>为<code>true</code>。</p><p>在blog目录下的_config.yml加上下面的代码： <pre class="line-numbers language-YAML" data-language="YAML"><code class="language-YAML">math:  engine: &#39;mathjax&#39; # or &#39;katex&#39;  mathjax:    # src: custom_mathjax_source    config:      # MathJax config<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> 保存并退出。接下来执行<code>hexo clean</code>，<code>hexo g</code>，<code>hexo s</code>即可看到公式被渲染。</p>]]></content>
-      
-      
+      <tags>
+        <tag>physics</tag>
+        <tag>math</tag>
+        <tag>differential geometry</tag>
+        <tag>general relativity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TikZ导出PNG格式图片</title>
+    <url>/posts/aeaa5c03.html</url>
+    <content><![CDATA[<p>利用<code>LaTeX</code>的<code>TikZ</code>宏包可以绘制图形，但是默认导出的为pdf格式。有时我们需要PNG等图片格式以便于插入在网页上，于是需要将pdf格式转换为图片格式。 <span id="more"></span> # 安装<code>ImageMagick</code></p>
+<p>首先，我们去<a href="https://imagemagick.org/script/download.php">ImageMagick官网</a>下载合适版本的<code>ImageMagick</code>。下载完成后安装即可。安装完成后将安装目录添加到系统Path路径中(系统搜索<strong>环境变量</strong>)。</p>
+<h1 id="允许-shell-escape">允许<code>-shell-escape</code></h1>
+<p>不同编辑器允许<code>-shell-escape</code>的方式不同，可以在这个StackExchange问题下查找：<a href="https://tex.stackexchange.com/questions/598818/how-can-i-enable-shell-escape">How can I enable shell-escape?</a>。</p>
+<p>此处以<code>VScode</code>中的<a href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop"><code>LaTeX Workshop</code></a>插件为例。 打开<code>VScode</code>，确保已经安装<code>LaTex Workshop</code>。按下<code>Ctrl+Shift+P</code>，输入<code>Preferences: Open Settings (JSON)</code>。进入<code>settings.json</code>中添加如下代码 <pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token property">"latex-workshop.latex.tools"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"latexmk"</span><span class="token punctuation">,</span>
+        <span class="token property">"command"</span><span class="token operator">:</span> <span class="token string">"latexmk"</span><span class="token punctuation">,</span>
+        <span class="token property">"args"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token string">"-shell-escape"</span><span class="token punctuation">,</span>  
+            <span class="token string">"-synctex=1"</span><span class="token punctuation">,</span>
+            <span class="token string">"-interaction=nonstopmode"</span><span class="token punctuation">,</span>
+            <span class="token string">"-file-line-error"</span><span class="token punctuation">,</span>
+            <span class="token string">"-pdf"</span><span class="token punctuation">,</span>
+            <span class="token string">"-outdir=%OUTDIR%"</span><span class="token punctuation">,</span>
+            <span class="token string">"%DOC%"</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"env"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    ...
+<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> 如果以前输入过，只需在<code>"args"</code>栏目中添加<code>"-shell-escape"</code>一项。这样就允许了<code>-shell-excape</code>。</p>
+<h1 id="latex代码设置">LaTeX代码设置</h1>
+<p>为了导出PNG格式，我们选用<code>standalone</code>文档类，调用其中的<code>convert</code>选项来完成格式转换。下面给出一个例子： <pre class="line-numbers language-latex" data-language="latex"><code class="language-latex"><span class="token function selector">\documentclass</span><span class="token punctuation">[</span>convert=<span class="token punctuation">&#123;</span>convertexe=<span class="token punctuation">&#123;</span>magick<span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">&#123;</span><span class="token keyword">standalone</span><span class="token punctuation">&#125;</span>
+<span class="token function selector">\usepackage</span><span class="token punctuation">&#123;</span><span class="token keyword">tikz-cd</span><span class="token punctuation">&#125;</span>
+<span class="token function selector">\usepackage</span><span class="token punctuation">&#123;</span><span class="token keyword">amsmath,amssymb</span><span class="token punctuation">&#125;</span>
+<span class="token function selector">\usepackage</span><span class="token punctuation">&#123;</span><span class="token keyword">mathtools</span><span class="token punctuation">&#125;</span>
+<span class="token function selector">\pagecolor</span><span class="token punctuation">&#123;</span>white<span class="token punctuation">&#125;</span>
+<span class="token function selector">\begin</span><span class="token punctuation">&#123;</span><span class="token keyword">document</span><span class="token punctuation">&#125;</span>
+<span class="token function selector">\begin</span><span class="token punctuation">&#123;</span><span class="token keyword">tikzcd</span><span class="token punctuation">&#125;</span><span class="token punctuation">[</span>row sep=huge<span class="token punctuation">]</span>
+    <span class="token punctuation">&amp;</span>D^<span class="token punctuation">&#123;</span>2<span class="token punctuation">&#125;</span><span class="token function selector">\arrow</span><span class="token punctuation">[</span>dl,shift right<span class="token punctuation">]</span><span class="token function selector">\arrow</span><span class="token punctuation">[</span>dr,shift left,"+S^<span class="token punctuation">&#123;</span>1<span class="token punctuation">&#125;</span>"<span class="token punctuation">]</span><span class="token punctuation">&#123;</span>+S^<span class="token punctuation">&#123;</span>1<span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">&amp;</span><span class="token function selector">\\</span>
+    <span class="token function selector">\mathbb</span><span class="token punctuation">&#123;</span>R<span class="token punctuation">&#125;</span>^<span class="token punctuation">&#123;</span>2<span class="token punctuation">&#125;</span><span class="token function selector">\arrow</span><span class="token punctuation">[</span>ur,shift right<span class="token punctuation">]</span><span class="token function selector">\arrow</span><span class="token punctuation">[</span>rr,"+<span class="token function selector">\&#123;</span><span class="token function selector">\infty</span><span class="token function selector">\&#125;</span>"<span class="token punctuation">]</span> <span class="token punctuation">&amp;</span>         <span class="token punctuation">&amp;</span>S^<span class="token punctuation">&#123;</span>2<span class="token punctuation">&#125;</span><span class="token function selector">\arrow</span><span class="token punctuation">[</span>ul,shift left,"-<span class="token function selector">\&#123;</span>p<span class="token function selector">\&#125;</span>"<span class="token punctuation">]</span>
+<span class="token function selector">\end</span><span class="token punctuation">&#123;</span><span class="token keyword">tikzcd</span><span class="token punctuation">&#125;</span>
+<span class="token equation string">$<span class="token equation-command regex">\xRightarrow</span>&#123;<span class="token equation-command regex">\text</span>&#123;generlization&#125;&#125; S^&#123;n&#125;=<span class="token equation-command regex">\mathbb</span>&#123;R&#125;^&#123;n&#125;<span class="token equation-command regex">\bigcup</span> <span class="token equation-command regex">\&#123;</span><span class="token equation-command regex">\infty</span><span class="token equation-command regex">\&#125;</span>$</span>
+<span class="token function selector">\end</span><span class="token punctuation">&#123;</span><span class="token keyword">document</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> 注意以下几点： 1. 代码第一行的文档选项<code>convert=&#123;convertexe=&#123;magick&#125;&#125;</code>里面的<code>magick</code>为下载的<code>ImageMagick</code>中<code>.exe</code>文件的文件名（以后版本文件名也可能有变化，要注意改变）。网上其他相关的资料可能文档选项只有<code>convert</code>，因为<code>ImageMagick</code>早期版本可能文件名与现在不同。 2. 转换后得到的PNG图片可能背景是透明的,<code>\pagecolor&#123;white&#125;</code>可以让背景变为白色。 3. 默认得到的为300dpi的PNG格式图片。可以更改选项调整得到需要的图片，具体见：<a href="https://ctan.org/pkg/standalone"><code>standalone</code>官方文档</a>。</p>
+<p>该代码生成的图片为：<img src="https://gitee.com/spaceofzsj/pictures/raw/master/cd20220227.png" alt="Relations" /></p>
+]]></content>
+      <tags>
+        <tag>LaTeX</tag>
+        <tag>TikZ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Topological Space</title>
+    <url>/posts/1d583a28.html</url>
+    <content><![CDATA[<h1 id="basics-of-sets">Basics of Sets</h1>
+<blockquote>
+<p><em>This part is relatively simple, so I will only list the definitions and properties instead of elaborating it.</em></p>
+</blockquote>
+<span id="more"></span>
+<p>In mathematics, a <a href="https://www.wikiwand.com/en/Set_(mathematics)"><em>set</em></a> is a collection of elements. Every item in a <em>set</em> is called an <em>element</em> or <em>point</em>. If <span class="math inline">\(x\)</span> is an element of <span class="math inline">\(X\)</span>, then <span class="math inline">\(x\)</span> belongs to <span class="math inline">\(X\)</span>, and we denote it as <span class="math inline">\(x\in X\)</span>. <span class="math inline">\(\notin\)</span> means "not belong to". A set doesn't contain any element is called an <em>empty set</em>, which is denoted by <span class="math inline">\(\emptyset\)</span>. &gt;<strong>Definition 1:</strong> If every element in a set <span class="math inline">\(A\)</span> belongs to the set <span class="math inline">\(X\)</span>, then <span class="math inline">\(A\)</span> is a subset of <span class="math inline">\(X\)</span>, which is denoted by <span class="math inline">\(A\subset X\)</span> or <span class="math inline">\(X\supset A\)</span>. <span class="math inline">\(\emptyset\)</span> is a subset of any set. <span class="math inline">\(A\)</span> is called a <em>proper subset</em> of <span class="math inline">\(X\)</span> if <span class="math inline">\(A\subset X\)</span> and <span class="math inline">\(A\neq X\)</span>. <span class="math inline">\(A=B\)</span> if <span class="math inline">\(X\subset Y\)</span> and <span class="math inline">\(Y\subset X\)</span>.</p>
+<p>To be continued... P.S. I'm currently working on the chapter 3 and will come back to here later. This part is too boring...XD</p>
+]]></content>
       <categories>
-          
-          <category> 博客搭建 </category>
-          
+        <category>General Relativity</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 博客搭建 </tag>
-            
-            <tag> 计算机 </tag>
-            
-            <tag> 技术 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Riemann Curvature Tensor</title>
-      <link href="/posts/48c07248.html"/>
-      <url>/posts/48c07248.html</url>
-      
-        <content type="html"><![CDATA[<center><img style="border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"  src="https://gitee.com/spaceofzsj/pictures/raw/master/16DETACHMENT_SPAN-articleLarge.jpg" /> <a href="https://movie.douban.com/subject/5322596/"  target="opentype">超脱</a> (<a href="https://www.imdb.com/title/tt1683526"  target="opentype">Detachment</a>)</center><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&amp;id=22489526&amp;auto=0&amp;height=66"></iframe><span id="more"></span><h1 id="derivative-operator">Derivative Operator</h1><blockquote><p><strong>Definition 1.1</strong> Let <span class="math inline">\(\mathscr{F}_{M}(k,l)\)</span> be the set of all <span class="math inline">\(\mathrm{C}^{\infty}\)</span> tensor field of <span class="math inline">\((k,l)\)</span> type. The map <span class="math inline">\(\nabla\)</span> : <span class="math inline">\(\mathscr{F}_{M}(k,l)\rightarrow\mathscr{F}_{M}(k,l+1)\)</span> is called the <em>derivative operator</em> on the manifold <span class="math inline">\(M\)</span> if it satisfies the following conditions:</p><ol type="1"><li>Linearity: For all <span class="math inline">\(A\)</span>, <span class="math inline">\(B\in\mathscr{F}_{M}(k,l)\)</span> and <span class="math inline">\(\alpha,\beta\in R\)</span>, <span class="math display">\[\begin{equation}\nabla_{c}\left(\alpha A^{a_{1}\cdots a_{k}}_{\quad\quad \ b_{1}\cdots b_{l}}+\beta B^{a_{1}\cdots a_{k}}_{\quad\quad \ b_{1}\cdots b_{l}}\right)=\alpha\nabla_{c}A^{a_{1}\cdots a_{k}}_{\quad\quad \ b_{1}\cdots b_{l}}+\beta B^{a_{1}\cdots a_{k}}_{\quad\quad \ b_{1}\cdots b_{l}}\notag\end{equation}\]</span></li><li>Leibnitz rule: For all <span class="math inline">\(A\in\mathscr{F}(k,l)\)</span>,<span class="math inline">\(B\in\mathscr{F}(k&#39;,l&#39;)\)</span>, <span class="math display">\[\begin{align}&amp;\nabla_{e}\left[A^{a_{1}\cdots a_{k}}_{\quad\quad\ b_{1}\cdots b_{k}} B^{c_{1}\cdots c_{k}}_{\quad\quad\ d_{1}\cdots d_{k}}\right]\notag\\&amp;=\nabla_{e}\left[A^{a_{1}\cdots a_{k}}_{\quad\quad\ b_{1}\cdots b_{k}}\right] B^{c_{1}\cdots c_{k}}_{\quad\quad\ d_{1}\cdots d_{k}}+\nabla_{e}A^{a_{1}\cdots a_{k}}_{\quad\quad\ b_{1}\cdots b_{k}} \left[B^{c_{1}\cdots c_{k}}_{\quad\quad\ d_{1}\cdots d_{k}}\right]\notag\end{align}\]</span></li><li>Commutativity with contraction: For all <span class="math inline">\(A\in\mathscr{F}(k,l), B\in\mathscr{F}(k&#39;,l&#39;),\)</span> <span class="math display">\[\begin{equation}\nabla_{d}\left(A^{a_{1}\cdots c\cdots a_{k}}_{\quad\quad\quad\ \  b_{1}\cdots c\cdots b_{l}}\right)=\nabla_{d}A^{a_{1}\cdots c\cdots a_{k}}_{\quad\quad\quad\ \  b_{1}\cdots c\cdots b_{l}}\notag\end{equation}\]</span></li><li>Consistency with the notion of tangent vectors as directional derivatives on scalar fields: For all <span class="math inline">\(f\in\mathscr{F}\)</span> and all <span class="math inline">\(t^{a}\in V_{p}\)</span>: <span class="math display">\[\begin{equation}t(f)=t^{a}\nabla_{a}f\notag\end{equation}\]</span></li><li>Torsion free: For all <span class="math inline">\(f\in\mathscr{F}\)</span>, <span class="math display">\[\begin{equation}\nabla_{a}\nabla_{b}f=\nabla_{b}\nabla_{a}f\notag\end{equation}\]</span></li></ol></blockquote><p>When we write something like: <span class="math display">\[\begin{equation}\nabla_{a}\left(v^{b}\omega_{b}\right)=v^{b}\nabla_{a}\omega_{b}+\omega_{b}\nabla_{a}v^{b},\notag\end{equation}\]</span> we have actually used the third condition: <span class="math display">\[\begin{equation}    \nabla_{a}\left(v^{b}\omega_{c}\right)=\nabla_{a}\left[\mathrm{C}\left(v^{b}\omega_{c}\right)\right]                                      =\mathrm{C}^{1}_{2}\left(v^{b}\nabla_{a}\omega_{c}\right)+\mathrm{C}^{1}_{2}\left[\left(\nabla_{a}v^{b}\right)\omega_{c}\right]                                      =v^{b}\nabla_{a}\omega_{b}+\omega_{b}\nabla_{a}b^{b},\notag                                      \end{equation}\]</span></p><p>where <span class="math inline">\(\mathrm{C}\)</span> represents contraction.</p><p>From the forth condition, we can see that: <span class="math display">\[\begin{equation}\nabla_{a}f=(\mathrm{d}f)_{a} \tag{1.1}\label{1.1}\end{equation}\]</span></p><p>In fact, the operator satisfies this five conditions above must exist on any manifold. Now we consider the effects of two different derivative operators <span class="math inline">\(\nabla_{a}\)</span> and <span class="math inline">\(\widetilde{\nabla}_{a}\)</span> on several kinds of tensors.</p><p>From Eq.<span class="math inline">\(\eqref{1.1}\)</span>, we know for all <span class="math inline">\(f\in \mathscr{F}_{M}\)</span> <span class="math display">\[\begin{equation}\nabla_{a} f=\widetilde{\nabla}_{a} f=\left( \mathrm{d}f \right)_{a}.\tag{1.2}\label{1.2}\end{equation}\]</span></p><blockquote><p><strong>Theorem 1.1</strong><span class="math inline">\(\quad\)</span> If <span class="math inline">\(p \in M\)</span>, <span class="math inline">\(\omega_{b}, \omega_{b}&#39;\in \mathscr{F}(0,1)\)</span> satisfy <span class="math inline">\(\omega_{b}&#39;|_{p}=\omega_b|_{p}\)</span>, then <span class="math display">\[\begin{equation}\left[\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\omega_{b}&#39;\right]_{p}=\left[\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\omega_{b}\right]_{p}\notag\end{equation}\]</span> <strong>Proof</strong><span class="math inline">\(\quad\)</span> We only need to prove that <span class="math display">\[\begin{equation}\left[\nabla_{a}\left(\omega_{b}&#39;-\omega_{b}\right)\right]_{p}=\left[\widetilde{\nabla}_{a}\left(\omega_{b}&#39;-\omega_{b}\right)\right]_{p}.\tag{1.3}\label{1.3}\end{equation}\]</span> Assume that <span class="math inline">\(\Omega=\omega_{b}&#39;-\omega_{b}\)</span>. We can choose a coordinate system <span class="math inline">\(\left\{ x_{\mu} \right\}\)</span> whose coordinate patch contains <span class="math inline">\(p\)</span>，so <span class="math inline">\(\Omega_{\mu}(p)=0\)</span> because <span class="math inline">\(\omega_{b}&#39;|_{p}=\omega_{b}|_{p}\)</span>, where <span class="math inline">\(\Omega_{\mu}\)</span>'s are the coordinates of <span class="math inline">\(\Omega_{b}\)</span>. For <span class="math inline">\(p\)</span>, <span class="math display">\[\begin{align}\left[\nabla_{a}\left(\omega_{b}&#39;-\omega_{b}\right)\right]_{p}&amp;=\left[\nabla_{a}\Omega_{b}\right]_{p}=\left\{\nabla_{a}\left[\Omega_{\mu}\left(\mathrm{d}x^{\mu}\right)_{b}\right]\right\}|_{p}\notag\\&amp;=\Omega_{\mu}(p)\left[\nabla_{a}\left(\mathrm{d}x^{\mu}\right)_{b}\right]_{p}+\left[\left(\mathrm{d}x^{\mu}\right)_{b}\nabla_{a}\Omega_{\mu}\right]|_{p}=\left[\left(\mathrm{d}x^{\mu}\right)_{b}\nabla_{a}\Omega_{\mu}\right]_{p}.\notag\end{align}\]</span> In the same way, we have <span class="math inline">\(\left[\widetilde{\nabla_{a}}\left(\omega_{b}&#39;-\omega_{b}\right)\right]_{p}=\left[\left(\mathrm{d}x^{\mu}\right)_{b}\widetilde{\nabla}_{a}\Omega_{\mu}\right]_{p}\)</span>. From Eq.<span class="math inline">\(\eqref{1.1}\)</span>, we know that <span class="math inline">\(\left[\nabla_{a}\Omega_{\mu}\right]_{p}=\left[\widetilde{\nabla}_{a}\Omega_{\mu}\right]_{p}=\left[(\mathrm{d}\Omega_{\mu})_{a}\right]_{p}\)</span>. So Eq.<span class="math inline">\(\eqref{1.3}\)</span> is true.</p><p><em>Q.E.D.</em></p></blockquote><p><em>Theorem 1.1</em> shows that <span class="math inline">\(\left[\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\omega_{b}\right]_{p}\)</span> depends only on <span class="math inline">\(\omega_{b}|_{p}\)</span>. And the value of <span class="math inline">\(\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\)</span> corresponds to a tenser of type <span class="math inline">\((1,2)\)</span> <span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}\)</span>, which satisfies <span class="math display">\[\left[\left(\widetilde{\nabla}_{a}-\nabla_{a}\right)\omega_{b}\right]_{p}=\mathrm{C}^{c}_{\ \ ab}\omega_{c}|_{p}.\]</span> Since <span class="math inline">\(p\)</span> is an arbitary point, so the effect of two derivative operators on <span class="math inline">\(\omega_{b}\)</span> only differs by a tensor field of type <span class="math inline">\((1,2)\)</span> on <span class="math inline">\(M\)</span>. To be specific,</p><blockquote><p><strong>Theorem 1.2</strong> <span class="math inline">\(\quad\)</span>For all <span class="math inline">\(\omega_{b}\in\mathscr{F}(0,1)\)</span>: <span class="math display">\[\begin{align}\nabla_{a}\omega_{b}=\widetilde{\nabla}_{a}\omega_{b}-\mathrm{C}^{a}_{\ \ ab}\omega_{c}\tag{1.4}\label{1.4}\end{align}\]</span></p></blockquote><blockquote><p><strong>Theorem 1.3</strong><span class="math inline">\(\quad\)</span> <span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}=\mathrm{C}^{c}_{\ \ ba}\)</span></p><p><strong>Proof</strong><span class="math inline">\(\quad\)</span> Let <span class="math inline">\(\omega_{b}=\nabla_{b}f=\widetilde{\nabla}_{b}f\)</span>, where <span class="math inline">\(f\in\mathscr{F}_{M}\)</span>. From Eq.<span class="math inline">\(\eqref{1.4}\)</span>, we have <span class="math inline">\(\nabla_{a}\nabla_{b}f=\widetilde{\nabla_{a}}\widetilde{\nabla_{b}}f-\mathrm{C}^{c}_{\ \ ab}\nabla_{c}f\)</span>. Exchange the indicies <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> and we have <span class="math inline">\(\nabla_{b}\nabla_{a}f=\widetilde{\nabla_{b}}\widetilde{\nabla_{a}}f-\mathrm{C}^{c}_{\ \ ba}\nabla_{c}f\)</span>. Notice the last condition in the <em>definition 1.1</em>(torsion free), there is <span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}\nabla_{c}f=\mathrm{C}^{c}_{\ \ ba}\nabla_{c}f\)</span>. Let <span class="math inline">\(T^{c}_{\ \ ab}=\mathrm{C}^{c}_{\ \ ab}-\mathrm{C}^{c}_{\ \ ba}\)</span>, then <span class="math inline">\(T^{c}_{\ \ ab}\nabla_{c}f=0\)</span> for all <span class="math inline">\(f\in \mathscr{F}_{M}\)</span>. Then the coordinate components <span class="math inline">\(T^{\sigma}_{\ \ \mu\nu}=T^{c}_{\ \ ab}\left(\mathrm{d}x^{\sigma}\right)_{c}\left(\frac{\partial}{\partial x^{\mu}}\right)^{a}\left(\frac{\partial}{\partial x^{\nu}}\right)^{b}=0\)</span>(the second equality is because <span class="math inline">\(T^{c}_{\ \ ab}\left(\mathrm{d}x^{\sigma}\right)_{c}=T^{c}_{\ \ ab}\nabla_{c}x^{\sigma}=0\)</span> ), so <span class="math inline">\(T^{c}_{\ \ ab}=0\)</span>.</p><p><em>Q.E.D</em></p></blockquote><blockquote><p><strong>Theorem 1.4</strong><span class="math inline">\(\quad\)</span> For all <span class="math inline">\(v^{b}\in\mathscr{F(1,0)}\)</span>, <span class="math display">\[\begin{align}\nabla_{a}v^{b}=\widetilde{\nabla}_{a}v^{b}+\mathrm{C}^{b}_{\ \ ac}v^{c}\notag\end{align}\]</span></p><p><strong>Proof</strong> Let <span class="math inline">\(\omega_{b}\)</span> be an arbitary dual vector field on manifold <span class="math inline">\(M\)</span>, then <span class="math display">\[\begin{align}\nabla_{a}\left(\omega_{b} v^{b}\right)&amp;=\omega_{b}\nabla_{a}v^{b}+v^{b}\nabla_{a}\omega_{b}\notag\\&amp;=\omega_{b}\nabla_{a}v^{b}+v^{b}\left(\widetilde{\nabla}_{a}\omega_{b}-\mathrm{C}^{c}_{\ \ ab}\omega_{c}\right).\tag{1.5}\label{1.5}\end{align}\]</span> On the other hand, <span class="math inline">\(\widetilde{\nabla}_{a}\left(\omega_{b}v^{b}\right)=\omega_{b}\widetilde{\nabla}_{a}v^{b}+v^{b}\widetilde{\nabla}_{a}\omega_{b}\)</span>. From Eq.<span class="math inline">\(\eqref{1.2}\)</span>, <span class="math inline">\(\nabla_{a}\left(\omega_{b}v^{b}\right)=\widetilde{\nabla_{b}}\left(\omega_{b}v^{b}\right)\)</span> because <span class="math inline">\(\omega_{b}v^{b}\)</span> is a scaler field. Substitute this relation into Eq.<span class="math inline">\(\eqref{1.5}\)</span>, we have <span class="math display">\[\begin{align}\omega_{b}\nabla_{a}v^{b}=\omega_{b}\widetilde{\nabla}_{a}v^{b}+\mathrm{C}^{c}_{\ \ ab}v^{b}\omega_{c}=\omega_{b}\widetilde{\nabla}_{a}v^{b}+\mathrm{C}^{b}_{\ \ ac}v^{c}\omega_{b}\notag\end{align}\]</span> for all <span class="math inline">\(\omega_{b}\in\mathscr{F}_{M}(0,1)\)</span>. So <span class="math inline">\(\nabla_{a}v^{b}=\widetilde{\nabla}_{a}v^{b}+\mathrm{C}^{b}_{\ \ ac}v^{c}\)</span>.</p><p><em>Q.E.D</em></p></blockquote><p>This theorem can be generalized.</p><blockquote><p><strong>Theorem 1.5</strong><span class="math inline">\(\quad\)</span> For all <span class="math inline">\(T\in\mathscr{F}_{M}(k,l)\)</span> <span class="math display">\[\begin{align}&amp;\nabla_{a}T^{b_{1}\cdots b_{k}}_{\quad\quad\ \ c_{1}\cdots c_{l}}\notag\\&amp;=\widetilde{\nabla}_{a}T^{b_{1}\cdots b_{k}}_{\quad\quad\ \ c_{1}\cdots c_{l}}+\sum_{i}\mathrm{C}^{b_{i}}_{\ \ \  ad}T^{b_{1}\cdots d\cdots b_{k}}_{\quad\quad\quad\ \ \  c_{1}\cdots c_{l}}-\sum_{j}C^{d}_{\ \ \ ac_{j}}T^{b_{1}\cdots b_{k}}_{\quad\quad\ \  c_{1}\cdots d\cdots c_{l}}.\tag{1.6}\label{1.6}\end{align}\]</span></p></blockquote><p>Any two derivative operators only differ by a tensor field <span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}\)</span>. On the other hand, with any derivative operator <span class="math inline">\(\widetilde{\nabla}_{a}\)</span> and a tensor field <span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}\)</span> which is symmetric in down indicies (<span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}=\mathrm{C}^{c}_{\ \ ba}\)</span>), we can define a new operator according to Eq.<span class="math inline">\(\eqref{1.6}\)</span> and this new operator will satisfy the definition of a derivative operator.</p><p>After choosing a derivative operator <span class="math inline">\(\nabla_{a}\)</span>, the manifold will be denoted by <span class="math inline">\((M,\nabla_{a})\)</span>.</p><p>Let <span class="math inline">\(\left\{x^{\mu}\right\}\)</span> be a coordinate system on manifold <span class="math inline">\(M\)</span>. The mapping <span class="math inline">\(\partial_{a}: \mathscr{F}_{O}(k,l)\rightarrow\mathscr{F}_{O}(k,l+1)\)</span> is defined as: <span class="math display">\[\begin{align} \partial_{a} T^{b}_{\ \ \ c}\equiv\left(\mathrm{d}x^{\mu}\right)_{a}\left(\frac{\partial}{\partial x^{\nu}}\right)^{b}\left(\mathrm{d}x^{\sigma}\right)_{c}\partial_{\mu}T^{\nu}_{\ \ \ \sigma}.\notag\end{align}\]</span> It can be veryfied that <span class="math inline">\(\partial_{a}\)</span> satisfies <strong>definition 1.1</strong> and we call it <em>ordinary derivative</em>.</p><p>Althogh, <span class="math inline">\(\partial_{a}\)</span> is a special case of <span class="math inline">\(\nabla_{a}\)</span>, it relies on the coordinate itself. We call the <span class="math inline">\(\nabla_{a}\)</span>'s independent on the coordinate system <em>covariant derivative</em> and <span class="math inline">\(\partial_{a}\)</span> is not a covariant derivative.</p><blockquote><p><strong>Definition 1.2</strong><span class="math inline">\(\quad\)</span>The difference between <span class="math inline">\(\nabla_{a}\)</span> and <span class="math inline">\(\partial_{a}\)</span> , i.e. <span class="math inline">\(\mathrm{C}^{c}_{\ \ ab}\)</span> in Eq.<span class="math inline">\(\eqref{1.6}\)</span>,is called the <em>Christoffel symbol</em> of <span class="math inline">\(\nabla_{a}\)</span> in this coordinate system which is denoted by <span class="math inline">\(\Gamma^{c}_{\ \ ab}\)</span>.</p></blockquote><p>Christoffel symbol is a tensor field depends on the coordinate system.(See detailed discussion in《微分几何入门与广义相对论（上）第二版》p59).</p><blockquote><p><strong>Theorem 1.6</strong><span class="math inline">\(\quad\)</span> <span class="math display">\[\begin{align}&amp;v^{\nu}_{\ \ ;\mu}=v^{\nu}_{\ \ ,\mu}+\Gamma^{\nu}_{\ \ \mu\sigma}v^{\sigma}\tag{1.7}\label{1.7}\\&amp;\omega_{\nu\ \ ;\mu}=\omega_{\nu\ \ ,\mu}-\Gamma^{\sigma}_{\ \ \mu\nu}\omega_{\sigma}\notag\end{align}\]</span></p></blockquote><h1 id="derivative-and-parallel-transport-of-vector-field-along-curve">Derivative And Parallel Transport Of Vector Field Along Curve</h1><h2 id="parallel-transport-of-vector-field-along-curve">Parallel Transport Of Vector Field Along Curve</h2><p>After choosing a derivative operator on manifold <span class="math inline">\(M\)</span>, we have the definition of parallel transport Of vector field along a curve.</p><blockquote><p><strong>Definition 2.1</strong> <span class="math inline">\(\quad\)</span> Let <span class="math inline">\(v^{a}\)</span> be a vector field defined on a curve <span class="math inline">\(C(t)\)</span>. <span class="math inline">\(v^{a}\)</span> is said to be transported parallelly along <span class="math inline">\(C(t)\)</span> if <span class="math inline">\(T^{b}\nabla_{b}v^{a}=0\)</span> is satisfied along the curve where <span class="math inline">\(T^{a}\equiv\left(\frac{\partial}{\partial t}\right)^{a}\)</span> is the tangent vector of <span class="math inline">\(C(t)\)</span>.</p></blockquote><blockquote><p><strong>Theorem 2.1</strong><span class="math inline">\(\quad\)</span> Let the equation of the curve <span class="math inline">\(C(t)\)</span> be <span class="math inline">\(x^{\mu}(t)\)</span> and <span class="math inline">\(T^{a}=\left(\frac{\partial}{\partial t}\right)^{a}\)</span> , then the vector field <span class="math inline">\(v^{a}\)</span> transports parallelly along <span class="math inline">\(C(t)\)</span> satisfies: <span class="math display">\[\begin{align}T^{b}\nabla_{b}v^{a}=\left(\frac{\partial}{\partial x^{\mu}}\right)^{a}\left(\frac{\mathrm{d}v^{\mu}}{\mathrm{d} t}+\Gamma^{\mu}_{\ \ \nu\sigma}T^{\nu}v^{\sigma}\right)\tag{2.1}\label{2.1}\end{align}\]</span> <strong>Proof</strong> <span class="math display">\[\begin{align}T^{b}\nabla_{b}v^{a}&amp;=T^{b}\left(\partial_{b}v^{a}+\Gamma^{a}_{\ \ bc}v^{c}\right)\notag\\&amp;=T^{b}\left[\left(\mathrm{d}x^{\nu}_{b}\right)\left(\frac{\partial}{\partial x^{\mu}}\right)^{a}\partial_{\nu}v^{\mu}+\Gamma^{a}_{\ \ bc}v^{c}\right]\notag\\&amp;=T^{\nu}\left(\frac{\partial}{\partial x^{\nu}}\right)^{a}\left(\frac{\partial v^{\mu}}{\partial x^{\nu}}\right)+\Gamma^{a}_{\ \ bc}T^{b}v^{c}\notag\\&amp;=\left(\frac{\partial}{\partial x^{\mu}}\right)^{a}\left[T^{\mu}\left(\frac{\partial v^{\mu}}{\partial x^{\nu}}\right)+\Gamma^{\mu}_{\ \ \nu\sigma}T^{\nu}v^{\sigma}\right].\notag\end{align}\]</span> Notice that <span class="math inline">\(T^{\nu}=\frac{\mathrm{d}x^{\nu}(t)}{\mathrm{d}t}\)</span>, we have <span class="math display">\[\begin{align}T^{\nu}\left(\frac{\partial v^{\mu}}{\partial x^{\nu}}\right)&amp;=\left[\frac{\mathrm{d}x^{\nu}(t)}{\mathrm{d}t}\right]\left[\frac{\partial v^{\mu}\left(t(x)\right)}{\partial x^{\nu}}\right]\notag\\&amp;=\frac{\mathrm{d}v^{\nu}(t)}{\mathrm{d}t}\notag\end{align}\]</span> Q.E.D</p></blockquote><blockquote><p><strong>Theorem 2.2</strong><span class="math inline">\(\quad\)</span> A point on the curve <span class="math inline">\(C(t)\)</span> together with a vector at the point determine the only vector field transports parallelly along the curve. <strong>Proof</strong><span class="math inline">\(\quad\)</span>From Eq.<span class="math inline">\(\eqref{2.1}\)</span> , we know: <span class="math display">\[\begin{align}\frac{\mathrm{d}v^{\mu}}{\mathrm{d}t}+\Gamma^{\mu}_{\ \ \nu\sigma}T^{\nu}v^{\sigma}=0,\quad \mu=1,2\cdots n.\end{align}\]</span> These are <span class="math inline">\(n\)</span> ODEs of first order and there are enough initial conditions to determine the solution.</p><p>Q.E.D</p></blockquote><p>Let <span class="math inline">\(p,q\in M\)</span>, then <span class="math inline">\(V_{p}\)</span> and <span class="math inline">\(V{q}\)</span> are two different vector space and any two elements from them can't be compared directly. Given a vector in <span class="math inline">\(p\)</span> (or <span class="math inline">\(q\)</span>),we can choose a curve passes <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span>. Using <strong>Theorem 2.2</strong>, there is only one vector field determine by the curve and the vector. So we can compare the value of the vector field at <span class="math inline">\(p\)</span> (or <span class="math inline">\(q\)</span>) with the given vector in <span class="math inline">\(q\)</span> (or <span class="math inline">\(p\)</span>). The vector field depend on the choice of the curve. Anyway, <span class="math inline">\(\nabla_{a}\)</span> connects these two vector, so we call <span class="math inline">\(\nabla_{a}\)</span> <em>connection</em>.</p><h2 id="derivative-curvatur-compatible-with-the-metric">Derivative Curvatur Compatible With The Metric</h2><blockquote><p>To be continued...</p></blockquote><p>Download: <a href="https://gitee.com/spaceofzsj/Notes/raw/master/lecturenotes/A%20Brief%20Summary%20of%20Basic%20Differential%20Geometry%20for%20General%20Relativity/Chapter%203/Chapter%203.pdf">PDF</a>(Updating)</p>]]></content>
-      
-      
+      <tags>
+        <tag>physics</tag>
+        <tag>math</tag>
+        <tag>differential geometry</tag>
+        <tag>general relativity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>让博客支持mathjax渲染公式</title>
+    <url>/posts/20f2bfce.html</url>
+    <content><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&amp;id=1852502698&amp;auto=0&amp;height=66">
+</iframe>
+<blockquote>
+<p>从起床折腾到晚上，累趴。。。</p>
+</blockquote>
+<span id="more"></span>
+<p>总体思路是卸载掉hexo默认的<code>hexo-renderer-marked</code>，改用<code>hexo-renderer-pandoc</code>。（就是这么简单的一步。。。）</p>
+<p>首先如果没安装<code>pandoc</code>的话，去<a href="https://www.pandoc.org/">官网</a>下载。安装完重启电脑。</p>
+<p>然后命令行里进入博客的路径(.../blog)，利用<code>npm uninstall hexo-renderer-marked --registry=https://registry.npm.taobao.org</code>卸载掉原来的<code>hexo-renderer-marked</code>。执行<code>npm install hexo-renderer-pandoc --registry=https://registry.npm.taobao.org</code>安装上<code>hexo-renderer-pandoc</code>。</p>
+<p>打开theme的_config.yml，修改里面的<code>mathjax</code>的<code>false</code>为<code>true</code>。</p>
+<p>在blog目录下的_config.yml加上下面的代码： <pre class="line-numbers language-YAML" data-language="YAML"><code class="language-YAML">math:
+  engine: &#39;mathjax&#39; # or &#39;katex&#39;
+  mathjax:
+    # src: custom_mathjax_source
+    config:
+      # MathJax config<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> 保存并退出。接下来执行<code>hexo clean</code>，<code>hexo g</code>，<code>hexo s</code>即可看到公式被渲染。</p>
+]]></content>
       <categories>
-          
-          <category> General Relativity </category>
-          
+        <category>博客搭建</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> physics </tag>
-            
-            <tag> math </tag>
-            
-            <tag> differential geometry </tag>
-            
-            <tag> general relativity </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>博客搭建</tag>
+        <tag>计算机</tag>
+        <tag>技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>读书笔记</title>
+    <url>/posts/dd9d0e88.html</url>
+    <content><![CDATA[<style>
+.shelf-container {
+height: 200px;
+position: relative;
+}
+
+.shelf-background {
+position: absolute;
+top: 0;
+left: 0;
+background-color: #eee;
+width: calc(100% - 20px);
+height: calc(100% - 20px);
+border-left: solid 20px #ccc;
+border-bottom: solid 20px #ddd;
+z-index: 2;
+}
+
+.item-container {
+padding: 10px 30px;
+height: 180px;
+overflow: hidden;
+}
+
+.item {
+width: 135px;
+height: 180px;
+float: left;
+position: relative;
+margin-right: 20px;
+}
+
+.item a .front {
+width: 100%;
+height: 100%;
+position: absolute;
+transition: all 0.5s ease-in-out;
+z-index: 10;
+background-color: #44ff44;
+backface-visibility: hidden;
+background-size: cover;
+}
+
+.item:hover a .front {
+transform: rotateY(180deg);
+}
+
+.item a .back {
+width: calc(100% - 20px);
+height: calc(100% - 20px);
+position: absolute;
+transition: all 0.5s ease-in-out;
+z-index: 10;
+background-color: #fff;
+backface-visibility: hidden;
+transform: rotateY(180deg);
+color: black;
+padding: 10px;
+font-size: small;
+color: #666;
+}
+
+.item:hover a .back {
+transform: rotateY(360deg);
+}
+
+.item .shadow {
+width: 135px;
+height: 6px;
+position: absolute;
+background-color: black;
+bottom: -3px;
+left: 0;
+z-index: 3;
+filter: blur(10px);
+transition: all 0.5s ease-in-out;
+}
+
+.item:hover .shadow {
+transform: rotateY(180deg);
+}
+</style>
+<div class="shelf-container">
+<div class="shelf-background">
+
+</div>
+<div class="item-container">
+<div class="item">
+<a href="javascript:void(0);"> <a href="https://physicswhu.github.io/Nakahara-Notes/#/">
+<div class="front" style="background-image:url(https://gitee.com/spaceofzsj/pictures/raw/master/20220227222013.png);">
+
+</div>
+<div class="back">
+<p>Geometry, Topology and Physics</p>
+</div>
+</a> </a>
+<div class="shadow">
+
+</div>
+</div>
+<div class="item">
+<a href="javascript:void(0)">
+<div class="front" style="background-image:url(https://gitee.com/spaceofzsj/pictures/raw/master/20220227222935.png);">
+
+</div>
+<div class="back">
+General Relativity
+</div>
+</a>
+<div class="shadow">
+
+</div>
+</div>
+</div>
+</div>
+]]></content>
+  </entry>
 </search>
