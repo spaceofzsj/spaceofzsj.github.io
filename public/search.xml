@@ -1,124 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>读书笔记</title>
-    <url>/posts/dd9d0e88.html</url>
-    <content><![CDATA[<style>
-.shelf-container {
-height: 200px;
-position: relative;
-}
-
-.shelf-background {
-position: absolute;
-top: 0;
-left: 0;
-background-color: #eee;
-width: calc(100% - 20px);
-height: calc(100% - 20px);
-border-left: solid 20px #ccc;
-border-bottom: solid 20px #ddd;
-z-index: 2;
-}
-
-.item-container {
-padding: 10px 30px;
-height: 180px;
-overflow: hidden;
-}
-
-.item {
-width: 135px;
-height: 180px;
-float: left;
-position: relative;
-margin-right: 20px;
-}
-
-.item a .front {
-width: 100%;
-height: 100%;
-position: absolute;
-transition: all 0.5s ease-in-out;
-z-index: 10;
-background-color: #44ff44;
-backface-visibility: hidden;
-background-size: cover;
-}
-
-.item:hover a .front {
-transform: rotateY(180deg);
-}
-
-.item a .back {
-width: calc(100% - 20px);
-height: calc(100% - 20px);
-position: absolute;
-transition: all 0.5s ease-in-out;
-z-index: 10;
-background-color: #fff;
-backface-visibility: hidden;
-transform: rotateY(180deg);
-color: black;
-padding: 10px;
-font-size: small;
-color: #666;
-}
-
-.item:hover a .back {
-transform: rotateY(360deg);
-}
-
-.item .shadow {
-width: 135px;
-height: 6px;
-position: absolute;
-background-color: black;
-bottom: -3px;
-left: 0;
-z-index: 3;
-filter: blur(10px);
-transition: all 0.5s ease-in-out;
-}
-
-.item:hover .shadow {
-transform: rotateY(180deg);
-}
-</style>
-<div class="shelf-container">
-<div class="shelf-background">
-
-</div>
-<div class="item-container">
-<div class="item">
-<a href="javascript:void(0);"> <a href="https://physicswhu.github.io/Nakahara-Notes/#/">
-<div class="front" style="background-image:url(https://gitee.com/spaceofzsj/pictures/raw/master/20220227222013.png);">
-
-</div>
-<div class="back">
-<p>Geometry, Topology and Physics</p>
-</div>
-</a> </a>
-<div class="shadow">
-
-</div>
-</div>
-<div class="item">
-<a href="javascript:void(0)">
-<div class="front" style="background-image:url(https://gitee.com/spaceofzsj/pictures/raw/master/20220227222935.png);">
-
-</div>
-<div class="back">
-General Relativity
-</div>
-</a>
-<div class="shadow">
-
-</div>
-</div>
-</div>
-</div>
+    <title>A Brief Summary of Basic Differential Geometry for General Relativity</title>
+    <url>/posts/dff9be4c.html</url>
+    <content><![CDATA[<p><img src="https://gitee.com/spaceofzsj/pictures/raw/master/WSF16_Complex-Equations_still.jpg" title="Einstein Equation" alt="Einstein Equation" /> <span id="more"></span></p>
+<h2 id="section"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=300333&auto=0&height=66"></iframe></h2>
+<p>While learning general relativity, I feel necessary to write down what I have already mastered and some thoughts of my own for future reference. So I will start from the basic differential geometry for general relativity. The following topics are what the note will cover.</p>
+<blockquote>
+<ol type="1">
+<li><a href="https://spaceofzsj.github.io/posts/1d583a28.html"><strong>Topological Space</strong></a></li>
+<li><strong>Manifold and Vector Field</strong></li>
+<li><a href="https://spaceofzsj.github.io/posts/48c07248.html"><strong>Riemann Curvature Tensor</strong></a></li>
+<li><strong>Lie Derivative, Killing Field and Hypersurface</strong></li>
+<li><strong>Differential Form and Integration on Manifolds</strong></li>
+</ol>
+</blockquote>
+<p>Download: <a href="https://gitee.com/spaceofzsj/Notes/raw/master/lecturenotes/A%20Brief%20Summary%20of%20Basic%20Differential%20Geometry%20for%20General%20Relativity/full/full.pdf">PDF</a>(Updating)</p>
+<p><strong>The notes will be regularly updated.</strong></p>
 ]]></content>
+      <categories>
+        <category>General Relativity</category>
+      </categories>
+      <tags>
+        <tag>physics</tag>
+        <tag>math</tag>
+        <tag>differential geometry</tag>
+        <tag>general relativity</tag>
+      </tags>
   </entry>
   <entry>
     <title>TikZ导出PNG格式图片</title>
@@ -162,6 +70,27 @@ General Relativity
       <tags>
         <tag>LaTeX</tag>
         <tag>TikZ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Topological Space</title>
+    <url>/posts/1d583a28.html</url>
+    <content><![CDATA[<h1 id="basics-of-sets">Basics of Sets</h1>
+<blockquote>
+<p><em>This part is relatively simple, so I will only list the definitions and properties instead of elaborating it.</em></p>
+</blockquote>
+<span id="more"></span>
+<p>In mathematics, a <a href="https://www.wikiwand.com/en/Set_(mathematics)"><em>set</em></a> is a collection of elements. Every item in a <em>set</em> is called an <em>element</em> or <em>point</em>. If <span class="math inline">\(x\)</span> is an element of <span class="math inline">\(X\)</span>, then <span class="math inline">\(x\)</span> belongs to <span class="math inline">\(X\)</span>, and we denote it as <span class="math inline">\(x\in X\)</span>. <span class="math inline">\(\notin\)</span> means "not belong to". A set doesn't contain any element is called an <em>empty set</em>, which is denoted by <span class="math inline">\(\emptyset\)</span>. &gt;<strong>Definition 1:</strong> If every element in a set <span class="math inline">\(A\)</span> belongs to the set <span class="math inline">\(X\)</span>, then <span class="math inline">\(A\)</span> is a subset of <span class="math inline">\(X\)</span>, which is denoted by <span class="math inline">\(A\subset X\)</span> or <span class="math inline">\(X\supset A\)</span>. <span class="math inline">\(\emptyset\)</span> is a subset of any set. <span class="math inline">\(A\)</span> is called a <em>proper subset</em> of <span class="math inline">\(X\)</span> if <span class="math inline">\(A\subset X\)</span> and <span class="math inline">\(A\neq X\)</span>. <span class="math inline">\(A=B\)</span> if <span class="math inline">\(X\subset Y\)</span> and <span class="math inline">\(Y\subset X\)</span>.</p>
+<p>To be continued... P.S. I'm currently working on the chapter 3 and will come back to here later. This part is too boring...XD</p>
+]]></content>
+      <categories>
+        <category>General Relativity</category>
+      </categories>
+      <tags>
+        <tag>physics</tag>
+        <tag>math</tag>
+        <tag>differential geometry</tag>
+        <tag>general relativity</tag>
       </tags>
   </entry>
   <entry>
@@ -287,53 +216,124 @@ T^{\nu}\left(\frac{\partial v^{\mu}}{\partial x^{\nu}}\right)&amp;=\left[\frac{\
       </tags>
   </entry>
   <entry>
-    <title>A Brief Summary of Basic Differential Geometry for General Relativity</title>
-    <url>/posts/dff9be4c.html</url>
-    <content><![CDATA[<p><img src="https://gitee.com/spaceofzsj/pictures/raw/master/WSF16_Complex-Equations_still.jpg" title="Einstein Equation" alt="Einstein Equation" /> <span id="more"></span></p>
-<h2 id="section"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=300333&auto=0&height=66"></iframe></h2>
-<p>While learning general relativity, I feel necessary to write down what I have already mastered and some thoughts of my own for future reference. So I will start from the basic differential geometry for general relativity. The following topics are what the note will cover.</p>
-<blockquote>
-<ol type="1">
-<li><a href="https://spaceofzsj.github.io/posts/1d583a28.html"><strong>Topological Space</strong></a></li>
-<li><strong>Manifold and Vector Field</strong></li>
-<li><a href="https://spaceofzsj.github.io/posts/48c07248.html"><strong>Riemann Curvature Tensor</strong></a></li>
-<li><strong>Lie Derivative, Killing Field and Hypersurface</strong></li>
-<li><strong>Differential Form and Integration on Manifolds</strong></li>
-</ol>
-</blockquote>
-<p>Download: <a href="https://gitee.com/spaceofzsj/Notes/raw/master/lecturenotes/A%20Brief%20Summary%20of%20Basic%20Differential%20Geometry%20for%20General%20Relativity/full/full.pdf">PDF</a>(Updating)</p>
-<p><strong>The notes will be regularly updated.</strong></p>
+    <title>读书笔记</title>
+    <url>/posts/dd9d0e88.html</url>
+    <content><![CDATA[<style>
+.shelf-container {
+height: 200px;
+position: relative;
+}
+
+.shelf-background {
+position: absolute;
+top: 0;
+left: 0;
+background-color: #eee;
+width: calc(100% - 20px);
+height: calc(100% - 20px);
+border-left: solid 20px #ccc;
+border-bottom: solid 20px #ddd;
+z-index: 2;
+}
+
+.item-container {
+padding: 10px 30px;
+height: 180px;
+overflow: hidden;
+}
+
+.item {
+width: 135px;
+height: 180px;
+float: left;
+position: relative;
+margin-right: 20px;
+}
+
+.item a .front {
+width: 100%;
+height: 100%;
+position: absolute;
+transition: all 0.5s ease-in-out;
+z-index: 10;
+background-color: #44ff44;
+backface-visibility: hidden;
+background-size: cover;
+}
+
+.item:hover a .front {
+transform: rotateY(180deg);
+}
+
+.item a .back {
+width: calc(100% - 20px);
+height: calc(100% - 20px);
+position: absolute;
+transition: all 0.5s ease-in-out;
+z-index: 10;
+background-color: #fff;
+backface-visibility: hidden;
+transform: rotateY(180deg);
+color: black;
+padding: 10px;
+font-size: small;
+color: #666;
+}
+
+.item:hover a .back {
+transform: rotateY(360deg);
+}
+
+.item .shadow {
+width: 135px;
+height: 6px;
+position: absolute;
+background-color: black;
+bottom: -3px;
+left: 0;
+z-index: 3;
+filter: blur(10px);
+transition: all 0.5s ease-in-out;
+}
+
+.item:hover .shadow {
+transform: rotateY(180deg);
+}
+</style>
+<div class="shelf-container">
+<div class="shelf-background">
+
+</div>
+<div class="item-container">
+<div class="item">
+<a href="javascript:void(0);"> <a href="https://physicswhu.github.io/Nakahara-Notes/#/">
+<div class="front" style="background-image:url(https://gitee.com/spaceofzsj/pictures/raw/master/20220227222013.png);">
+
+</div>
+<div class="back">
+<p>Geometry, Topology and Physics</p>
+</div>
+</a> </a>
+<div class="shadow">
+
+</div>
+</div>
+<div class="item">
+<a href="javascript:void(0)">
+<div class="front" style="background-image:url(https://gitee.com/spaceofzsj/pictures/raw/master/20220227222935.png);">
+
+</div>
+<div class="back">
+General Relativity
+</div>
+</a>
+<div class="shadow">
+
+</div>
+</div>
+</div>
+</div>
 ]]></content>
-      <categories>
-        <category>General Relativity</category>
-      </categories>
-      <tags>
-        <tag>physics</tag>
-        <tag>math</tag>
-        <tag>differential geometry</tag>
-        <tag>general relativity</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Topological Space</title>
-    <url>/posts/1d583a28.html</url>
-    <content><![CDATA[<h1 id="basics-of-sets">Basics of Sets</h1>
-<blockquote>
-<p><em>This part is relatively simple, so I will only list the definitions and properties instead of elaborating it.</em></p>
-</blockquote>
-<span id="more"></span>
-<p>In mathematics, a <a href="https://www.wikiwand.com/en/Set_(mathematics)"><em>set</em></a> is a collection of elements. Every item in a <em>set</em> is called an <em>element</em> or <em>point</em>. If <span class="math inline">\(x\)</span> is an element of <span class="math inline">\(X\)</span>, then <span class="math inline">\(x\)</span> belongs to <span class="math inline">\(X\)</span>, and we denote it as <span class="math inline">\(x\in X\)</span>. <span class="math inline">\(\notin\)</span> means "not belong to". A set doesn't contain any element is called an <em>empty set</em>, which is denoted by <span class="math inline">\(\emptyset\)</span>. &gt;<strong>Definition 1:</strong> If every element in a set <span class="math inline">\(A\)</span> belongs to the set <span class="math inline">\(X\)</span>, then <span class="math inline">\(A\)</span> is a subset of <span class="math inline">\(X\)</span>, which is denoted by <span class="math inline">\(A\subset X\)</span> or <span class="math inline">\(X\supset A\)</span>. <span class="math inline">\(\emptyset\)</span> is a subset of any set. <span class="math inline">\(A\)</span> is called a <em>proper subset</em> of <span class="math inline">\(X\)</span> if <span class="math inline">\(A\subset X\)</span> and <span class="math inline">\(A\neq X\)</span>. <span class="math inline">\(A=B\)</span> if <span class="math inline">\(X\subset Y\)</span> and <span class="math inline">\(Y\subset X\)</span>.</p>
-<p>To be continued... P.S. I'm currently working on the chapter 3 and will come back to here later. This part is too boring...XD</p>
-]]></content>
-      <categories>
-        <category>General Relativity</category>
-      </categories>
-      <tags>
-        <tag>physics</tag>
-        <tag>math</tag>
-        <tag>differential geometry</tag>
-        <tag>general relativity</tag>
-      </tags>
   </entry>
   <entry>
     <title>让博客支持mathjax渲染公式</title>

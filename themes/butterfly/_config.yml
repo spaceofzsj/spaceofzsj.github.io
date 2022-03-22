@@ -39,8 +39,11 @@ copy:
 # formal:
 #   icon: link || the description
 social:
-  fab fa-github: https://github.com/spaceofzsj || Github
   fas fa-envelope: mailto:sjzhou@whu.edu.cn || Email
+  fab fa-github: https://github.com/spaceofzsj || Github
+  fab fa-qq: tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=294993752 || QQ
+  fab fa-playstation: http://psnine.com/psnid/real_zsj || PSN
+  fab fa-steam: https://steamcommunity.com/profiles/76561199000212813/ || Steam
 
 # search (搜索)
 # --------------------------------------
