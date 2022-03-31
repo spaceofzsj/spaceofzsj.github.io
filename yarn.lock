@@ -766,7 +766,7 @@
 
 "hexo-util@^2.0.0", "hexo-util@^2.1.0", "hexo-util@^2.6.0":
   "integrity" "sha512-sLG45foxXMnMgCo3FpP4Sicj5nLD6ezO46+DKP01BWj1CfNq2pYoUdJacfeVbKc+oFtitRcNIGsPNNt3pVbzdg=="
-  "resolved" "https://registry.npmjs.org/hexo-util/-/hexo-util-2.6.0.tgz"
+  "resolved" "https://registry.npmmirror.com/hexo-util/-/hexo-util-2.6.0.tgz"
   "version" "2.6.0"
   dependencies:
     "bluebird" "^3.5.2"
