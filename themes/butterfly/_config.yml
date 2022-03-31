@@ -91,7 +91,7 @@ avatar:
 disable_top_img: false
 
 # The banner image of home page
-index_img: /img/top.png
+index_img: /img/top.jpg
 
 # If the banner of page not setting, it will show the top_img
 default_top_img:
@@ -474,7 +474,7 @@ theme_color:
  #toc_color: "#00c4b6"
  #blockquote_padding_color: "#49b1f5"
  #blockquote_background_color: "#49b1f5"
- scrollbar_color: "#8B6969"
+ scrollbar_color: "#9C9C9C"
 
 # The top_img settings of home page
 # default: top img - full screen, site info - middle (默認top_img全屏，site_info在中間)
@@ -492,10 +492,10 @@ tag_ui: # 留空或 index
 # Website Background (設置網站背景)
 # can set it to color or image (可設置圖片 或者 顔色)
 # The formal of image: url(http://xxxxxx.com/xxx.jpg)
-background: url('/img/2.png')
+background: url('/img/2.jpg')
 
 # Footer Background
-footer_bg: /img/footer.png
+footer_bg: /img/footer.jpg
 
 # the position of bottom right button/default unit: px (右下角按鈕距離底部的距離/默認單位為px)
 rightside-bottom:

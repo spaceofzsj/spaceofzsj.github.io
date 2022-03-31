@@ -1,6 +1,6 @@
 ---
 title: TikZ导出PNG格式图片
-cover: https://gitee.com/spaceofzsj/pictures/raw/master/20220228001612.png
+cover: https://cdn.jsdelivr.net/gh/spaceofzsj/pic/20220228001612.png
 tags:
   - LaTeX
   - TikZ
@@ -9,7 +9,6 @@ date: 2022-02-27 16:37:07
 categories:
 ---
 利用`LaTeX`的`TikZ`宏包可以绘制图形，但是默认导出的为pdf格式。有时我们需要PNG等图片格式以便于插入在网页上，于是需要将pdf格式转换为图片格式。
-<!--more-->
 # 安装`ImageMagick`
 
 首先，我们去[ImageMagick官网](https://imagemagick.org/script/download.php)下载合适版本的`ImageMagick`。下载完成后安装即可。安装完成后将安装目录添加到系统Path路径中(系统搜索**环境变量**)。
@@ -62,4 +61,4 @@ $\xRightarrow{\text{generlization}} S^{n}=\mathbb{R}^{n}\bigcup \{\infty\}$
 2. 转换后得到的PNG图片可能背景是透明的,`\pagecolor{white}`可以让背景变为白色。
 3. 默认得到的为300dpi的PNG格式图片。可以更改选项调整得到需要的图片，具体见：[`standalone`官方文档](https://ctan.org/pkg/standalone)。
    
-该代码生成的图片为：![Relations](https://gitee.com/spaceofzsj/pictures/raw/master/cd20220227.png)
+该代码生成的图片为：![Relations](https://cdn.jsdelivr.net/gh/spaceofzsj/pic/20220331232804.png)
