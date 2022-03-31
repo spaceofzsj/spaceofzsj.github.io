@@ -610,9 +610,9 @@ hexo-renderer-kramed@^0.1.4:
     object-assign "^4.1.0"
     strip-indent "^1.0.1"
 
-hexo-renderer-pandoc@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.nlark.com/hexo-renderer-pandoc/download/hexo-renderer-pandoc-0.3.0.tgz"
+hexo-renderer-pandoc@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/hexo-renderer-pandoc/-/hexo-renderer-pandoc-0.3.1.tgz#62d0ec7bed307bfdd626f36914e7f9d93d0cdf58"
 
 hexo-renderer-pug@^3.0.0:
   version "3.0.0"
