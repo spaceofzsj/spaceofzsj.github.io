@@ -5,7 +5,6 @@ top_img: https://cdn.jsdelivr.net/gh/spaceofzsj/pic/12bb807453900483fdec22bc66f0
 type: "about"
 ---
 我是周尚节，武汉大学[弘毅学堂](http://hyxt.whu.edu.cn/)&[物理科学与技术学院](http://physics.whu.edu.cn/)大三学生。
-这个博客主要用来存放学习笔记以及记录一些胡思乱想。
 
 ---
 求带
