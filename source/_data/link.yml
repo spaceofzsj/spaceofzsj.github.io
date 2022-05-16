@@ -1,0 +1,7 @@
+- class_name: 友链
+  class_desc: Cool People
+  link_list:
+    - name: Yuhan Lu
+      link: https://theyuhan-lu.github.io
+      avatar: https://theyuhan-lu.github.io/img/avatar_hua18a9b5034248733d5e7a5ecc8ee5a86_476868_300x0_resize_q75_box.jpg
+      descr: Betrachte alles von der guten Seite!
