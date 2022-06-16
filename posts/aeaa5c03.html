@@ -1,0 +1,204 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>TikZ导出PNG格式图片 | ZSJ's Blog</title><meta name="keywords" content="LaTeX,TikZ"><meta name="author" content="Shangjie Zhou"><meta name="copyright" content="Shangjie Zhou"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="利用LaTeX的TikZ宏包可以绘制图形，但是默认导出的为pdf格式。有时我们需要PNG等图片格式以便于插入在网页上，于是需要将pdf格式转换为图片格式。 安装ImageMagick首先，我们去ImageMagick官网下载合适版本的ImageMagick。下载完成后安装即可。安装完成后将安装目录添加到系统Path路径中(系统搜索环境变量)。 允许-shell-escape不同编辑器允许-shel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TikZ导出PNG格式图片">
+<meta property="og:url" content="https://spaceofzsj.github.io/posts/aeaa5c03.html">
+<meta property="og:site_name" content="ZSJ&#39;s Blog">
+<meta property="og:description" content="利用LaTeX的TikZ宏包可以绘制图形，但是默认导出的为pdf格式。有时我们需要PNG等图片格式以便于插入在网页上，于是需要将pdf格式转换为图片格式。 安装ImageMagick首先，我们去ImageMagick官网下载合适版本的ImageMagick。下载完成后安装即可。安装完成后将安装目录添加到系统Path路径中(系统搜索环境变量)。 允许-shell-escape不同编辑器允许-shel">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/spaceofzsj/pic/20220228001612.png">
+<meta property="article:published_time" content="2022-02-27T08:37:07.000Z">
+<meta property="article:modified_time" content="2022-06-16T08:51:38.356Z">
+<meta property="article:author" content="Shangjie Zhou">
+<meta property="article:tag" content="LaTeX">
+<meta property="article:tag" content="TikZ">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/spaceofzsj/pic/20220228001612.png"><link rel="shortcut icon" href="/img/1.png"><link rel="canonical" href="https://spaceofzsj.github.io/posts/aeaa5c03"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'TikZ导出PNG格式图片',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-06-16 16:51:38'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="ZSJ's Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-list"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-box"></i><span> 收藏</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="https://spaceofzsj.github.io/music-collection/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="https://spaceofzsj.github.io/movie-collection/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="https://spaceofzsj.github.io/book-collection/"><i class="fa-fw fas fa-book"></i><span> 图书</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/spaceofzsj/pic/20220228001612.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">ZSJ's Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-list"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-box"></i><span> 收藏</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="https://spaceofzsj.github.io/music-collection/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="https://spaceofzsj.github.io/movie-collection/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="https://spaceofzsj.github.io/book-collection/"><i class="fa-fw fas fa-book"></i><span> 图书</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">TikZ导出PNG格式图片</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-02-27T08:37:07.000Z" title="发表于 2022-02-27 16:37:07">2022-02-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-06-16T08:51:38.356Z" title="更新于 2022-06-16 16:51:38">2022-06-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="TikZ导出PNG格式图片"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>利用<code>LaTeX</code>的<code>TikZ</code>宏包可以绘制图形，但是默认导出的为pdf格式。有时我们需要PNG等图片格式以便于插入在网页上，于是需要将pdf格式转换为图片格式。</p>
+<h1 id="安装ImageMagick"><a href="#安装ImageMagick" class="headerlink" title="安装ImageMagick"></a>安装<code>ImageMagick</code></h1><p>首先，我们去<a target="_blank" rel="noopener" href="https://imagemagick.org/script/download.php">ImageMagick官网</a>下载合适版本的<code>ImageMagick</code>。下载完成后安装即可。安装完成后将安装目录添加到系统Path路径中(系统搜索<strong>环境变量</strong>)。</p>
+<h1 id="允许-shell-escape"><a href="#允许-shell-escape" class="headerlink" title="允许-shell-escape"></a>允许<code>-shell-escape</code></h1><p>不同编辑器允许<code>-shell-escape</code>的方式不同，可以在这个StackExchange问题下查找：<a target="_blank" rel="noopener" href="https://tex.stackexchange.com/questions/598818/how-can-i-enable-shell-escape">How can I enable shell-escape?</a>。</p>
+<p>此处以<code>VScode</code>中的<a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop"><code>LaTeX Workshop</code></a>插件为例。<br>打开<code>VScode</code>，确保已经安装<code>LaTex Workshop</code>。按下<code>Ctrl+Shift+P</code>，输入<code>Preferences: Open Settings (JSON)</code>。进入<code>settings.json</code>中添加如下代码<br><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token property">"latex-workshop.latex.tools"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"latexmk"</span><span class="token punctuation">,</span>
+        <span class="token property">"command"</span><span class="token operator">:</span> <span class="token string">"latexmk"</span><span class="token punctuation">,</span>
+        <span class="token property">"args"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token string">"-shell-escape"</span><span class="token punctuation">,</span>  
+            <span class="token string">"-synctex=1"</span><span class="token punctuation">,</span>
+            <span class="token string">"-interaction=nonstopmode"</span><span class="token punctuation">,</span>
+            <span class="token string">"-file-line-error"</span><span class="token punctuation">,</span>
+            <span class="token string">"-pdf"</span><span class="token punctuation">,</span>
+            <span class="token string">"-outdir=%OUTDIR%"</span><span class="token punctuation">,</span>
+            <span class="token string">"%DOC%"</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"env"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    ...
+<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>如果以前输入过，只需在<code>&quot;args&quot;</code>栏目中添加<code>&quot;-shell-escape&quot;</code>一项。这样就允许了<code>-shell-excape</code>。</p>
+<h1 id="LaTeX代码设置"><a href="#LaTeX代码设置" class="headerlink" title="LaTeX代码设置"></a>LaTeX代码设置</h1><p>为了导出PNG格式，我们选用<code>standalone</code>文档类，调用其中的<code>convert</code>选项来完成格式转换。下面给出一个例子：<br><pre class="line-numbers language-latex" data-language="latex"><code class="language-latex"><span class="token function selector">\documentclass</span><span class="token punctuation">[</span>convert=<span class="token punctuation">&#123;</span>convertexe=<span class="token punctuation">&#123;</span>magick<span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">&#123;</span><span class="token keyword">standalone</span><span class="token punctuation">&#125;</span>
+<span class="token function selector">\usepackage</span><span class="token punctuation">&#123;</span><span class="token keyword">tikz-cd</span><span class="token punctuation">&#125;</span>
+<span class="token function selector">\usepackage</span><span class="token punctuation">&#123;</span><span class="token keyword">amsmath,amssymb</span><span class="token punctuation">&#125;</span>
+<span class="token function selector">\usepackage</span><span class="token punctuation">&#123;</span><span class="token keyword">mathtools</span><span class="token punctuation">&#125;</span>
+<span class="token function selector">\pagecolor</span><span class="token punctuation">&#123;</span>white<span class="token punctuation">&#125;</span>
+<span class="token function selector">\begin</span><span class="token punctuation">&#123;</span><span class="token keyword">document</span><span class="token punctuation">&#125;</span>
+<span class="token function selector">\begin</span><span class="token punctuation">&#123;</span><span class="token keyword">tikzcd</span><span class="token punctuation">&#125;</span><span class="token punctuation">[</span>row sep=huge<span class="token punctuation">]</span>
+    <span class="token punctuation">&amp;</span>D^<span class="token punctuation">&#123;</span>2<span class="token punctuation">&#125;</span><span class="token function selector">\arrow</span><span class="token punctuation">[</span>dl,shift right<span class="token punctuation">]</span><span class="token function selector">\arrow</span><span class="token punctuation">[</span>dr,shift left,"+S^<span class="token punctuation">&#123;</span>1<span class="token punctuation">&#125;</span>"<span class="token punctuation">]</span><span class="token punctuation">&#123;</span>+S^<span class="token punctuation">&#123;</span>1<span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">&amp;</span><span class="token function selector">\\</span>
+    <span class="token function selector">\mathbb</span><span class="token punctuation">&#123;</span>R<span class="token punctuation">&#125;</span>^<span class="token punctuation">&#123;</span>2<span class="token punctuation">&#125;</span><span class="token function selector">\arrow</span><span class="token punctuation">[</span>ur,shift right<span class="token punctuation">]</span><span class="token function selector">\arrow</span><span class="token punctuation">[</span>rr,"+<span class="token function selector">\&#123;</span><span class="token function selector">\infty</span><span class="token function selector">\&#125;</span>"<span class="token punctuation">]</span> <span class="token punctuation">&amp;</span>         <span class="token punctuation">&amp;</span>S^<span class="token punctuation">&#123;</span>2<span class="token punctuation">&#125;</span><span class="token function selector">\arrow</span><span class="token punctuation">[</span>ul,shift left,"-<span class="token function selector">\&#123;</span>p<span class="token function selector">\&#125;</span>"<span class="token punctuation">]</span>
+<span class="token function selector">\end</span><span class="token punctuation">&#123;</span><span class="token keyword">tikzcd</span><span class="token punctuation">&#125;</span>
+<span class="token equation string">$<span class="token equation-command regex">\xRightarrow</span>&#123;<span class="token equation-command regex">\text</span>&#123;generlization&#125;&#125; S^&#123;n&#125;=<span class="token equation-command regex">\mathbb</span>&#123;R&#125;^&#123;n&#125;<span class="token equation-command regex">\bigcup</span> <span class="token equation-command regex">\&#123;</span><span class="token equation-command regex">\infty</span><span class="token equation-command regex">\&#125;</span>$</span>
+<span class="token function selector">\end</span><span class="token punctuation">&#123;</span><span class="token keyword">document</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>注意以下几点：</p>
+<ol>
+<li>代码第一行的文档选项<code>convert=&#123;convertexe=&#123;magick&#125;&#125;</code>里面的<code>magick</code>为下载的<code>ImageMagick</code>中<code>.exe</code>文件的文件名（以后版本文件名也可能有变化，要注意改变）。网上其他相关的资料可能文档选项只有<code>convert</code>，因为<code>ImageMagick</code>早期版本可能文件名与现在不同。</li>
+<li>转换后得到的PNG图片可能背景是透明的,<code>\pagecolor&#123;white&#125;</code>可以让背景变为白色。</li>
+<li>默认得到的为300dpi的PNG格式图片。可以更改选项调整得到需要的图片，具体见：<a target="_blank" rel="noopener" href="https://ctan.org/pkg/standalone"><code>standalone</code>官方文档</a>。</li>
+</ol>
+<p>该代码生成的图片为：<img src="https://cdn.jsdelivr.net/gh/spaceofzsj/pic/20220331232804.png" alt="Relations"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Shangjie Zhou</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://spaceofzsj.github.io/posts/aeaa5c03.html">https://spaceofzsj.github.io/posts/aeaa5c03.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://spaceofzsj.github.io" target="_blank">ZSJ's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/LaTeX/">LaTeX</a><a class="post-meta__tags" href="/tags/TikZ/">TikZ</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/spaceofzsj/pic/20220228001612.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechatpay.JPG" target="_blank"><img class="post-qr-code-img" src="/img/wechatpay.JPG" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.JPG" target="_blank"><img class="post-qr-code-img" src="/img/alipay.JPG" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/posts/dd9d0e88.html"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/spaceofzsj/pic/20220331224151.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Resources</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Shangjie Zhou</div><div class="author-info__description">摸鱼</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><a id="card-info-btn" href="/atom.xml"><i class="fas fa-rss"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:sjzhou@whu.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://github.com/spaceofzsj" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=294993752" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="http://psnine.com/psnid/real_zsj" target="_blank" title="PSN"><i class="fab fa-playstation"></i></a><a class="social-icon" href="https://steamcommunity.com/profiles/76561199000212813/" target="_blank" title="Steam"><i class="fab fa-steam"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">更换全新主题！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85ImageMagick"><span class="toc-number">1.</span> <span class="toc-text">安装ImageMagick</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%81%E8%AE%B8-shell-escape"><span class="toc-number">2.</span> <span class="toc-text">允许-shell-escape</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LaTeX%E4%BB%A3%E7%A0%81%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">LaTeX代码设置</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/c857bd3e.html" title="正式启用"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="正式启用"/></a><div class="content"><a class="title" href="/posts/c857bd3e.html" title="正式启用">正式启用</a><time datetime="2022-03-31T16:43:24.000Z" title="发表于 2022-04-01 00:43:24">2022-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/dd9d0e88.html" title="Resources"><img src="https://cdn.jsdelivr.net/gh/spaceofzsj/pic/20220331224151.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Resources"/></a><div class="content"><a class="title" href="/posts/dd9d0e88.html" title="Resources">Resources</a><time datetime="2022-02-27T14:17:07.000Z" title="发表于 2022-02-27 22:17:07">2022-02-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/aeaa5c03.html" title="TikZ导出PNG格式图片"><img src="https://cdn.jsdelivr.net/gh/spaceofzsj/pic/20220228001612.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="TikZ导出PNG格式图片"/></a><div class="content"><a class="title" href="/posts/aeaa5c03.html" title="TikZ导出PNG格式图片">TikZ导出PNG格式图片</a><time datetime="2022-02-27T08:37:07.000Z" title="发表于 2022-02-27 16:37:07">2022-02-27</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/footer.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Shangjie Zhou</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

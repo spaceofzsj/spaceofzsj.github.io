@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>ZSJ&#39;s Blog</title>
+  <icon>https://spaceofzsj.github.io/icon.png</icon>
+  <subtitle>WWW</subtitle>
+  <link href="https://spaceofzsj.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://spaceofzsj.github.io/"/>
+  <updated>2022-06-16T08:51:38.356Z</updated>
+  <id>https://spaceofzsj.github.io/</id>
+  
+  <author>
+    <name>Shangjie Zhou</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>正式启用</title>
+    <link href="https://spaceofzsj.github.io/posts/c857bd3e.html"/>
+    <id>https://spaceofzsj.github.io/posts/c857bd3e.html</id>
+    <published>2022-03-31T16:43:24.000Z</published>
+    <updated>2022-06-16T08:51:38.356Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;iframe allow=&quot;autoplay *; encrypted-media *; fullscreen *&quot; frameborder=&quot;0&quot; height=&quot;175&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Resources</title>
+    <link href="https://spaceofzsj.github.io/posts/dd9d0e88.html"/>
+    <id>https://spaceofzsj.github.io/posts/dd9d0e88.html</id>
+    <published>2022-02-27T14:17:07.000Z</published>
+    <updated>2022-06-16T08:51:38.355Z</updated>
+    
+    
+    <summary type="html">My notes.</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>TikZ导出PNG格式图片</title>
+    <link href="https://spaceofzsj.github.io/posts/aeaa5c03.html"/>
+    <id>https://spaceofzsj.github.io/posts/aeaa5c03.html</id>
+    <published>2022-02-27T08:37:07.000Z</published>
+    <updated>2022-06-16T08:51:38.356Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;利用&lt;code&gt;LaTeX&lt;/code&gt;的&lt;code&gt;TikZ&lt;/code&gt;宏包可以绘制图形，但是默认导出的为pdf格式。有时我们需要PNG等图片格式以便于插入在网页上，于是需要将pdf格式转换为图片格式。&lt;/p&gt;
+&lt;h1 id=&quot;安装ImageMagick&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="LaTeX" scheme="https://spaceofzsj.github.io/tags/LaTeX/"/>
+    
+    <category term="TikZ" scheme="https://spaceofzsj.github.io/tags/TikZ/"/>
+    
+  </entry>
+  
+</feed>
