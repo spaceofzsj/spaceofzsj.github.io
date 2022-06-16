@@ -154,3 +154,18 @@ douban:
     title: '玩过的游戏'
     quote: 'The cake is a lie -- Portal'
   timeout: 10000 
+
+
+feed:
+  enable: true
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+  order_by: -date
+  icon: icon.png
+  autodiscovery: true
+  template:

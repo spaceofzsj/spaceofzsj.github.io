@@ -626,9 +626,9 @@ aside:
     description:
     button:
       enable: true
-      icon: fab fa-github
+      icon: fas fa-rss
       text: Follow Me
-      link: https://github.com/spaceofzsj
+      link: /atom.xml
   card_announcement:
     enable: true
     content: 更换全新主题！
