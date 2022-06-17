@@ -683,7 +683,7 @@
 
 "hexo-renderer-kramed@^0.1.4":
   "integrity" "sha512-DBiOuWUtmNF52xVc6jCAtOxX1n/K+4a3bizHXyV5yE8c9itASr/nxwGl0CUeZBNOKQu9CvjXYc+qgs/jgDxI7w=="
-  "resolved" "https://registry.npmmirror.com/hexo-renderer-kramed/-/hexo-renderer-kramed-0.1.4.tgz"
+  "resolved" "https://registry.npmjs.org/hexo-renderer-kramed/-/hexo-renderer-kramed-0.1.4.tgz"
   "version" "0.1.4"
   dependencies:
     "hexo-util" "^0.6.0"
@@ -986,6 +986,11 @@
   dependencies:
     "pseudomap" "^1.0.2"
     "yallist" "^2.1.2"
+
+"mathjax@^3.2.2":
+  "integrity" "sha512-Bt+SSVU8eBG27zChVewOicYs7Xsdt40qm4+UpHyX7k0/O9NliPc+x77k1/FEsPsjKPZGJvtRZM1vO+geW0OhGw=="
+  "resolved" "https://registry.npmjs.org/mathjax/-/mathjax-3.2.2.tgz"
+  "version" "3.2.2"
 
 "micro-memoize@^4.0.9":
   "integrity" "sha512-Z2uZi/IUMGQDCXASdujXRqrXXEwSY0XffUrAOllhqzQI3wpUyZbiZTiE2JuYC0HSG2G7DbCS5jZmsEKEGZuemg=="
